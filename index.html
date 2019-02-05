@@ -1,0 +1,62 @@
+<head>
+    <title>Coin Toss</title>
+    <link rel="stylesheet" type="text/css" href="coin.css">
+    <script src="coin.js"></script>
+</head>
+<html>
+
+<body onload="showPage()">
+    <div id="content" class="hidden" >
+        <br>
+        <br>
+        <br>
+        <br>
+        <table class="centered">
+            <tr>
+                <td><button onclick="inspection()">Inspect</button></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><button onclick="flip()">Toss</button></td>
+                <td></td>
+                <td>
+                    <div class="cardFlip" id="goldDollar">
+                        <div class="flipping" id="goldDollarAction">
+                            <div class="front">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <img src="front.png" alt="Front of Coin">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="card" id="oneDoller">
+                                    <div class="card-block">
+                                        <img src="back.png" alt="Back of Coin">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="centered">
+                    <h2 id="result"></h2>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <br>
+            <br>
+            <br>
+            <br>
+
+        </div>
+    </div>
+</body>
+
+</html>
