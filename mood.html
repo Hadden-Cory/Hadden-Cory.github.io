@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Mood Tracker</title>
+    <link rel="stylesheet" type="text/css" href="mood.css">
+    <script src="mood.js"></script>
+</head>
+<body>
+    <div class="centered" >
+
+        <form name= "entry" action="">
+                <br>
+                <br>
+                <h1>Mood Tracker</h1>
+                <br>
+                <br>
+                Mood<br> 
+            <select class="classic" name="mood" placeholder="Nuetral" method="POST">
+                    <option value="Nuetral">Nuetral</option>
+                    <option value="Happy">Happy</option>
+                    <option value="Sad">Sad</option>
+                    <option value="Stressed">Stressed</option>
+                    <option value="Relaxed">Relaxed</option>
+                    <option value="Excited">Excited</option>
+                    <option value="Meh...">Meh...</option>
+                    <option value="Confident">Confident</option>
+                  </select><br><br>
+                  Date & Time<br> <input name="time" class="classic" type="datetime-local"><br><br>
+                   Notes <br>
+                   <textarea maxlength="35" class="classic" name="note" rows="5" cols="30" placeholder="Enter your notes here..."></textarea><br><br>
+        </form>
+
+ <button  class="classic"  onclick="submit()">Submit</button><br><br>
+
+ <div class="classic ledger" id="moodlist">
+
+ </div>
+    </div>
+</body>
+</html>

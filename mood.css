@@ -1,0 +1,38 @@
+body {
+    background-blend-mode: color-burn;
+    background-color: rgb(250, 238, 212);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(124, 104, 45);
+}
+
+.centered {
+    text-align: center;
+    margin: auto;
+}
+
+.classic {
+    border-radius: 7px;
+    box-shadow: 0px 0px 13px 0px rgb(107, 105, 105);
+    background-color: rgb(221, 235, 233);
+    border: solid;
+    border-color: rgb(100, 90, 42);
+    border-width: 1px;
+}
+
+.ledger{
+    width: 80%;
+    margin: auto; 
+    background-color: rgb(80, 24, 16);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+input {
+    border: none;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    transition: 500ms;
+    box-shadow: 0px 0px 13px 03px rgba(250, 250, 250, 1);
+}
