@@ -22,7 +22,7 @@ function submit() {
 
   var ret = localStorage.getItem(time);
   var ret1 = JSON.parse(ret);
-  alert(ret1.mood);
+
 }
 
 // function printMood(thing) {
