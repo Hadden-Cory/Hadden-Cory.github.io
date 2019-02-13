@@ -16,6 +16,7 @@ function submit() {
   entry.mood = mood;
   entry.note = note;
 
+  alert(time);
   var strEntry = JSON.stringify(entry);
   localStorage.setItem(time, strEntry);
 
