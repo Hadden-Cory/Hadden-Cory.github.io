@@ -8,7 +8,6 @@ var entry = {
 }
 
 function submit() {
-  alert("Here!");
   var mood = document.forms['entry']['mood'].value;
   var time = document.forms['entry']['time'].value;
   var note = document.forms['entry']['note'].value;
@@ -22,7 +21,6 @@ function submit() {
 
   var ret = localStorage.getItem(time);
   var ret1 = JSON.parse(ret);
-
 }
 
 // function printMood(thing) {
