@@ -1,39 +1,122 @@
 <html>
+
 <head>
     <title>Mood Tracker</title>
     <link rel="stylesheet" type="text/css" href="mood.css">
     <script src="mood.js"></script>
 </head>
+
 <body>
-    <div class="centered" >
+    <div class="centered">
+        <table id="pageGrid" class="centered">
+            <tr>
+                <td class="tdpadding">
+                    <form name="weatherForm" action="">
+                        <br>
+                        <br>
+                        <h1>Weather Tracker</h1>
+                        <br>
+                        <br>
+                        Weather<br>
+                        <select class="classic" name="weather" placeholder="Sunny" method="POST">
+                            <option value="Sunny">Sunny</option>
+                            <option value="Cloudy">Cloudy</option>
+                            <option value="Cold">Cold</option>
+                            <option value="Hot">Hot</option>
+                            <option value="Snowing">Snowing</option>
+                            <option value="Raining">Raining</option>
+                            <option value="Storming">Storming</option>
+                        </select><br><br>
+                        Date<br><input name="date" class="classic" type="date"><br>
+                        Time<br><input name="time" class="classic" type="time"><br><br>
+                        Notes <br>
+                        <textarea maxlength="35" class="classic" name="note" rows="5" cols="30" placeholder="Enter your notes here..."></textarea><br><br>
+                        <input class="classic" type="reset">
+                    </form>
+                    <button class="classic" onclick="submit('weatherForm','weather', '')">Submit</button><br><br>
+                </td>
+                <td class="tdpadding">
+                    <form name="moodForm" action="">
+                        <br>
+                        <br>
+                        <h1>Mood Tracker</h1>
+                        <br>
+                        <br>
+                        Mood<br>
+                        <select class="classic" name="mood" placeholder="Nuetral" method="POST">
+                            <option value="Nuetral">Nuetral</option>
+                            <option value="Happy">Happy</option>
+                            <option value="Sad">Sad</option>
+                            <option value="Stressed">Stressed</option>
+                            <option value="Relaxed">Relaxed</option>
+                            <option value="Excited">Excited</option>
+                            <option value="Meh...">Meh...</option>
+                            <option value="Confident">Confident</option>
+                        </select><br><br>
+                        Date<br><input name="date" class="classic" type="date"><br>
+                        Time<br><input name="time" class="classic" type="time"><br><br>
+                        Notes <br>
+                        <textarea maxlength="35" class="classic" name="note" rows="5" cols="30" placeholder="Enter your notes here..."></textarea><br><br>
+                        <input class="classic" type="reset">
+                    </form>
 
-        <form name= "entry" action="">
-                <br>
-                <br>
-                <h1>Mood Tracker</h1>
-                <br>
-                <br>
-                Mood<br> 
-            <select class="classic" name="mood" placeholder="Nuetral" method="POST">
-                    <option value="Nuetral">Nuetral</option>
-                    <option value="Happy">Happy</option>
-                    <option value="Sad">Sad</option>
-                    <option value="Stressed">Stressed</option>
-                    <option value="Relaxed">Relaxed</option>
-                    <option value="Excited">Excited</option>
-                    <option value="Meh...">Meh...</option>
-                    <option value="Confident">Confident</option>
-                  </select><br><br>
-                  Date & Time<br> <input name="time" class="classic" type="datetime-local"><br><br>
-                   Notes <br>
-                   <textarea maxlength="35" class="classic" name="note" rows="5" cols="30" placeholder="Enter your notes here..."></textarea><br><br>
-        </form>
+                    <button class="classic" onclick="submit('moodForm','mood','')">Submit</button><br><br>
+                </td>
+                <td class="tdpadding">
+                    <form name="exerciseForm" action="">
+                        <br>
+                        <br>
+                        <h1>Exercise Tracker</h1>
+                        <br>
+                        <br>
+                        <table class="centered">
+                            <tr>
+                                <td>
+                                    Workout<br>
+                                    <select class="classic" name="workout" placeholder="Aerobic" method="POST">
+                                        <option value="Aerobic">Aerobic</option>
+                                        <option value="Running">Running</option>
+                                        <option value="Cycling">Cycling</option>
+                                        <option value="Swiming">Swimming</option>
+                                        <option value="Team Sport">Team Sport</option>
+                                        <option value="Arms">Arms</option>
+                                        <option value="Back">Back</option>
+                                        <option value="Core">Core</option>
+                                        <option value="Legs">Legs</option>
+                                        <option value="Upper Body">Upper Body</option>
+                                        <option value="Lower Body">Lower Body</option>
+                                    </select><br><br>
+                                </td>
+                                <td>
+                                    Duration<br>
+                                    <select class="classic" name="duration" placeholder="Aerobic" method="POST">
+                                        <option value="10min">10 minutes</option>
+                                        <option value="20min">20 minutes</option>
+                                        <option value="30min">30 minutes</option>
+                                        <option value="40min">40 minutes</option>
+                                        <option value="50min">50 minutes</option>
+                                        <option value="60min">60 minutes</option>
+                                        <option value="1.5hours">1.5 hours</option>
+                                        <option value="+2">+2 hours</option>
+                                    </select><br><br>
+                                </td>
+                            </tr>
+                        </table>
+                        Date<br><input name="date" class="classic" type="date"><br>
+                        Time<br><input name="time" class="classic" type="time"><br><br>
+                        Notes <br>
+                        <textarea maxlength="35" class="classic" name="note" rows="5" cols="30" placeholder="Enter your notes here..."></textarea><br><br>
+                        <input class="classic" type="reset">
+                    </form>
+                    <button class="classic" onclick="submit('exerciseForm','workout','duration')">Submit</button><br><br>
+                </td>
+            </tr>
+        </table>
 
- <button  class="classic"  onclick="submit()">Submit</button><br><br>
+        <div class="classic ledger" id="moodlist">
 
- <div class="classic ledger" id="moodlist">
-
- </div>
+        </div>
     </div>
 </body>
+
 </html>

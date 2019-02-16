@@ -1,27 +1,38 @@
 var entry = {
-  time: "",
-  mood: "",
-  note: "",
-//   entry: function() {
-//     return this.time + "<br><h3>" + this.mood + "</h3>" + this.note + ",<br>";
-// }
-}
+   time: "",
+   date: "",
+   note: "",
+   opt1: "",
+   opt2: ""
+};
 
-function submit() {
-  var mood = document.forms['entry']['mood'].value;
-  var time = document.forms['entry']['time'].value;
-  var note = document.forms['entry']['note'].value;
+function submit(form, option0, option1) {
+
+ 
+
+  var date = document.forms[form]['date'].value+"";
+  var time = document.forms[form]['time'].value+"";
+  var note = document.forms[form]['note'].value+"";
+  var opt0 = document.forms[form][option0].value+"";
+
 
   entry.time = time;
-  entry.mood = mood;
+  entry.date = date;
   entry.note = note;
-
-  alert(time);
+  entry.opt0 = opt0;
+  
+  if (option1!=""){
+    var opt1 = document.forms[form][option1].value+"";
+    entry.opt1 = opt1;
+  };
+ 
   var strEntry = JSON.stringify(entry);
-  localStorage.setItem(time, strEntry);
+  localStorage.setItem(time+date, strEntry);
 
   var ret = localStorage.getItem(time);
   var ret1 = JSON.parse(ret);
+
+  alert(ret1.note);
 }
 
 // function printMood(thing) {

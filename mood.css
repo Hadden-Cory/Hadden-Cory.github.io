@@ -9,6 +9,9 @@ body {
     text-align: center;
     margin: auto;
 }
+.tdPadding{
+    padding: 20px;
+}
 
 .classic {
     border-radius: 7px;
