@@ -33,16 +33,19 @@ function submit(form, option0, option1) {
   var ret1 = JSON.parse(ret);
 
   alert(ret1.note);
+  printMood(ret1.note);
+ 
 }
 
-// function printMood(thing) {
-//     alert();
-//   var xhttp = new XMLHttpRequest();
-//   xhttp.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//       document.getElementById("moodlist").innerHTML = this.responseText;
-//     }
-//   }
-//   xhttp.open("GET", thing, true);
-//   xhttp.send();
-// }
+function printMood(thing) {
+    
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("moodlist").innerHTML = this.responseText;
+    }
+  }
+  
+  xhttp.open("GET", thing, true);
+  xhttp.send();alert("ajax");
+}
