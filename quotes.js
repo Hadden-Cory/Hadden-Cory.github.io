@@ -7,6 +7,6 @@ function grabAQuote(){
           }
         }
         
-        xhttp.open("GET", "quotes.JSON", true);
+        xhttp.open("GET", "quotes.json", true);
         xhttp.send();
 }
