@@ -1,8 +1,10 @@
 function grabAQuote(){
-    alert();
+    alert(1);
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
+            alert(2);
           if (this.readyState == 4 && this.status == 200) {
+              alert(3);
             var item = JSON.parse(xhttp.response);
             alert(item.author);
 
