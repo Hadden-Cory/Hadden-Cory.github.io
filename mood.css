@@ -1,4 +1,5 @@
 body {
+    height: 100%;
     background-blend-mode: color-burn;
     background-color: rgb(250, 238, 212);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -23,11 +24,24 @@ body {
 }
 
 .ledger{
-    width: 80%;
+    width: 80%;   
+    border-radius: 7px;
+    box-shadow: inset 0px 0px 13px 0px rgb(107, 105, 105);
+    box-shadow: inset 0px 0px 13px 0px rgb(16, 32, 20);
+    background-color: rgb(221, 235, 233);
+    margin: auto; 
+    background-color: rgb(53, 110, 56);
+    font-family: 'Times New Roman', Times, serif;
+    color: blanchedalmond;
+}
+
+.matte{
+    width: 75%;
     margin: auto; 
     background-color: rgb(80, 24, 16);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+
 
 input {
     border: none;
