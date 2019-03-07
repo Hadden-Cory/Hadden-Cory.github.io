@@ -29,18 +29,32 @@ class Weather extends Entry {
   }
 }
 
-// function Mood(mood) {
-//   Entry.call(this, time, date, note);
-//   this.mood = mood || "Neutral";
-// }
+class Mood extends Entry {
+  constructor(time, date, note, mood) {
+    super(time, date, note);
+    this.mood = mood || "Neutral";
+  }
 
+  getMood(){
+    return mood;
+  }
+}
 
-// function Exercise(exercise, duration) {
-//   Entry.call(this, time, date, note);
-//   this.exercise = exercise;
-//   this.duration = duration;
-// }
+class Exercise extends Entry {
+  constructor(time, date, note, exercise, duration) {
+    super(time, date, note);
+    this.exercise = exercise || "Running";
+    this.duration = duration || "30";
+  }
 
+  getExercise(){
+    return exercise;
+  }
+
+  getDuration(){
+    return exercise;
+  }
+}
 
 function submit(form, type) {
 
@@ -54,12 +68,14 @@ function submit(form, type) {
   if (type == "weather") {
     alert("in to weather if");
 
-    var weather = document.forms[form]['weather'].value + "";
+    let weather = document.forms[form]['weather'].value + "";
     alert(weather);
 
-    var weath1 = new Weather(time, date, note, weather);
+    let weath1 = new Weather(time, date, note, weather);
 
-    alert(weath.));
+    var strEntry = JSON.stringify(weath1);
+
+    alert(strEntry);
   }
 
   // entry.time = time;
@@ -81,12 +97,6 @@ function submit(form, type) {
 
 }
 
-function writeToFile() {
-  var fileWriter = require('fileWriter');
-
-
-
-}
 
 function printMood() {
   var table = document.getElementById('notes');
