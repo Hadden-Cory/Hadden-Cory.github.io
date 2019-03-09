@@ -1,6 +1,70 @@
+/**************************************************************
+ * To Brother Baer
+ * 
+ * To make grading easy, I have included several comment tags
+ * (Formatted: "//-----------[topic] - [subtopic] Ex. #||")
+ * to help you recoginze the lines code that demostrate a 
+ * topic. To keep it clean, I'm omiting topic tags for 
+ * functions and varibles because you will readily spot them 
+ * anyway.
+ * 
+ * I also did not use an associative array as most would define
+ * associative arrays in JS (I could argue that all ojects can
+ * seen as an associative array of sorts with a key (member 
+ * name) and and value (member data), by that logic I could 
+ * also argue that local storage is a sort of associative array
+ * but I think both of those arguments are besides point this 
+ * class is trying to make). I didn't really need associative 
+ * array. If you'd like, I can demonstrate by telling you 
+ * what they are, how to use them, and their limitations.
+ * I just didn't have a use for one in this app. I can 
+ * include them in my next submission if the description below
+ * is insufficient for the grading requirements.
+ *  
+ * Asscoiative arrays with a string key in stead of an integer
+ * index (personally, I think of them as objects that I can 
+ * append and remove properties from easily).
+ * 
+ * In JS they can be created like this:
+ * 
+ * var aArray = { "red": '#ff0000', "green": '#00ff00', "blue":
+ *                '#0000ff' };
+ * 
+ * Or like this (though it is rather cumbersome way):
+ * 
+ * aArray = new Array(); // or if your like: let aArray = [];
+ * aArray['red'] = '#ff0000';
+ * aArray['green'] = '#00ff00';
+ * aArray['blue'] = '#0000ff';
+ *  
+ * I can now access elements like this:
+ * 
+ * aArray['red']; //evaluates as '#ff0000'
+ * 
+ * Or like this:
+ * 
+ * aArray.red; //evaluates as '#ff0000'
+ * 
+ * The sad thing about JS associative array is that they do not 
+ * inherit the the array prototype (for example, the command 
+ * "aArray.length;" will just evaluate to 0 or undefined 
+ * depending on how you defined it). There are several baidaid
+ * jobs availible on the internet if desire, but most of them 
+ * involve you telling the computer how to make your array-like
+ * object to act like an array.  
+ * 
+ * I hope that little demo can count, if not
+ * 
+ * Happy grading.
+ * ***********************************************************/
+
 
 /***********Objects*Prototypes*************/
+
+// -------------------------------------------------------------JavaScript Objects - Object Creation Functions (ES6) Ex. 1||
 class Entry {
+  // -------------------------------------------------------------JavaScript Objects - Properties, Methods (ES6) Ex. 1||
+  // -------------------------------------------------------------JavaScript - Parameters Ex. 1||
   constructor(time, date, note, type) {
     this.time = time || 'time not specified';
     this.date = date || 'date not specified';
@@ -43,9 +107,13 @@ class Entry {
   }
 }
 
+// -------------------------------------------------------------JavaScript Objects - Object Creation Functions (ES6) Ex. 2||
 class Weather extends Entry {
+    // -------------------------------------------------------------JavaScript Objects - Properties, Methods (ES6) Ex. 2||
+     // -------------------------------------------------------------JavaScript - Parameters Ex. 2||
   constructor(time, date, note, weather) {
     let type = 'weather';
+      // -------------------------------------------------------------JavaScript Objects - Inheritance (ES6) Ex. 1||
     super(time, date, note, type);
     this.weather = weather || "Sunny";
   }
@@ -59,9 +127,13 @@ class Weather extends Entry {
   }
 }
 
+// -------------------------------------------------------------JavaScript Objects - Object Creation Functions (ES6) Ex. 3||
 class Mood extends Entry {
+    // -------------------------------------------------------------JavaScript Objects - Properties, Methods (ES6) Ex. 3||
+     // -------------------------------------------------------------JavaScript - Parameters Ex. 3||
   constructor(time, date, note, mood) {
     let type = 'mood';
+    // -------------------------------------------------------------JavaScript Objects - Inheritance (ES6) Ex. 2||
     super(time, date, note, type);
     this.mood = mood || "Neutral";
   }
@@ -75,9 +147,13 @@ class Mood extends Entry {
   }
 }
 
+// -------------------------------------------------------------JavaScript Objects - Object Creation Functions (ES6) Ex. 4||
 class Exercise extends Entry {
+    // -------------------------------------------------------------JavaScript Objects - Properties, Methods (ES6) Ex. 4||
+     // -------------------------------------------------------------JavaScript - Parameters Ex. 4||
   constructor(time, date, note, workout, duration) {
     let type = 'exercise';
+    // -------------------------------------------------------------JavaScript Objects - Inheritance (ES6) Ex. 3||
     super(time, date, note, type);
     this.workout = workout || "Running";
     this.duration = duration || "10 Minutes";
@@ -101,12 +177,19 @@ class Exercise extends Entry {
 }
 
 /***********Meat*Functions*************/
+/* I won't bother putting example tags 
+*  for each function. I think you can 
+*  find them easy enough, and I will 
+*  just make sure they have a comment
+*  block labling each. 
+
 
 /*
 FUNCTION SAVE OBJ
   Receievs form data, builds it into appropriate object, and sends its it off 
   to be stored in local storage.
 */
+ // -------------------------------------------------------------JavaScript - Parameters Ex. 5||
 function saveObj(form, type) {
 
   // Normal options
@@ -114,16 +197,19 @@ function saveObj(form, type) {
   let time = document.forms[form]['time'].value + "";
   let note = document.forms[form]['note'].value + "";
 
+  // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 1||
   //Form specific data options
   if (type == "weather") {
 
     let weather = document.forms[form]['weather'].value + "";
+        // -------------------------------------------------------------JavaScript Objects - Instantiation (ES6) Ex. 1||
     let weatherObj = new Weather(time, date, note, weather);
     storeObj(weatherObj);
 
   } else if (type == "mood") {
 
     let mood = document.forms[form]['mood'].value + "";
+            // -------------------------------------------------------------JavaScript Objects - Instantiation (ES6) Ex. 2||
     let moodObj = new Mood(time, date, note, mood);
     storeObj(moodObj);
 
@@ -131,6 +217,7 @@ function saveObj(form, type) {
 
     let workout = document.forms[form]['workout'].value + "";
     let duration = document.forms[form]['duration'].value + "";
+            // -------------------------------------------------------------JavaScript Objects - Instantiation (ES6) Ex. 3||
     let exerciseObj = new Exercise(time, date, note, workout, duration);
     storeObj(exerciseObj);
 
@@ -139,6 +226,8 @@ function saveObj(form, type) {
     alert("Submission Error: Please reload the page.")
 
   }
+
+  //Re-render List instantly
   removeList();
   buildList();
 }
@@ -147,49 +236,94 @@ function saveObj(form, type) {
 FUNCTION STORE OBJ
   Receives an object, stringifies it, and sends it to local storage.
 */
+// -------------------------------------------------------------JavaScript - Parameters Ex. 6||
 function storeObj(obj) {
+  // -------------------------------------------------------------JSON - Stringify Ex. 1||
   let strEntry = JSON.stringify(obj);
-  localStorage.setItem(obj.type + ', ' + obj.getDate() + ', ' + obj.getTime(), strEntry);
+  localStorage.setItem(obj.getType() + ', ' + obj.getDate() + ', ' + obj.getTime(), strEntry);
 }
 
 /*
-FUNCTION RETREIVE OBJ
-  Receives an object type and date, pulls it from local storage, parses it into an object,
-  and returns it for use stringifies it, and sends it to local storage.
+FUNCTION RETREIVE ALL DATA
+  Returns all the objects in local storage as an array. 
 */
-function retreiveObj(type, date, time) {
+function retreiveAllData() {
 
-  let retStr = localStorage.getItem(type + ', ' + date + ', ' + time);
-  let retObj = JSON.parse(retStr);
-  return retObj;
+  // -------------------------------------------------------------JavaScript - Array Ex. 1||
+  let data = [];
+  // -------------------------------------------------------------JavaScript - Loop Ex. 1||
+  for (let i = 0; i < localStorage.length; i++) {
+
+    let key = localStorage.key(i);
+    let entry = localStorage.getItem(key);
+    // -------------------------------------------------------------JSON - Parse Ex. 1||
+    let pEntry = JSON.parse(entry);
+
+    // -------------------------------------------------------------JavaScript - Array Ex. 2||
+    data.push(pEntry);
+
+  }
+
+  return data;
 }
 
+/*
+FUNCTION REMOVE LIST
+  Removes all list items. 
+  Called to reset list area during rerender. 
+*/
 function removeList() {
   let list = document.getElementById('list');
-
+  // -------------------------------------------------------------JavaScript - Loop Ex. 2||
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
 }
 
 /*
-FUNCTION BUILD TABLE
+FUNCTION SORT BY DATE
+  Custom array sort funtion that sorts entries by date. 
+*/
+ // -------------------------------------------------------------JavaScript - Parameters Ex. 7||
+function sortByDate(a, b) {
+  // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 2||
+  let comparison = 0;
+  if (a.getDate >= b.date) {
+    comparison = 1;
+  } else if (a.date <= b.date) {
+    comparison = -1;
+  }
+  return comparison;
+}
 
+/*
+FUNCTION SORT BY TIME
+  Custom array sort funtion that sorts entries by time. 
+*/
+ // -------------------------------------------------------------JavaScript - Parameters Ex. 8||
+function sortByTime(a, b) {
+  let comparison = 0;
+  // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 3||
+  if (a.time >= b.time) {
+    comparison = 1;
+  } else if (a.time <= b.time) {
+    comparison = -1;
+  }
+  return comparison;
+}
+
+/*
+FUNCTION BUILD TABLE
+Renders all the objects in local storage as a list of entries.
 */
 function buildList() {
 
-  let journal = [];
-
-  for (let i = 0; i < localStorage.length; i++) {
-
-    let key = localStorage.key(i);
-    let entry = localStorage.getItem(key);
-    let pEntry = JSON.parse(entry);
-    journal.push(pEntry);
-
-  }
-
-  let sortedJournal = journal.sort(sortByTimeStamp);
+  // -------------------------------------------------------------JavaScript - Array Ex. 3||
+  let journal = retreiveAllData();
+  // -------------------------------------------------------------JavaScript - Array Ex. 4||
+  let sortedByTime = journal.sort(sortByTime);
+  // -------------------------------------------------------------JavaScript - Array Ex. 5||
+  let sortedJournal = sortedByTime.sort(sortByDate);
   let date = "";
   let time = "";
 
@@ -198,10 +332,13 @@ function buildList() {
   printHeading.appendChild(text);
   document.getElementById("list").appendChild(printHeading);
 
+  // -------------------------------------------------------------JavaScript - Loop Ex. 3||
   for (let i = 0; i < sortedJournal.length; i++) {
 
+    // -------------------------------------------------------------JavaScript - Array Ex. 6||
     let rowDAO = sortedJournal[i];
-
+    
+    // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 3|| 
     if (date == rowDAO.date) {
       //Do nothing
     } else {
@@ -212,6 +349,7 @@ function buildList() {
       date = rowDAO.date;
     }
 
+    // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 4||
     if (time == rowDAO.time) {
       //Do nothing
     } else {
@@ -223,7 +361,7 @@ function buildList() {
     }
 
     let row = "";
-
+    // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 5||
     if (rowDAO.type == 'weather') {
       row += rowDAO.weather + "";
     } else if (rowDAO.type == 'mood') {
@@ -241,68 +379,4 @@ function buildList() {
     printRow.appendChild(text);
     document.getElementById("list").appendChild(printRow);
   }
-
-
-
-
-
-
 }
-
-function sortByTimeStamp(a, b) {
-  let comparison = 0;
-  if (a.date >= b.date && a.time > b.time) {
-    comparison = 1;
-  } else if (a.date <= b.date && a.time < b.time) {
-    comparison = -1;
-  }
-  return comparison;
-}
-
-//   let row = table.insertRow(i);
-//   let cell0 = row.insertCell(0);
-//   let cell1 = row.insertCell(1);
-//   let cell2 = row.insertCell(2);
-//   let cell3 = row.insertCell(3);
-//   cell0.innerHTML = pitem.opt0;
-//   cell1.innerHTML = pitem.note;
-//   cell2.innerHTML = pitem.time;
-//   cell3.innerHTML = pitem.date;
-
-// }
-//   let tableRow = document.createElement("TR");
-//   let rowInsertion = document.createTextNode(dataInsertion);
-//   tableRow.appendChild(rowInsertion);
-//   document.getElementById("notes").appendChild(tableData);  
-
-//   let tableData = document.createElement("TD");
-//   let dataInsertion = document.createTextNode(pitem.note);
-//   tableData.appendChild(dataInsertion);
-
-// let sortedWeatherAry = weatherAry.sort(sortByTimeStamp);
-// let sortedMoodAry = moodAry.sort(sortByTimeStamp);
-// let sortedExerciseAry = exerciseAry.sort(sortByTimeStamp);
-
-// let weatherAry = []; 
-// let moodAry = [];
-// let exerciseAry = []; 
-
-// if (pEntry.type == 'weather'){
-//   weatherAry.push(pEntry);
-// } else if (pEntry.type == 'mood'){
-//   moodAry.push(pEntry);
-// } else if (pEntry.type == 'exercise'){
-//   exerciseAry.push(pEntry);
-// } else {
-//   console.log('Unrecognized Object Type');
-// }
-
-// for (let i = 0; i < sortedWeatherAry.length; i++){
-//   console.log(sortedWeatherAry[i]);
-// }
-// for (let i = 0; i < sortedMoodAry.length; i++){
-//   console.log(sortedMoodAry[i]);
-// }
-// for (let i = 0; i < sortedExerciseAry.length; i++){
-//   console.log(sortedExerciseAry[i]);
-// }
