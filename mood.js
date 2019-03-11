@@ -5,55 +5,18 @@
  * (Formatted: "//-----------[topic] - [subtopic] Ex. #||")
  * to help you recoginze the lines code that demostrate a 
  * topic. To keep it clean, I'm omiting topic tags for 
- * functions and varibles because you will readily spot them 
- * anyway.
+ * functions and varibles because you will easily spot them 
+ * anyway. Also to keep it clean, I will only include 3 tags
+ * per subtopic even if there is many more instances.
  * 
- * I also did not use an associative array as most would define
- * associative arrays in JS (I could argue that all ojects can
- * seen as an associative array of sorts with a key (member 
- * name) and and value (member data), by that logic I could 
- * also argue that local storage is a sort of associative array
- * but I think both of those arguments are besides point this 
- * class is trying to make). I didn't really need associative 
- * array. If you'd like, I can demonstrate by telling you 
- * what they are, how to use them, and their limitations.
- * I just didn't have a use for one in this app. I can 
- * include them in my next submission if the description below
- * is insufficient for the grading requirements.
- *  
- * Asscoiative arrays with a string key in stead of an integer
- * index (personally, I think of them as objects that I can 
- * append and remove properties from easily).
- * 
- * In JS they can be created like this:
- * 
- * var aArray = { "red": '#ff0000', "green": '#00ff00', "blue":
- *                '#0000ff' };
- * 
- * Or like this (though it is rather cumbersome way):
- * 
- * aArray = new Array(); // or if your like: let aArray = [];
- * aArray['red'] = '#ff0000';
- * aArray['green'] = '#00ff00';
- * aArray['blue'] = '#0000ff';
- *  
- * I can now access elements like this:
- * 
- * aArray['red']; //evaluates as '#ff0000'
- * 
- * Or like this:
- * 
- * aArray.red; //evaluates as '#ff0000'
- * 
- * The sad thing about JS associative array is that they do not 
- * inherit the the array prototype (for example, the command 
- * "aArray.length;" will just evaluate to 0 or undefined 
- * depending on how you defined it). There are several baidaid
- * jobs availible on the internet if desire, but most of them 
- * involve you telling the computer how to make your array-like
- * object to act like an array.  
- * 
- * I hope that little demo can count, if not
+ * Proeject Relfections:
+ * I realize local storage is not the place for user login 
+ * info. In hindsight, I would never store a user table in 
+ * local storage, but it was a great excercise that took a lot
+ * of out of the box thinking. I hope it demoed fluentcy 
+ * alright. I also could have gotten away without gettters and
+ * setters, but the OO pursit in me likes to pretend JS will 
+ * encapsulate my model (just wishful thinking I guess).
  * 
  * Happy grading.
  * ***********************************************************/
