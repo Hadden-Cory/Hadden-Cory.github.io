@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Mood - Sign In</title>
+    <link rel="stylesheet" type="text/css" href="mood.css">
+    <script src="mood.js"></script>
+</head>
+<body>
+<div class="centered">
+    <form name="signInForm" action="">
+        <br>
+        <br>
+        <h1>User Sign-In & Sign Up</h1>
+        <p> Mood is a peronal online mood journal. It allows your to keep track of your mood, activity levels,<br>
+            and any affecting weather conditions.</p>
+        <p> To add a user, simply enter your desired ID below and hit "Add User". You may then sign in with that<br>
+            user ID. User data is stored in your personal browser. User ID is enforce so that multiple users on<br>
+            the same browser may use this app. There is no sesnsitive information stored and as such user IDs are<br>
+            not protected. Because this app uses your browser's storage, you will not be able to sign in from a<br>
+            different browser and access your journal from there. If you clear your cahced data you may also loose<br>
+            data.</p>
+        <br>
+        <br>
+        Username<br><input name="name" class="classic" type="text" placeholder=" A simple name will do" required><br>
+        Pin<br><input name="pin" class="classic" type="number" placeholder=" For identification only"minlength="4" maxlength="4" required><br><br>
+        <input class="classic" type="reset">
+    </form>
+    <button class="classic" onclick="verifyUser('signInForm')">Sign In</button><br><br>
+    <button class="classic" onclick="saveUser('signInForm')">Add User</button><br><br>
+</div>
+</body>
