@@ -1,4 +1,43 @@
     {
-        "quote": "If you think nobody cares about you, try missing a couple of payments.",
-        "author": "Steven Wright"
+        "quote1": {
+            "text": "If you think nobody cares about you, try missing a couple of payments.",
+            "author": "Steven Wright"
+        },
+        "quote2": {
+            "text": "Rice is great when you’re hungry and you want 2000 of something.",
+            "author": "Mitch Hedberg"
+        },
+        "quote3": {
+            "text": "I remixed a remix, it was back to normal",
+            "author": "Mitch Hedberg"
+        },
+        "quote4": {
+            "text": "A lie gets halfway around the world before the truth has a chance to get its pants on.",
+            "author": "Wniston Churchill"
+        },
+        "quote5": {
+            "text": "Accept who you are. Unless you’re a serial killer.",
+            "author": "Ellen DeGeneres"
+        },
+        "quote6": {
+            "text": "Believe in yourself, even if no one else does",
+            "author": "Sasquatch"
+        },
+        "quote7": {
+            "text": "The difference between stupidity and genius is that genius has its limits.",
+            "author": "Albert Einstein"
+        },
+        "quote8": {
+            "text": "Never miss a good chance to shut up.",
+            "author": "Will Rodgers"
+        },
+        "quote9": {
+            "text": "My fake plants died because I did not pretend to water them.",
+            "author": "Mitch Hedberg"
+        },
+        "quote10": {
+            "text": "The quickest way for a parent to get a child’s attention is to sit down and look comfortable. ",
+            "author": "Lane Olinghouse"
+        }
+
     }
