@@ -6,7 +6,7 @@ function grabAQuote(){
       document.getElementById("thing").innerHTML = this.responseText;
     }
   }; 
-  xhttp.open("GET", "test.txt", true);
+  xhttp.open("GET", "quotes.json", true);
   xhttp.send();
 }
 
