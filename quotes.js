@@ -6,9 +6,8 @@ function grabAQuote(){
       document.getElementById("thing").innerHTML = this.responseText;
     }
   };
-  xhttp.open("POST", "demo_post2.asp", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("fname=Henry&lname=Ford");
+  xhttp.open("GET", "test.txt", true);
+  xhttp.send();
 }
 
 
