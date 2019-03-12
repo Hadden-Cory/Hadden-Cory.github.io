@@ -3,23 +3,24 @@
  * 
  * To make grading easy, I have included several comment tags
  * (Formatted: "//-----------[topic] - [subtopic] Ex. #||")
- * to help you recoginze the lines code that demostrate a 
- * topic. To keep it clean, I'm omiting topic tags for 
- * functions and varibles because you will easily spot them 
- * anyway. Also to keep it clean, I will only include 3 tags
- * per subtopic even if there is many more instances.
+ * to help you recognize the lines code that demonstrate a 
+ * topic. To keep it clean, I'm omitting topic tags for 
+ * functions and variables because you will easily spot them 
+ * anyway. Also, to keep it clean, I will only include 3 tags
+ * per subtopic even if there are many more instances.
  * 
- * Proeject Relfections:
+ * Project Reflections:
  * I realize local storage is not the place for user login 
  * info. In hindsight, I would never store a user table in 
- * local storage, but it was a great excercise that took a lot
- * of out of the box thinking. I hope it demoed fluentcy 
- * alright. I also could have gotten away without gettters and
- * setters, but the OO pursit in me likes to pretend JS will 
+ * local storage, but it was a great exercise that took a lot
+ * of out of the box thinking. I hope it demoed fluency 
+ * alright. I also could have gotten away without getters and
+ * setters, but the OO purist in me likes to pretend JS will 
  * encapsulate my model (just wishful thinking I guess).
  * 
  * Happy grading.
  * ***********************************************************/
+
 
 /***********Gloabls*************/
 let sessionUser;
@@ -228,7 +229,7 @@ function verifyUser(form) {
 
     console.log("User\""+name+"\" Found");
     userIsSelcted = true;
-    // -------------------------------------------------------------Local Storage - Simple Data Ex. 1||
+    // -------------------------------------------------------------Local Storage - Simple Data Ex. 2||
     localStorage.setItem('isSignedIn', true);
 
     //enter Mood main page
@@ -279,7 +280,7 @@ function isSignedIn() {
     // -------------------------------------------------------------JSON - Parse Ex. 2||
     sessionUserID = JSON.parse(sessionUserStr);
     
-    // -------------------------------------------------------------JavaScript - Arrays (Associate) Ex. 1||
+    // -------------------------------------------------------------JavaScript - Arrays (Associate) Ex. 2||
     let journal = {};
 
     // -------------------------------------------------------------JavaScript Objects - instantiation Ex. 2||
@@ -382,7 +383,6 @@ function storeEntry(obj) {
   //Push it on to the session users journal
   let key = obj.getType() + obj.getDate() + obj.getTime();
   
-  // -------------------------------------------------------------JavaScript - Arrays Ex. 2||
   sessionUser.journal[key] = strEntry;
 
   // -------------------------------------------------------------JSON - Stringify Ex. 3||
@@ -398,7 +398,7 @@ FUNCTION RETREIVE ALL DATA
 */
 function retreiveAllData() {
 
-  // -------------------------------------------------------------JavaScript - Arrays Ex. 2||
+  // -------------------------------------------------------------JavaScript - Arrays Ex. 1s||
   let data = [];
  // -------------------------------------------------------------JavaScript - Loop Ex. 1||
  // -------------------------------------------------------------JavaScript - Arrays (Associate) Ex. 3||
@@ -421,6 +421,7 @@ FUNCTION REMOVE LIST
 function removeList() {
   let list = document.getElementById('list');
    // -------------------------------------------------------------DOM Manipulation - Remove Ex. 1||
+    // -------------------------------------------------------------JavaScript - Loop Ex. 2||
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
@@ -465,7 +466,7 @@ function buildList() {
 
   //Retrieve all the sessions journal in the form of an array;
   let journal = retreiveAllData();
-   // -------------------------------------------------------------JavaScript - Arrays Ex. 3||
+   // -------------------------------------------------------------JavaScript - Arrays Ex. 2||
   let sortedByTime = journal.sort(sortByTime);
   let sortedJournal = sortedByTime.sort(sortByDate);
   let date = "";
@@ -478,7 +479,7 @@ function buildList() {
   document.getElementById("list").appendChild(printHeading);
 
 
- // -------------------------------------------------------------JavaScript - Parameters Ex. 2||
+ // -------------------------------------------------------------JavaScript - Loop Ex. 3||
   for (let i = 0; i < sortedJournal.length; i++) {
 
     let rowDAO = sortedJournal[i];  
