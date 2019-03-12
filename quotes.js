@@ -14,8 +14,8 @@ function grabAQuote(){
     if (this.readyState == 4 && this.status == 200) {
       let quotes = JSON.parse(this.responseText);
       quote = document.createElement("H1");
-      let text = document.createTextNode(quotes.quote.text)
-      let author = document.createTextNode("\n-"+quotes.quote.author);
+      let text = document.createTextNode(quotes[quote].text)
+      let author = document.createTextNode("\n-"+quotes[quote].author);
       quote.appendChild(text);
       quote.appendChild(author);
       document.getElementById("displayArea").appendChild(quote);
