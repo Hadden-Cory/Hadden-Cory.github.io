@@ -16,7 +16,7 @@ body {
     z-index: 7;
     height: 21%;
     width: 100%;
-    position: relative;
+    position: absolute;
 }
 
 #left {
@@ -57,10 +57,42 @@ body {
     z-index: 4;
     box-shadow: inset 0 0 6px 6px black;
 }
-#quoteButton {
+.quoteButton {
     position: relative;
     top: 5%;
     width: 25%;
     height: 10%;
     font-size: x-large;
+}
+
+.quoteButtonPressed {
+    transition: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    position: relative;
+    transform: scale(0.7);
+    font-size: x-large;
+}
+
+.quoteButtonRelaesed
+{
+    animation: inspectFront 700ms;
+    animation-timing-function: linear;
+}
+
+@keyframes buttonRelease{
+    0% {
+        /* ------------------------------------------------------Transform 1-------------------------------------------------- */
+    transform: scale(.7);
+}
+60% {
+    transform: scale(1.5);
+}
+80% {
+    transform: scale(0.8);
+}
+90% {
+    transform: scale(1.15);
+}
+100% {
+    transform:  scale(1);
+}
 }
