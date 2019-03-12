@@ -1,15 +1,23 @@
 <html>
 <head>
     <title>Quote Wall</title>
+    <link rel="stylesheet" type="text/css" href="quotes.html">
     <link rel="stylesheet" type="text/css" href="mood.css">
+    <link rel="stylesheet" type="text/css" href="quotes.css">
     <script src="quotes.js"></script>
 </head>
 
 <body>
-    <div class="centered">
-        <button class="classic" onclick="grabAQuote()">Grab A Quote</button>
-        <div id="thing"></div>
-        <h1>10</h1>
+    <div id="container" class="centered">
+        <div id='top'></div>
+        <div id='left'></div>
+        <div id='right'></div>
+        <div id="displayArea">
+            <h1>10</h1>
+            
+        </div>
+        <div id='bottom'><button class="classic" onclick="grabAQuote()" id="quoteButton">Grab A Quote</button></div>
+        
     </div>
 </body>
 

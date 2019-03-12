@@ -9,7 +9,7 @@ function grabAQuote(){
       quote = document.createElement("H1");
       text = document.createTextNode(quotes.quote1.text+"\"<br>-"+ quotes.quote1.author);
       quote.appendChild(text);
-      document.getElementById("thing").appendChild(quote);
+      document.getElementById("displayArea").appendChild(quote);
     }
   };  
   xhttp.open("GET", "quotes.json", true);
