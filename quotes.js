@@ -1,4 +1,5 @@
-document.getElementById("quoteBtn").addEventListener("touch", buttonPress);
+let quoteBtn = document.getElementById("quoteBtn");
+quoteBtn.addEventListener("touch", buttonPress);
 
 function buttonPress(){
   console.log("buttonPress");
