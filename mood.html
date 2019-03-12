@@ -9,15 +9,13 @@
 <body onload="isSignedIn()" onunload="signOut()"> 
     <button class="classic" onclick="signOut()">Sign Out</button>
     <div class="centered">
+        <div  id="titleArea" class="centered">
+        </div>
         <table id="pageGrid" class="centered">
-           
             <tr>
                 <td class="tdpadding">
                     <form name="weatherForm" action="">
-                        <br>
-                        <br>
-                        <h1>Weather Tracker</h1>
-                        <br>
+                        <h2>Weather Tracker</h2>
                         <br>
                         Weather<br>
                         <select class="classic" name="weather" placeholder="Sunny" method="POST">
@@ -39,10 +37,7 @@
                 </td>
                 <td class="tdpadding">
                     <form name="moodForm" action="">
-                        <br>
-                        <br>
-                        <h1>Mood Tracker</h1>
-                        <br>
+                        <h2>Mood Tracker</h2>
                         <br>
                         Mood<br>
                         <select class="classic" name="mood" placeholder="Nuetral" method="POST">
@@ -69,10 +64,7 @@
                 </td>
                 <td class="tdpadding">
                     <form name="exerciseForm" action="">
-                        <br>
-                        <br>
-                        <h1>Exercise Tracker</h1>
-                        <br>
+                        <h2>Exercise Tracker</h2>
                         <br>
                         <table class="centered">
                             <tr>

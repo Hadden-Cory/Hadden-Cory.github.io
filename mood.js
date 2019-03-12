@@ -71,13 +71,12 @@ class Entry {
   }
 }
 
-// -------------------------------------------------------------JavaScript Objects - Object Creation Functions (ES6) Ex. 2||
+
 class Weather extends Entry {
-  // -------------------------------------------------------------JavaScript Objects - Properties, Methods (ES6) Ex. 2||
-  // -------------------------------------------------------------JavaScript - Parameters Ex. 2||
+
   constructor(time, date, note, weather) {
     let type = 'weather';
-    // -------------------------------------------------------------JavaScript Objects - Inheritance (ES6) Ex. 1||
+    // -------------------------------------------------------------JavaScript Objects - inheritance (ES6) Ex. 1||
     super(time, date, note, type);
     this.weather = weather || "Sunny";
   }
@@ -91,13 +90,12 @@ class Weather extends Entry {
   }
 }
 
-// -------------------------------------------------------------JavaScript Objects - Object Creation Functions (ES6) Ex. 3||
+// -------------------------------------------------------------JavaScript Objects - Object Creation Functions (ES6) Ex. 2||
 class Mood extends Entry {
-  // -------------------------------------------------------------JavaScript Objects - Properties, Methods (ES6) Ex. 3||
-  // -------------------------------------------------------------JavaScript - Parameters Ex. 3||
+  // -------------------------------------------------------------JavaScript Objects - Properties, Methods (ES6) Ex. 2||
   constructor(time, date, note, mood) {
     let type = 'mood';
-    // -------------------------------------------------------------JavaScript Objects - Inheritance (ES6) Ex. 2||
+    // -------------------------------------------------------------JavaScript Objects - inheritance (ES6) Ex. 2||
     super(time, date, note, type);
     this.mood = mood || "Neutral";
   }
@@ -111,13 +109,11 @@ class Mood extends Entry {
   }
 }
 
-// -------------------------------------------------------------JavaScript Objects - Object Creation Functions (ES6) Ex. 4||
 class Exercise extends Entry {
-  // -------------------------------------------------------------JavaScript Objects - Properties, Methods (ES6) Ex. 4||
-  // -------------------------------------------------------------JavaScript - Parameters Ex. 4||
+
   constructor(time, date, note, workout, duration) {
     let type = 'exercise';
-    // -------------------------------------------------------------JavaScript Objects - Inheritance (ES6) Ex. 3||
+    // -------------------------------------------------------------JavaScript Objects - inheritance (ES6) Ex. 3||
     super(time, date, note, type);
     this.workout = workout || "Running";
     this.duration = duration || "10 Minutes";
@@ -140,7 +136,10 @@ class Exercise extends Entry {
   }
 }
 
+// -------------------------------------------------------------JavaScript Objects - Object Creation Functions (ES6) Ex. 3||
 class User {
+
+  // -------------------------------------------------------------JavaScript Objects - Properties, Methods (ES6) Ex. 3||
   constructor(name, pin, journal){
     this.name = name;
     this.pin = pin;
@@ -185,19 +184,24 @@ FUNCTION SAVE USER
   Receievs user ID form data, builds it into appropriate User object, and sends its it off 
   to be stored in local storage.
 */
+// -------------------------------------------------------------JavaScript - Parameters Ex. 2||
 function saveUser(form) {
 
   //turn form data into a user object
   let name = document.forms[form]['name'].value + "";
   let pin = document.forms[form]['pin'].value + "";
+   // -------------------------------------------------------------JavaScript - Arrays (Associate) Ex. 1||
   let journal = {};
+  // -------------------------------------------------------------JavaScript Objects - instantiation Ex. 1||
   let obj = new User(name, pin, journal);
 
+  // -------------------------------------------------------------JSON - Stringify Ex. 1||
   //stringify for storage.
   let strUser = JSON.stringify(obj);
+
+  // -------------------------------------------------------------Local Storage - Simple Data Ex. 1||
   localStorage.setItem(name + pin, strUser);
 
-  console.log(localStorage.getItem(name + pin));
   alert("User \""+name+"\" has been added to your browser's local storage. You may now sign in with this ID.");
 }
 
@@ -212,7 +216,10 @@ function verifyUser(form) {
   let name = document.forms[form]['name'].value + "";
   let pin = document.forms[form]['pin'].value + "";
 
+  // -------------------------------------------------------------JavaScript - Conditional Statments Ex. 1||
+        // -------------------------------------------------------------Local Storage - Simple Data Ex. 1||
   //if user with this pin exist
+        // -------------------------------------------------------------Local Storage - Objects & Associative Array Ex. 1||
   if (localStorage.getItem(name + pin) != null) {
 
     //retrieve loacl storage data, parse it, and set session user credentials to valid 
@@ -221,6 +228,7 @@ function verifyUser(form) {
 
     console.log("User\""+name+"\" Found");
     userIsSelcted = true;
+    // -------------------------------------------------------------Local Storage - Simple Data Ex. 1||
     localStorage.setItem('isSignedIn', true);
 
     //enter Mood main page
@@ -242,7 +250,9 @@ FUNCTION SIGN OUT
 function signOut() {
 
   //reset session user credentials
+        // -------------------------------------------------------------Local Storage - Simple Data Ex. 2||
   localStorage.setItem('sesssionUser', null);
+        // -------------------------------------------------------------Local Storage - Simple Data Ex. 3||
   localStorage.setItem('isSignedIn', false);
   console.log(localStorage.getItem('sesssionUser')+ " signed out.");
 
@@ -257,25 +267,39 @@ FUNCTION SIGN OUT
 */
 function isSignedIn() {
 
+  // -------------------------------------------------------------Local Storage - Objects & Associative Array Ex. 2||
   //just some simplifying DAO (data access object) 
   let signedIn = localStorage.getItem('isSignedIn');
-  
   
   if (signedIn == 'true') {
 
     //Grab the user ID the sign in page saved for us and build a user object we can store in sessionUSer
     sessionUserStr = localStorage.getItem('sesssionUser');
-    console.log(sessionUserStr);
 
+    // -------------------------------------------------------------JSON - Parse Ex. 2||
     sessionUserID = JSON.parse(sessionUserStr);
-    console.log(sessionUserID);
     
+    // -------------------------------------------------------------JavaScript - Arrays (Associate) Ex. 1||
     let journal = {};
+
+    // -------------------------------------------------------------JavaScript Objects - instantiation Ex. 2||
     sessionUser = new User (sessionUserID.name, sessionUserID.pin, journal);
 
+            // -------------------------------------------------------------Local Storage - Objects & Associative Array Ex. 3||
     let storedUserStr = localStorage.getItem(sessionUserID.name+sessionUserID.pin);
+
+    // -------------------------------------------------------------JSON - Parse Ex. 3||
     let storedUser = JSON.parse(storedUserStr);
     sessionUser = new User (storedUser.name, storedUser.pin, storedUser.journal);
+  
+    
+    // -------------------------------------------------------------DOM Manipulation - Create & Append Ex. 1||
+    let tables = document.getElementById("titleArea");
+    welcome = document.createElement("H1");
+    text = document.createTextNode(" Welcome to Mood " + sessionUserID.name);
+    welcome.appendChild(text);
+    // -------------------------------------------------------------DOM Manipulation - insertBefore Ex. 1||
+    tables.insertBefore(welcome, tables.childNodes[0]);
 
     //render our users journal
     buildList();
@@ -301,7 +325,6 @@ FUNCTION SAVE OBJ
   Receievs form data, builds it into appropriate object, and sends its it off 
   to be stored in local storage.
 */
-// -------------------------------------------------------------JavaScript - Parameters Ex. 5||
 function saveObj(form, type) {
 
   // Grab universal entry options from form
@@ -309,19 +332,20 @@ function saveObj(form, type) {
   let time = document.forms[form]['time'].value + "";
   let note = document.forms[form]['note'].value + "";
 
-  // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 1||
   // Grab form specific data options
+  // -------------------------------------------------------------JavaScript - Conditional Statments Ex. 2||
   if (type == "weather") {
 
     let weather = document.forms[form]['weather'].value + "";
-    // -------------------------------------------------------------JavaScript Objects - Instantiation (ES6) Ex. 1||
+  
+    // -------------------------------------------------------------JavaScript Objects - instantiation Ex. 3||
     let weatherObj = new Weather(time, date, note, weather);
     storeEntry(weatherObj);
 
   } else if (type == "mood") {
 
     let mood = document.forms[form]['mood'].value + "";
-    // -------------------------------------------------------------JavaScript Objects - Instantiation (ES6) Ex. 2||
+    
     let moodObj = new Mood(time, date, note, mood);
     storeEntry(moodObj);
 
@@ -329,7 +353,7 @@ function saveObj(form, type) {
 
     let workout = document.forms[form]['workout'].value + "";
     let duration = document.forms[form]['duration'].value + "";
-    // -------------------------------------------------------------JavaScript Objects - Instantiation (ES6) Ex. 3||
+    
     let exerciseObj = new Exercise(time, date, note, workout, duration);
     storeEntry(exerciseObj);
 
@@ -348,27 +372,24 @@ function saveObj(form, type) {
 FUNCTION STORE OBJ
   Receives an object, stringifies it, and sends it to local storage.
 */
-// -------------------------------------------------------------JavaScript - Parameters Ex. 6||
+
 function storeEntry(obj) {
 
-  //let tmpUser = localStorage.getItem(sessionUser.getName() + sessionUser.getPin());
-  
+  // -------------------------------------------------------------JSON - Stringify Ex. 2||
   //Turn passed Object into a string for storage
   let strEntry = JSON.stringify(obj);
 
-  console.log(sessionUser);
   //Push it on to the session users journal
   let key = obj.getType() + obj.getDate() + obj.getTime();
   
+  // -------------------------------------------------------------JavaScript - Arrays Ex. 2||
   sessionUser.journal[key] = strEntry;
+
+  // -------------------------------------------------------------JSON - Stringify Ex. 3||
   sessionUserStr=JSON.stringify(sessionUser);
   
   //overide the stored useer.
   localStorage.setItem(sessionUser.getName()+sessionUser.getPin(), sessionUserStr);
-
-// // -------------------------------------------------------------JSON - Stringify Ex. 1||
-// let strEntry = JSON.stringify(obj);
-// localStorage.setItem(obj.getType() + ', ' + obj.getDate() + ', ' + obj.getTime(), strEntry);
 }
 
 /*
@@ -377,20 +398,18 @@ FUNCTION RETREIVE ALL DATA
 */
 function retreiveAllData() {
 
-  // -------------------------------------------------------------JavaScript - Array Ex. 1||
+  // -------------------------------------------------------------JavaScript - Arrays Ex. 2||
   let data = [];
-
-  // -------------------------------------------------------------JavaScript - Loop Ex. 1||
+ // -------------------------------------------------------------JavaScript - Loop Ex. 1||
+ // -------------------------------------------------------------JavaScript - Arrays (Associate) Ex. 3||
   for (entry in sessionUser.journal) {
 
-    console.log(sessionUser.journal[entry]);
-    
+    // -------------------------------------------------------------JSON - Parse Ex. 1||
     let obj = JSON.parse(sessionUser.journal[entry])
 
     data.push(obj);
 
   }
-
   return data;
 }
 
@@ -401,7 +420,7 @@ FUNCTION REMOVE LIST
 */
 function removeList() {
   let list = document.getElementById('list');
-  // -------------------------------------------------------------JavaScript - Loop Ex. 2||
+   // -------------------------------------------------------------DOM Manipulation - Remove Ex. 1||
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
@@ -411,10 +430,11 @@ function removeList() {
 FUNCTION SORT BY DATE
   Custom array sort funtion that sorts entries by date. 
 */
-// -------------------------------------------------------------JavaScript - Parameters Ex. 7||
+// -------------------------------------------------------------JavaScript - Parameters Ex. 3||
 function sortByDate(a, b) {
-  // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 2||
   let comparison = 0;
+
+  // -------------------------------------------------------------JavaScript - Conditional Statments Ex. 3||
   if (a.getDate >= b.date) {
     comparison = 1;
   } else if (a.date <= b.date) {
@@ -427,10 +447,8 @@ function sortByDate(a, b) {
 FUNCTION SORT BY TIME
   Custom array sort funtion that sorts entries by time. 
 */
-// -------------------------------------------------------------JavaScript - Parameters Ex. 8||
 function sortByTime(a, b) {
   let comparison = 0;
-  // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 3||
   if (a.time >= b.time) {
     comparison = 1;
   } else if (a.time <= b.time) {
@@ -446,34 +464,28 @@ Renders all the objects in local storage as a list of entries.
 function buildList() {
 
   //Retrieve all the sessions journal in the form of an array;
-  // -------------------------------------------------------------JavaScript - Array Ex. 3||
   let journal = retreiveAllData();
-  console.log("Retrieved Data:"+journal);
-  // -------------------------------------------------------------JavaScript - Array Ex. 4||
+   // -------------------------------------------------------------JavaScript - Arrays Ex. 3||
   let sortedByTime = journal.sort(sortByTime);
-  // -------------------------------------------------------------JavaScript - Array Ex. 5||
   let sortedJournal = sortedByTime.sort(sortByDate);
   let date = "";
   let time = "";
 
-  console.log("Sorted Data:"+sortedJournal);
-
+  // -------------------------------------------------------------DOM Manipulation - Create & Append Ex. 2||
   let printHeading = document.createElement("H1");
   let text = document.createTextNode("Journal");
   printHeading.appendChild(text);
   document.getElementById("list").appendChild(printHeading);
 
 
-  // -------------------------------------------------------------JavaScript - Loop Ex. 3||
+ // -------------------------------------------------------------JavaScript - Parameters Ex. 2||
   for (let i = 0; i < sortedJournal.length; i++) {
 
-    // -------------------------------------------------------------JavaScript - Array Ex. 6||
-    let rowDAO = sortedJournal[i];
-    // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 3|| 
-    console.log(rowDAO.date);    
+    let rowDAO = sortedJournal[i];  
     if (date == rowDAO.date) {
       //Do nothing
     } else {
+        // -------------------------------------------------------------DOM Manipulation - Create & Append Ex. 3||
       printDate = document.createElement("H2");
       text = document.createTextNode(rowDAO.date);
       printDate.appendChild(text);
@@ -481,11 +493,11 @@ function buildList() {
       date = rowDAO.date;
     }
 
-    // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 4||
-    console.log(rowDAO.time);
     if (time == rowDAO.time) {
       //Do nothing
     } else {
+      
+      // -------------------------------------------------------------DOM Manipulation - Create & Append Ex. 3||
       printTime = document.createElement("H3");
       text = document.createTextNode(rowDAO.time);
       printTime.appendChild(text);
@@ -494,7 +506,7 @@ function buildList() {
     }
 
     let row = "";
-    // -------------------------------------------------------------JavaScript - Conditional Statements Ex. 5||
+  
     if (rowDAO.type == 'weather') {
       row += rowDAO.weather + "";
     } else if (rowDAO.type == 'mood') {
