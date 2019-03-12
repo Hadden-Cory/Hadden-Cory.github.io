@@ -9,18 +9,19 @@ function grabAQuote(){
  removeQuote();
  let num = randomNumber();
  let quote = "quote"+num;
- quote = quotes[quote];
- console.log(quote);
+
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       let quotes = JSON.parse(this.responseText);
-      quote = document.createElement("H1");
+      quote = quotes[quote];
+      console.log(quote);
+      quoteNode = document.createElement("H1");
       let text = document.createTextNode(quote.text)
-      let author = document.createTextNode("\n-"+quote.author);
-      quote.appendChild(text);
-      quote.appendChild(author);
-      document.getElementById("displayArea").appendChild(quote);
+      let author = document.createTextNode("\n-"+quotes[quote].author);
+      quoteNode.appendChild(text);
+      quoteNode.appendChild(author);
+      document.getElementById("displayArea").appendChild(quoteNode);
     }
   };  
   xhttp.open("GET", "quotes.json", true);
