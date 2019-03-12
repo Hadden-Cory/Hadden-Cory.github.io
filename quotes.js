@@ -3,7 +3,7 @@ function grabAQuote(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      let qutoes = JSON.parse(this.responseText);
+      let quotes = JSON.parse(this.responseText);
       document.getElementById("thing").innerHTML = quotes.quote1;
     }
   };  
