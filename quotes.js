@@ -16,7 +16,7 @@ function grabAQuote(){
       let quotes = JSON.parse(this.responseText);
       quote = quotes[quote];
       console.log(quote);
-      quoteNode = document.createElement("H1");
+      quoteNode = document.createElement("P");
       let text = document.createTextNode(quote.text)
       let author = document.createTextNode("\n-"+quote.author);
       quoteNode.appendChild(text);
