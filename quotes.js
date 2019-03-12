@@ -5,6 +5,11 @@ function grabAQuote(){
     if (this.readyState == 4 && this.status == 200) {
       let quotes = JSON.parse(this.responseText);
       document.getElementById("thing").innerHTML = quotes.quote1.text;
+
+      quote = document.createElement("H1");
+      text = document.createTextNode(quotes.quote1.text+"\"<br>-"+ quotes.quote1.author);
+      quote.appendChild(text);
+      document.getElementById("thing").appendChild(quote);
     }
   };  
   xhttp.open("GET", "quotes.json", true);
@@ -24,10 +29,10 @@ function grabAQuote(){
 
         //      var item = JSON.parse(xhttp.response);
 
-        //     //  let tables = document.getElementById("list");
-        //     //  quote = document.createElement("LI");
+        //     //  quote = document.createElement("H1");
         //     //  text = document.createTextNode(item.quote+"\"<br>-"+ item.author);
         //     //  quote.appendChild(text);
+         //    //  document.getElementById("thing").appendChild(quote);
           
         // printTime = document.createElement("H3");
         // text = document.createTextNode(rowDAO.time);
