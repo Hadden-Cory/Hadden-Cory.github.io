@@ -5,7 +5,7 @@ function grabAQuote(){
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById("thing").innerHTML = this.responseText;
     }
-  }; 
+  };  
   xhttp.open("GET", "quotes.json", true);
   xhttp.send();
 }
