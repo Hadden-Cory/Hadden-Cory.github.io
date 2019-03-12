@@ -33,5 +33,3 @@ function grabAQuote(){
         
         // xhttp.open("GET", "quotes.json", true);
         // xhttp.send();
-}
-}
