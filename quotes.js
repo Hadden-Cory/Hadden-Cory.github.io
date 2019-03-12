@@ -4,7 +4,7 @@ function grabAQuote(){
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       let quotes = JSON.parse(this.responseText);
-      document.getElementById("thing").innerHTML = quotes.quote1;
+      document.getElementById("thing").innerHTML = quotes.quote1.quote;
     }
   };  
   xhttp.open("GET", "quotes.json", true);
