@@ -17,11 +17,13 @@ function grabAQuote(){
       quote = quotes[quote];
       console.log(quote);
       quoteNode = document.createElement("P");
+      quoteNode1 = document.createElement("P");
       let text = document.createTextNode(quote.text)
       let author = document.createTextNode("\n-"+quote.author);
       quoteNode.appendChild(text);
-      quoteNode.appendChild(author);
+      quoteNode1.appendChild(author);
       document.getElementById("displayArea").appendChild(quoteNode);
+      document.getElementById("displayArea").appendChild(quoteNode1);
     }
   };  
   xhttp.open("GET", "quotes.json", true);
