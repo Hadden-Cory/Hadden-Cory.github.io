@@ -27,8 +27,8 @@ function buttonRelease(){
 function buttonClick (){
 buttonPress();
 setTimeout(function(){buttonRelease();}, 700);
-setTimeout(function(){newSlide();}, 700);
-setTimeout(function(){grabAQuote();}, 1000);
+// setTimeout(function(){newSlide();}, 700);
+// setTimeout(function(){grabAQuote();}, 1000);
 }
 
 
