@@ -3,7 +3,9 @@ body {
     height: 100%;
     width: 100%;
     color: rgb(47, 54, 53);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
 
 #container {
     background-color: rgb(0, 0, 0);
@@ -28,6 +30,7 @@ body {
     width: 20%;
     height: 100%;
     position: relative;
+    box-shadow: 0 0 15px 6px black;
 }
 
 #right {
@@ -37,6 +40,7 @@ body {
     width: 20%;
     height: 100%;
     position: relative;
+    box-shadow: 0 0 15px 6px black;
 }
 
 #bottom {
@@ -47,6 +51,7 @@ body {
     position: absolute;
     top: 80%;
     box-shadow: 0 0 14px 8px black;
+    box-shadow: 0 0 15px 6px black;
 }
 
 #displayArea {
@@ -58,7 +63,6 @@ body {
     top: 20%;
     left: 20%;
     padding-top: 6%;
-    box-shadow: inset -1px -12px 20px 14px black;
 }
 
 h1 {
