@@ -3,6 +3,7 @@ window.onload = function () {
   // -------------------------------------------------------------JS Events - Mobile Events Ex. 1||
   document.getElementById("quoteBtn").ontouchstart = buttonPress;
   document.getElementById("quoteBtn").ontouchend = buttonRelease;
+  document.getElementById("quoteBtn").ontouchend = buttonClick;
 
   //I must have had a spelling error orignally because this was the only way 
   //animation end would work. 
