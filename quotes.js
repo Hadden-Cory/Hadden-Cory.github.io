@@ -3,7 +3,6 @@ window.onload = function () {
   // -------------------------------------------------------------JS Events - Mobile Events Ex. 1||
   document.getElementById("quoteBtn").ontouchstart = buttonPress;
   document.getElementById("quoteBtn").ontouchend = buttonRelease;
-  document.getElementById("quoteBtn").ontouchend = buttonClick;
 
   //I must have had a spelling error orignally because this was the only way 
   //animation end would work. 
@@ -13,7 +12,8 @@ window.onload = function () {
 
   //Simulates mobile events for PC users
   // -------------------------------------------------------------JS Events - Standard Events Ex. 1||
-  document.getElementById("quoteBtn").onclick = buttonClick;
+  document.getElementById("quoteBtn").onmousedown = buttonPress;
+  document.getElementById("quoteBtn").onmouseup = buttonRelease;
 };
 
 //Lanuches slide change animation
@@ -46,14 +46,6 @@ function buttonRelease() {
     // ------------------------------------------------------------- CSS3 Using JS  - Style Ex. 3||
     document.getElementById("quoteBtn").style.animation = "unset";
   }, 700)
-}
-
-//Simulates mobile events for PC users
-function buttonClick() {
-  buttonPress();
-  setTimeout(function () {
-    buttonRelease();
-  }, 700);
 }
 
 function grabAQuote() {
