@@ -8,7 +8,7 @@ window.onload = function () {
   //animation end would work. 
   // -------------------------------------------------------------JS Events - Animation & Transition Events Ex. 1||
   document.getElementById("quoteBtn").addEventListener("animationend", newSlide);
-  document.getElementById("quoteBtn").addEventListener("animationend", grabAQuote);
+  document.getElementById("quoteBtn").addEventListener("transitionend", grabAQuote);
 
   //Simulates mobile events for PC users
   // -------------------------------------------------------------JS Events - Standard Events Ex. 1||
@@ -58,7 +58,7 @@ function buttonClick() {
 function grabAQuote() {
 
   // time the quote change while the slide is off screen
-  setTimeout(function () {
+  //setTimeout(function () {
 
     //clear text area
     removeQuote();
@@ -92,7 +92,7 @@ function grabAQuote() {
     // -------------------------------------------------------------AJAX - Request JSON Ex. 2||
     xhttp.open("GET", "quotes.json", true);
     xhttp.send();
-  }, 1020); //timeout timing in ms
+  //}, 1020); //timeout timing in ms
 }
 
 //get a random number for our quote key
