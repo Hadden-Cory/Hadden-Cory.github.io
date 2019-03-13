@@ -23,7 +23,7 @@ function newSlide() {
   setTimeout(function () {
     // ------------------------------------------------------------- CSS3 Using JS  - ClassList Ex. 2||
     document.getElementById("displayArea").classList.toggle("newSlide");
-  }, 1300);
+  }, 1000);
 }
 
 //Lanuches button press down animation
@@ -85,7 +85,7 @@ function grabAQuote() {
     // -------------------------------------------------------------AJAX - Request JSON Ex. 2||
     xhttp.open("GET", "quotes.json", true);
     xhttp.send();
-  }, 1020); //timeout timing in ms
+  }, 1000); //timeout timing in ms
 }
 
 //get a random number for our quote key
@@ -94,7 +94,7 @@ function randomNumber() {
   let num = (Math.floor(Math.random() * 3000));
 
   //the number right after the % represents the number of slides
-  let num1 = (Math.floor(Math.random() * num) % 10);
+  let num1 = (Math.floor(Math.random() * num) % 20);
   return num1 + 1;
 }
 
