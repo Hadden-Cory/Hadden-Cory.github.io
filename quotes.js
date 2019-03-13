@@ -19,7 +19,7 @@ function grabAQuote(){
       quoteNode = document.createElement("H1");
       quoteNode1 = document.createElement("H4");
       let text = document.createTextNode(quote.text)
-      let author = document.createTextNode("\n-"+quote.author);
+      let author = document.createTextNode(quote.author);
       quoteNode.appendChild(text);
       quoteNode1.appendChild(author);
       document.getElementById("displayArea").appendChild(quoteNode);
