@@ -1,5 +1,5 @@
-let quoteBtn = document.getElementById("quoteBtn");
-quoteBtn.addEventListener("touch", buttonPress);
+//document.getElementById("quoteBtn").ontouchstart = buttonPress;
+document.getElementById("quoteBtn").onclick = grabAQuote;
 
 function buttonPress(){
   console.log("buttonPress");
