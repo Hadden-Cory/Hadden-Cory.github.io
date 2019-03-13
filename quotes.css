@@ -6,7 +6,6 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-
 #container {
     background-color: rgb(0, 0, 0);
     height: 100%;
@@ -66,7 +65,7 @@ body {
     transition: 1000ms;
 }
 
-.newSlide{
+.newSlide {
     transition: 1000ms;
     transform: translateX(-130%);
 }
@@ -91,26 +90,25 @@ h1 {
     font-size: x-large;
 }
 
-.quoteButtonRelaesed
-{
+.quoteButtonRelaesed {
     animation: buttonRelease 700ms;
     animation-timing-function: linear;
 }
 
-@keyframes buttonRelease{
+@keyframes buttonRelease {
     0% {
-    transform: scale(.7);
-}
-60% {
-    transform: scale(1.2);
-}
-80% {
-    transform: scale(0.8);
-}
-90% {
-    transform: scale(1.05);
-}
-100% {
-    transform:  scale(1);
-}
+        transform: scale(.7);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    80% {
+        transform: scale(0.8);
+    }
+    90% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }

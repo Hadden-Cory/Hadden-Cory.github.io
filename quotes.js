@@ -1,6 +1,6 @@
 //Load page before listening to inputs
 window.onload = function () {
-// -------------------------------------------------------------JS Events - Mobile Events Ex. 1||
+  // -------------------------------------------------------------JS Events - Mobile Events Ex. 1||
   document.getElementById("quoteBtn").ontouchstart = buttonPress;
   document.getElementById("quoteBtn").ontouchend = buttonRelease;
 
