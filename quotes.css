@@ -63,6 +63,12 @@ body {
     top: 20%;
     left: 20%;
     padding-top: 6%;
+    transition: 1000ms;
+}
+
+.newSlide{
+    transition: 1000ms;
+    transform: translateX(-130%);
 }
 
 h1 {

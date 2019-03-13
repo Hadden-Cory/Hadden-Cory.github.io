@@ -1,10 +1,15 @@
 window.onload = function(){ 
   document.getElementById("quoteBtn").ontouchstart = buttonPress;
   document.getElementById("quoteBtn").ontouchend = buttonRelease;
-  document.getElementById("quoteBtn").onanimationend = grabAQuote;
-  document.getElementById("quoteBtn").onclick = grabAQuote;
+  document.getElementById("quoteBtn").addEventListener("animationend", newSlide);
+  document.getElementById("quoteBtn").addEventListener("animationend", grabAQuote);
+  //document.getElementById("quoteBtn").onclick = grabAQuote;
 };
 
+function newSlide (){
+  document.getElementById("displayArea").classList.toggle("newSlide");
+  setTimeout(function(){document.getElementById("displayArea").classList.toggle("newSlide");},1300);
+}
 
 function buttonPress(){
  document.getElementById("quoteBtn").classList.toggle("quoteButtonPressed");
@@ -21,6 +26,8 @@ function buttonRelease(){
  
 
 function grabAQuote(){
+
+setTimeout( function(){
  removeQuote();
  let num = randomNumber();
  let quote = "quote"+num;
@@ -43,6 +50,7 @@ function grabAQuote(){
   };  
   xhttp.open("GET", "quotes.json", true);
   xhttp.send();
+}, 1020);
 }
 
 function randomNumber() {
