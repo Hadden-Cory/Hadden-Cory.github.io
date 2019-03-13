@@ -75,10 +75,11 @@ h1 {
     width: 25%;
     height: 10%;
     font-size: x-large;
+    background-color: #eeeeee;
 }
 
 .quoteButtonPressed {
-    transition: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    transition-duration: 700ms;
     position: relative;
     transform: scale(0.7);
     font-size: x-large;
@@ -96,13 +97,13 @@ h1 {
     transform: scale(.7);
 }
 60% {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 80% {
     transform: scale(0.8);
 }
 90% {
-    transform: scale(1.15);
+    transform: scale(1.05);
 }
 100% {
     transform:  scale(1);

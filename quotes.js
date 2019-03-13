@@ -1,9 +1,24 @@
-//document.getElementById("quoteBtn").ontouchstart = buttonPress;
-document.getElementById("quoteBtn").onclick = grabAQuote;
+window.onload = function(){ 
+  document.getElementById("quoteBtn").ontouchstart = buttonPress;
+  document.getElementById("quoteBtn").ontouchend = buttonRelease;
+  document.getElementById("quoteBtn").onanimationend = grabAQuote;
+  document.getElementById("quoteBtn").onclick = grabAQuote;
+};
+
 
 function buttonPress(){
-  console.log("buttonPress");
+ document.getElementById("quoteBtn").classList.toggle("quoteButtonPressed");
+ document.getElementById("quoteBtn").style.backgroundColor = "#ffdddd";
+
 }
+
+function buttonRelease(){
+  document.getElementById("quoteBtn").style.backgroundColor = "#eeeeee";
+  document.getElementById("quoteBtn").classList.toggle("quoteButtonPressed");
+  document.getElementById("quoteBtn").style.animation = "buttonRelease 700ms";
+  setTimeout( function() {document.getElementById("quoteBtn").style.animation = "unset";}, 700)
+ }
+ 
 
 function grabAQuote(){
  removeQuote();
