@@ -3,7 +3,7 @@ window.onload = function(){
   document.getElementById("quoteBtn").ontouchend = buttonRelease;
   document.getElementById("quoteBtn").addEventListener("animationend", newSlide);
   document.getElementById("quoteBtn").addEventListener("animationend", grabAQuote);
-  //document.getElementById("quoteBtn").onclick = grabAQuote;
+  document.getElementById("quoteBtn").onclick = buttonClick;
 };
 
 function newSlide (){
@@ -24,9 +24,15 @@ function buttonRelease(){
   setTimeout( function() {document.getElementById("quoteBtn").style.animation = "unset";}, 700)
  }
  
+function buttonClick (){
+buttonPress();
+setTimeout(function(){buttonRelease();}, 700);
+setTimeout(function(){newSlide();}, 700);
+setTimeout(function(){grabAQuote();}, 1000);
+}
+
 
 function grabAQuote(){
-
 setTimeout( function(){
  removeQuote();
  let num = randomNumber();
