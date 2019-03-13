@@ -94,7 +94,7 @@ function randomNumber() {
   let num = (Math.floor(Math.random() * 3000));
 
   //the number right after the % represents the number of slides
-  let num1 = (Math.floor(Math.random() * num) % 20);
+  let num1 = (Math.floor(Math.random() * num) % 10);
   return num1 + 1;
 }
 
