@@ -8,7 +8,7 @@ window.onload = function () {
   //animation end would work. 
   // -------------------------------------------------------------JS Events - Animation & Transition Events Ex. 1||
   document.getElementById("quoteBtn").addEventListener("animationend", newSlide);
-  document.getElementById("quoteBtn").addEventListener("transitionend", grabAQuote);
+  document.getElementById("quoteBtn").addEventListener("animationend", grabAQuote);
 
   //Simulates mobile events for PC users
   // -------------------------------------------------------------JS Events - Standard Events Ex. 1||
