@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Smile.com</title>
+  <link rel="stylesheet" type="text/css" href="smile.css">
+  <script src="smile.js"></script>
+</head>
+
+<body>
+  <div>
+      <video id="videoContainer" width="10%" controls preload="auto" autoplay loop>
+        <source src="smile.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <!-- <iframe src="Cory's Music.mp3" allow="autoplay" id="audio"></iframe> -->
+ 
+  </div>
+  <div id="secondaryContainment">
+    <div class="mainArea">
+      <div id="heading">
+        
+          <div id="logo">
+            <a href="index.html">back</a>
+            <h1>Smile.com</h1>   <br><audio controls preload="auto" autoplay loop>
+      <source src="Cory's Music.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+          </div>
+    
+      </div>
+      <div id="drawing">
+        <!---------------------------------------------------------------Canvas Tag-->
+        <canvas id="smileyFace" width="700" height="300"></canvas>
+        <ul>
+          <li><a class="active" onclick="smileyFaceDraw('classicSmile')" href="#smile1">Classic Smile</a></li>
+          <li><a class="active" onclick="smileyFaceDraw('threeDSmile')" href="#smile1">3D Smile</a></li>
+          <li><a class="active" onclick="smileyFaceDraw('transparentSmile')" href="#smile1">Empty Smile</a></li>
+          <li><a class="active" onclick="smileyFaceDraw('sidewaysSmile')" href="#smile1">Sideways Smile</a></li>
+          <li><a class="active" onclick="smileyFaceDraw('laughingSmile')" href="#smile1">Lauging Smile</a></li>
+          <li><a class="active" onclick="smileyFaceDraw('greenSmile')" href="#smile1">Green Smile</a></li>
+          <li><a class="active" onclick="cgiFace()" href="#smile1">CGI Smile</a></li>
+
+        </ul>
+        <br>
+        <!--------------------------------------------------------------Events-->
+        <button id="btn_vent" ontouchstart, onclick="clearCanvas()">
+          <h2 id="btn_vent_text">Clear</h2>
+        </button>
+      </div>
+    </div>
+    <div id="imageLoader" class="collasped">
+      <img id="threeDSmile" src="smiles/smile_1.png" alt="smile" height="50" width="50">
+      <img id="transparentSmile" src="smiles/smile_2.png" alt="smile" height="50" width="50">
+      <img id="sidewaysSmile" src="smiles/smile_3.png" alt="smile" height="50" width="50">
+      <img id="classicSmile" src="smiles/smile_4.png" alt="smile" height="50" width="50">
+      <img id="greenSmile" src="smiles/smile_5.png" alt="smile" height="50" width="50">
+      <img id="laughingSmile" src="smiles/smile_6.png" alt="smile" height="50" width="50">
+    </div>
+
+</body>
+
+</html>
