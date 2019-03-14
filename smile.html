@@ -6,27 +6,28 @@
   <link rel="stylesheet" type="text/css" href="smile.css">
   <script src="smile.js"></script>
 </head>
-
 <body>
   <div id="secondaryContainment">
     <div class="mainArea">
       <div id="heading">
-        
-          <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
-          <div id="logo">
-              <!-- Chrome doesn't Allow Autoplay: https://venturebeat.com/2017/09/14/chrome-will-no-longer-autoplay-content-with-sound-in-january-2018/ -->
-              <video id="videoContainer" width="90%" controls preload="auto" autoplay loop>
-                  <source src="smile.mp4" type="video/mp4">
-                  Your browser does not support HTML5 video.
-              </video>
-            <a href="index.html">back</a>
-            <h1>Smile.com</h1>   
-            <br><audio controls preload="auto" autoplay loop>
-      <source src="Cory's Music.mp3" type="audio/mp3">
-      Your browser does not support the audio element.
-    </audio>
-          </div>
-    
+        <!-- Chrome doesn't Allow Autoplay: https://venturebeat.com/2017/09/14/chrome-will-no-longer-autoplay-content-with-sound-in-january-2018/ -->
+        <!--This is a simple bodge someone on stacked overflow figured out to overide chromes preferences-->
+        <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+        <div id="logo">
+          <!---------------------------------------------------------------Video Tag-->
+          <video id="videoContainer" width="90%" controls preload="auto" autoplay loop>
+            <source src="smile.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+          <a href="index.html">back</a>
+          <h1>Smile.com</h1>
+          <!---------------------------------------------------------------Audio Tag-->
+          <br><audio controls preload="auto" autoplay loop>
+            <source src="Cory's Music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
       </div>
       <div id="drawing">
         <!---------------------------------------------------------------Canvas Tag-->
@@ -42,13 +43,13 @@
 
         </ul>
         <br>
-        <!--------------------------------------------------------------Events-->
         <button id="btn_vent" ontouchstart, onclick="clearCanvas()">
           <h2 id="btn_vent_text">Clear</h2>
         </button>
       </div>
     </div>
     <div id="imageLoader" class="collasped">
+      <!-----------------------------------------------------------------Image Tags-->
       <img id="threeDSmile" src="smiles/smile_1.png" alt="smile" height="50" width="50">
       <img id="transparentSmile" src="smiles/smile_2.png" alt="smile" height="50" width="50">
       <img id="sidewaysSmile" src="smiles/smile_3.png" alt="smile" height="50" width="50">
