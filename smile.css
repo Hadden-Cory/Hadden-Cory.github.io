@@ -63,8 +63,8 @@ video{
 }
 
 audio {
-    width: 300px;
-    height: 54px;
+    left: 389%;
+    TOP: 20%;
 }
 #heading {
     background: #fff9a6;
@@ -80,8 +80,8 @@ body {
 audio {
     float: left;
     position: absolute;
-    left: 216%;
-    TOP: -8%;
+    left: 387%;
+    TOP: 20%;
 }
 
 #smileyFace{
@@ -173,9 +173,10 @@ li a:hover {
 }
 
 #videoContainer{
-    left: 48.3%;
-    top: 12%;
-    float:left;
+    left: 203.3%;
+    top: 0%;
+    position: absolute;
+    float: left;
 }
 
 img{
