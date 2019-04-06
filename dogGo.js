@@ -19,7 +19,6 @@ function setContent() {
 
     console.log("HashChangeEvent Registared");
 
-    let displayArea = document.getElementById("content");
     let route = location.hash;
 
     if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
@@ -34,6 +33,8 @@ function setContent() {
 
 function insertContent(content){
     console.log("inserting new content");
+    
+    let displayArea = document.getElementById("content");
     displayArea.innerHTML = content;
 }
 
