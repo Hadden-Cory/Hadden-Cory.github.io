@@ -31,6 +31,7 @@ function setContent() {
 
     }else {
         console.log("Hash unidentified. AJAX not called")
+        document.getElementById("content").innerHTML = "Oops! Content Not Found";
     }
 }
 
