@@ -45,8 +45,8 @@ function displayContent(site, callback){
     let ajaxUrl = site + '.html'; 
     console.log(ajaxUrl);
 
-        xhttp.open("GET", ajaxUrl, true);
-        xhttp.send();
+        xhttp.open("GET", ajaxUrl);
+        xhttp.send(null);
     }
 
 
