@@ -33,9 +33,7 @@ function setContent() {
 
 function insertContent(content){
     console.log("inserting new content");
-    
-    let displayArea = document.getElementById("content");
-    displayArea.innerHTML = content;
+    document.getElementById("content").innerHTML = content;
 }
 
 function displayContent(site, callback){
