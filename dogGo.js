@@ -22,7 +22,7 @@ function setContent() {
     let displayArea = document.getElementById("content");
     let route = location.hash;
 
-    if (route == "#cart") {
+    if (route == "#dogGo_Cart") {
 
         console.log("Hash identified as '#cart'. Initiating AJAX")
         displayContent(location.hash, function (content){
