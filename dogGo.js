@@ -1,19 +1,51 @@
 //Our API: https://random.dog/woof.json'
-window.addEventListener('hashchange', function(){
+
+window.addEventListener('load', function () {
+    
+    console.log('window loaded')
+    
+    if (!location.hash) {
+        console.log('unset location hash. Hash defaulted to #dogGo');
+        location.hash = "#dogGo";
+    }
+
+    setContent();
+
+}, false);
+
+window.addEventListener('hashchange', setContent, false);
+
+function setContent() {
+
     console.log("HashChangeEvent Registared");
 
     let displayArea = document.getElementById("content");
     let route = location.hash;
 
-    if (route == "#cart"){
-        displayArea.innerHTML = "cart view";
-    } else {
-        displayArea.innerHTML = "unknow view";
-    }
-}, false);
+    if (route == "#cart") {
 
-class Dog{
-    constructor(name, date, price, description, bidCeiling){
+        console.log("Hash identified as '#cart'. Initiating AJAX")
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let fragment = this.responseText;
+
+                document.getElementById("content").innerHTML = fragment;
+            };
+            xhttp.open("GET", "cart.html", true);
+            xhttp.send();
+        }
+    } else {
+        console.log("Hash unidentified. AJAX not called")
+        displayArea.innerHTML = location.hash;
+    }
+}
+
+
+
+class Dog {
+    constructor(name, date, price, description, bidCeiling) {
         this.name = name;
         this.date = date;
         this.price = price;
@@ -22,13 +54,13 @@ class Dog{
         this.bidCeiling = bidCeiling;
     }
 
-    bid(){
+    bid() {
         this.price = this.price + 5;
         setHighestBidder();
     }
 
-    setHighestBidder(){
-        if (this.price > this.bidCeiling){
+    setHighestBidder() {
+        if (this.price > this.bidCeiling) {
             this.highestBidder = "current User";
         } else {
             this.price = this.price + 5;
@@ -36,9 +68,3 @@ class Dog{
         }
     }
 }
-
-function alertMe(){
-    alert("connected");
-}
-
-
