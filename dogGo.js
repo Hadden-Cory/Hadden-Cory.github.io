@@ -11,9 +11,6 @@ window.addEventListener('hashchange', function(){
         displayArea.innerHTML = "unknow view";
     }
 }, false);
- window.addEventListener("load", function(){
-     alert("hey");
- }, false);
 
 class Dog{
     constructor(name, date, price, description, bidCeiling){
@@ -39,4 +36,9 @@ class Dog{
         }
     }
 }
+
+function alertMe(){
+    alert("connected");
+}
+
 
