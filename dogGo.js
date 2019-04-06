@@ -1,5 +1,19 @@
-//Our API: https://random.dog/woof.json
+//Our API: https://random.dog/woof.json'
+window.addEventListener('hashchange', function(){
+    console.log("HashChangeEvent Registared");
 
+    let displayArea = document.getElementById("content");
+    let route = location.hash;
+
+    if (route == "#cart"){
+        displayArea.innerHTML = "cart view";
+    } else {
+        displayArea.innerHTML = "unknow view";
+    }
+}, false);
+ window.addEventListener("load", function(){
+     alert("hey");
+ }, false);
 
 class Dog{
     constructor(name, date, price, description, bidCeiling){
