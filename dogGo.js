@@ -25,21 +25,26 @@ function setContent() {
     if (route == "#cart") {
 
         console.log("Hash identified as '#cart'. Initiating AJAX")
-        displayContent(location.hash,displayContent)
+        displayContent(location.hash, function (content){
+            console.log("inserting new content");
+            displayArea.innerHTML = content;
+        })
 
     } else {
         console.log("Hash unidentified. AJAX not called")
         displayArea.innerHTML = location.hash;
     }
+
+
 }
 
 function displayContent(site, callback){
     
     let xhttp = new XMLHttpRequest();
     
-    xhttp.onload = function(){
+    xhttp.addEventListener("load", function(){
         callback(xhttp.responseText);
-    };
+    }, false);
 
     site = site.substr(1);
     let ajaxUrl = site + '.html'; 
