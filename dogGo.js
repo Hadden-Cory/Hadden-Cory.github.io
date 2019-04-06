@@ -24,7 +24,7 @@ function setContent() {
 
     if (route == "#dogGo_Cart") {
 
-        console.log("Hash identified as '#cart'. Initiating AJAX")
+        console.log("Hash identified as '#dogGo_Cart'. Initiating AJAX")
         displayContent(location.hash, function (content){
             console.log("inserting new content");
             displayArea.innerHTML = content;
