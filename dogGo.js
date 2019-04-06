@@ -25,23 +25,29 @@ function setContent() {
     if (route == "#cart") {
 
         console.log("Hash identified as '#cart'. Initiating AJAX")
+        displayContent(location.hash,displayContent)
 
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                let fragment = this.responseText;
-
-                document.getElementById("content").innerHTML = fragment;
-            };
-            xhttp.open("GET", "cart.html", true);
-            xhttp.send();
-        }
     } else {
         console.log("Hash unidentified. AJAX not called")
         displayArea.innerHTML = location.hash;
     }
 }
 
+function displayContent(site, callback){
+    
+    let xhttp = new XMLHttpRequest();
+    
+    xhttp.onload = function(){
+        callback(xhttp.responseText);
+    };
+
+    site = site.substr(1);
+    let ajaxUrl = site + '.html'; 
+    console.log(ajaxUrl);
+
+        xhttp.open("GET", ajaxUrl, true);
+        xhttp.send();
+    }
 
 
 class Dog {
