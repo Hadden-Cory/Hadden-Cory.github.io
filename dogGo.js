@@ -24,16 +24,14 @@ function setContent() {
     if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
         console.log("Hash identified as"+location.hash+". Initiating AJAX")
-        displayContent(location.hash, insertContent(content));
+        displayContent(location.hash, function(content){
+            console.log("inserting new content");
+            document.getElementById("content").innerHTML = content;
+        });
 
     }else {
         console.log("Hash unidentified. AJAX not called")
     }
-}
-
-function insertContent(content){
-    console.log("inserting new content");
-    document.getElementById("content").innerHTML = content;
 }
 
 function displayContent(site, callback){
