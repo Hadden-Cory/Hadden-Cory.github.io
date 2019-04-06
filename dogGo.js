@@ -25,10 +25,7 @@ function setContent() {
     if (route == "#dogGo_Cart") {
 
         console.log("Hash identified as '#dogGo_Cart'. Initiating AJAX")
-        displayContent(location.hash, function (content){
-            console.log("inserting new content");
-            displayArea.innerHTML = content;
-        })
+        displayContent(location.hash, insertContent(content));
 
     } else {
         console.log("Hash unidentified. AJAX not called")
@@ -36,6 +33,11 @@ function setContent() {
     }
 
 
+}
+
+function insertContent(content){
+    console.log("inserting new content");
+    displayArea.innerHTML = content;
 }
 
 function displayContent(site, callback){
