@@ -6,7 +6,7 @@ window.addEventListener('load', function () {
     
     if (!location.hash) {
         console.log('unset location hash. Hash defaulted to #dogGo');
-        location.hash = "#dogGo";
+        location.hash = "#dogGo_List";
     }
 
     setContent();
@@ -22,17 +22,14 @@ function setContent() {
     let displayArea = document.getElementById("content");
     let route = location.hash;
 
-    if (route == "#dogGo_Cart") {
+    if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
-        console.log("Hash identified as '#dogGo_Cart'. Initiating AJAX")
+        console.log("Hash identified as"+location.hash+". Initiating AJAX")
         displayContent(location.hash, insertContent(content));
 
-    } else {
+    }else {
         console.log("Hash unidentified. AJAX not called")
-        displayArea.innerHTML = location.hash;
     }
-
-
 }
 
 function insertContent(content){
