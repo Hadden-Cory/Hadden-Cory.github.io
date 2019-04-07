@@ -109,6 +109,6 @@ console.log('entered random description')
         var num = (Math.floor(Math.random() * 400) % 7)
         num = "description"+num;
 
-        console.log(descriptions[3]);
+        console.log(descriptions[num]);
         return descriptions[num];
     }
