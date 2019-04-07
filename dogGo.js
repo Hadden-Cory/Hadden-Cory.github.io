@@ -104,7 +104,7 @@ function randomDescription() {
       var num = (Math.floor(Math.random() * 400) % 7)
       num = "description" + num;
       console.log(num);
-      console.log(descriptions['description3']);
+      console.log(descriptions[num]);
       description = descriptions[num];
       
     }
