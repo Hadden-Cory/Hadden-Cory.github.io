@@ -1,27 +1,27 @@
 //Our API: https://random.dog/woof.json'
 
-let descriptBank = {
-    "description1": "This one's a killer, great guard dog!",
-    "description2": "Great with kids, no shedding.",
-    "description3": "Loves other dogs, very good compainion.",
-    "description4": "Smart work dog, used to heard sheep.",
-    "description5": "Originally owned by the queen.",
-    "description6": "National Dog show winning.",
-    "description7": "Eats bad guys.",
-    "description8": "Best accessory for this summer!",
-    "description9": "Can't keep him, he has a licker problem.",
-    "description10": "Once killed three bears with his death glare.",
-    "description11": "Cute, Energetic, Potty Trained",
-    "description12": "Runs half marathons with me.",
-    "description13": "Was my favorite sled dog till it broke a toenail",
-    "description14": "Retired K-9 Unit Dog",
-    "description15": "Good family dog, really well behaved",
-    "description16": "Lap dog for single elderly owner.",
-    "description17": "Not your average hound! *winky face*",
-    "description18": "Great bird dog!",
-    "description19": "You love me!- This Dog",
-    "description20": "Speaks fluent French and Italian."
-}
+let descriptBank = [
+    "This one's a killer, great guard dog", 
+    "Great with kids, no shedding.", 
+    "Loves other dogs, very good compainion.",
+    "Smart work dog, used to heard sheep.",
+    "Originally owned by the queen.",
+    "National Dog show winning.",
+    "Eats bad guys.",
+    "Best accessory for this summer!",
+    "Can't keep him, he has a licker problem.",
+    "Once killed three bears with his death glare.",
+    "Cute, Energetic, Potty Trained",
+    "Runs half marathons with me.",
+    "Was my favorite sled dog till it broke a toenail",
+    "Retired K-9 Unit Dog",
+    "Good family dog, really well behaved",
+    "Lap dog for single elderly owner.",
+    "Not your average hound! *winky face*",
+    "Great bird dog!",
+    "You love me!- This Dog",
+    "Speaks fluent French and Italian."
+]
 
 window.addEventListener('load', function() {
 
