@@ -1,16 +1,16 @@
 //Our API: https://random.dog/woof.json'
 
-window.addEventListener('load', function () {
+window.addEventListener('load', function() {
 
-    console.log('window loaded')
+  console.log('window loaded')
 
-    if (!location.hash) {
-        console.log('unset location hash. Hash defaulted to #dogGo');
-        location.hash = "#dogGo_List";
-    }
+  if (!location.hash) {
+    console.log('unset location hash. Hash defaulted to #dogGo');
+    location.hash = "#dogGo_List";
+  }
 
-    randomDescription();
-    setContent();
+  randomDescription();
+  setContent();
 
 }, false);
 
@@ -18,95 +18,97 @@ window.addEventListener('hashchange', setContent, false);
 
 function setContent() {
 
-    console.log("HashChangeEvent Registared");
+  console.log("HashChangeEvent Registared");
 
-    let route = location.hash;
+  let route = location.hash;
 
-    if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
+  if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
-        console.log("Hash identified as " + location.hash + ". Initiating AJAX")
-        displayContent(location.hash, function (content) {
-            console.log("inserting new content");
-            document.getElementById("content").innerHTML = content;
-        });
+    console.log("Hash identified as " + location.hash + ". Initiating AJAX")
+    displayContent(location.hash, function(content) {
+      console.log("inserting new content");
+      document.getElementById("content").innerHTML = content;
+    });
 
-    } else {
-        console.log("Hash unidentified. AJAX not called")
-        document.getElementById("content").innerHTML = "Oops! Content Not Found";
-    }
+  } else {
+    console.log("Hash unidentified. AJAX not called")
+    document.getElementById("content").innerHTML = "Oops! Content Not Found";
+  }
 }
 
 function displayContent(site, callback) {
 
-    let xhttp = new XMLHttpRequest();
+  let xhttp = new XMLHttpRequest();
 
-    xhttp.addEventListener("load", function () {
-        callback(xhttp.responseText);
-    }, false);
+  xhttp.addEventListener("load", function() {
+    callback(xhttp.responseText);
+  }, false);
 
-    site = site.substr(1);
-    let ajaxUrl = site + '.html';
-    console.log(ajaxUrl);
+  site = site.substr(1);
+  let ajaxUrl = site + '.html';
+  console.log(ajaxUrl);
 
-    xhttp.open("GET", ajaxUrl);
-    xhttp.send(null);
+  xhttp.open("GET", ajaxUrl);
+  xhttp.send(null);
 }
 
 
 class Dog {
-    constructor(name, description, bidCeiling) {
-        this.name = name;
-        this.date = randomDate();
-        this.price = randomPrice();
-        this.description = description;
-        this.highestBidder = "computer";
-        this.bidCeiling = bidCeiling;
-    }
+  constructor(name, description, bidCeiling) {
+    this.name = name;
+    this.date = randomDate();
+    this.price = randomPrice();
+    this.description = description;
+    this.highestBidder = "computer";
+    this.bidCeiling = bidCeiling;
+  }
 
-    bid() {
-        this.price = this.price + 5;
-        setHighestBidder();
-    }
+  bid() {
+    this.price = this.price + 5;
+    setHighestBidder();
+  }
 
-    setHighestBidder() {
-        if (this.price > this.bidCeiling) {
-            this.highestBidder = "current User";
-        } else {
-            this.price = this.price + 5;
-            this.highestBidder = "computer";
-        }
+  setHighestBidder() {
+    if (this.price > this.bidCeiling) {
+      this.highestBidder = "current User";
+    } else {
+      this.price = this.price + 5;
+      this.highestBidder = "computer";
     }
+  }
 }
 
 function randomDate() {
-    var num = (Math.floor(Math.random() * 400) % 7) + 1;
-    let rndDate = new Date();
-    let newDate = rndDate.getDate() + num;
-    rndDate.setDate(newDate);
-    console.log('randomDate() returned ' + rndDate);
-    return rndDate;
+  var num = (Math.floor(Math.random() * 400) % 7) + 1;
+  let rndDate = new Date();
+  let newDate = rndDate.getDate() + num;
+  rndDate.setDate(newDate);
+  console.log('randomDate() returned ' + rndDate);
+  return rndDate;
 }
 
 function randomPrice() {
-    var num = ((Math.floor(Math.random() * 1400 % 10) * 100) + 300);
-    console.log(num);
+  var num = ((Math.floor(Math.random() * 1400 % 10) * 100) + 300);
+  console.log(num);
 }
 
 function randomDescription() {
-console.log('entered random description')
-    let xhttp = new XMLHttpRequest();
-    let descriptions = [];
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            descriptions = JSON.parse(this.responseText);
-            console.log(descriptions);
-        }};
-        xhttp.open("GET", "descriptions.json", true);
-        xhttp.send();
+  console.log('entered random description')
+  let xhttp = new XMLHttpRequest();
+  let descriptions = [];
+  xhttp.onreadystatechange = function() {
 
-        var num = (Math.floor(Math.random() * 400) % 7)
-        num = "description"+num;
-
-        console.log(descriptions[num]);
-        return descriptions[num];
+    if (this.readyState == 4 && this.status == 200) {
+      descriptions = JSON.parse(this.responseText);
     }
+  };
+
+  xhttp.open("GET", "descriptions.json", true);
+  xhttp.send();
+
+  var num = (Math.floor(Math.random() * 400) % 7)
+  num = "description" + num;
+  console.log(num);
+  console.log(descriptions[num]);
+  return descriptions[num];
+}
