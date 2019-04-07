@@ -103,12 +103,11 @@ function randomDescription() {
         descriptions = JSON.parse(this.responseText);
       var num = (Math.floor(Math.random() * 400) % 20)
       num = "description" + num;
-      console.log(num);
       console.log(descriptions[num]);
       description = descriptions[num];
       
     }
-
+    console.log(description);
     return description;
   };
 
