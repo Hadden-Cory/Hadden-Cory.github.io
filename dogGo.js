@@ -91,12 +91,12 @@ function randomDate() {
 
 function randomPrice() {
   var num = ((Math.floor(Math.random() * 1400 % 10) * 100) + 300);
-  console.log(num);
+  console.log('randomPrice() returned '+num);
+  return num;
 }
 
 function randomDescription() {
   let xhttp = new XMLHttpRequest();
-  let description = "";
   xhttp.onreadystatechange = function() {
 
     if (this.readyState == 4 && this.status == 200) {
@@ -104,11 +104,9 @@ function randomDescription() {
         descriptions = JSON.parse(this.responseText);
       var num = ((Math.floor(Math.random() * 400) % 20)+1);
       num = "description" + num;
-      description = descriptions[num];
-      
+      console.log('randomDescription() returned '+ descriptions[num]);
+      return  descriptions[num];
     }
-    console.log('randomDescription() returned '+description);
-    return description;
   };
 
   xhttp.open("GET", "descriptions.json", true);
