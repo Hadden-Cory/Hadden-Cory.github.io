@@ -9,7 +9,6 @@ window.addEventListener('load', function() {
     location.hash = "#dogGo_List";
   }
 
-  randomDescription();
   setContent();
 
   let fido = new Dog("Fido");
@@ -105,7 +104,7 @@ function randomDescription() {
       var num = ((Math.floor(Math.random() * 400) % 20)+1);
       num = "description" + num;
       console.log('randomDescription() returned '+ descriptions[num]);
-      return  descriptions[num];
+      return descriptions[num];
     }
   };
 
