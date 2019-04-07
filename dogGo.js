@@ -106,10 +106,10 @@ function randomDescription() {
   xhttp.open("GET", "descriptions.json", true);
   xhttp.send();
 
-  console.log(descriptions["description3"]);
+  console.log(descriptions);
   var num = (Math.floor(Math.random() * 400) % 7)
   num = "description" + num;
   console.log(num);
-  console.log(descriptions[num]);
+  console.log(descriptions['description3']);
   return descriptions[num];
 }
