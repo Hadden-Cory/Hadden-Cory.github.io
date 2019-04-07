@@ -1,5 +1,5 @@
 //Our API: https://random.dog/woof.json'
-
+let descriptBank = require('description.json');
 window.addEventListener('load', function() {
 
   console.log('window loaded')
@@ -95,21 +95,26 @@ function randomPrice() {
 }
 
 function randomDescription() {
-  let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
+    
+    var num = ((Math.floor(Math.random() * 400) % 20)+1)
+    console.log(descriptBank[num]);
+    return descriptBank[num];
 
-    if (this.readyState == 4 && this.status == 200) {
-        let descriptions = [];
-        descriptions = JSON.parse(this.responseText);
-      var num = ((Math.floor(Math.random() * 400) % 20)+1);
-      num = "description" + num;
-      console.log('randomDescription() returned '+ descriptions[num]);
-      return descriptions[num];
-    }
-  };
+//   let xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function() {
 
-  xhttp.open("GET", "descriptions.json", true);
-  xhttp.send();
+//     if (this.readyState == 4 && this.status == 200) {
+//         let descriptions = [];
+//         descriptions = JSON.parse(this.responseText);
+//       var num = ((Math.floor(Math.random() * 400) % 20)+1);
+//       num = "description" + num;
+//       console.log('randomDescription() returned '+ descriptions[num]);
+//       return descriptions[num];
+//     }
+//   };
+
+//   xhttp.open("GET", "descriptions.json", true);
+//   xhttp.send();
 
 
   
