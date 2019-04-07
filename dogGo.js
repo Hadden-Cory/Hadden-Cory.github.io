@@ -93,7 +93,6 @@ function randomPrice() {
 }
 
 function randomDescription() {
-  console.log('entered random description')
   let xhttp = new XMLHttpRequest();
   let description = "";
   xhttp.onreadystatechange = function() {
@@ -103,11 +102,10 @@ function randomDescription() {
         descriptions = JSON.parse(this.responseText);
       var num = ((Math.floor(Math.random() * 400) % 20)+1);
       num = "description" + num;
-      console.log(descriptions[num]);
       description = descriptions[num];
       
     }
-    console.log(description);
+    console.log('randomDescription() returned '+description);
     return description;
   };
 
