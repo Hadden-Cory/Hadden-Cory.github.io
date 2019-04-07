@@ -100,7 +100,7 @@ function randomDescription() {
 
     if (this.readyState == 4 && this.status == 200) {
       descriptions = JSON.parse(this.responseText);
-      console.log('readyState ' +descriptions);
+      console.log('readyState ' +descriptions[3]);
     }
   };
 
