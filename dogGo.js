@@ -105,6 +105,7 @@ console.log('entered random description')
         xhttp.send();
 
         var num = (Math.floor(Math.random() * 400) % 7)
+        num = "description"+num;
 
         console.log(descriptions[num]);
         return descriptions[num];
