@@ -24,7 +24,7 @@ function setContent() {
 
     if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
-        console.log("Hash identified as" + location.hash + ". Initiating AJAX")
+        console.log("Hash identified as " + location.hash + ". Initiating AJAX")
         displayContent(location.hash, function (content) {
             console.log("inserting new content");
             document.getElementById("content").innerHTML = content;
@@ -94,11 +94,12 @@ function randomPrice() {
 
 function randomDescription() {
 console.log('entered random description')
-    var xhttp = new XMLHttpRequest();
+    let xhttp = new XMLHttpRequest();
+    let descriptions;
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log('in xhttp')
-            let descriptions = JSON.parse(this.responseText);
+            descriptions = JSON.parse(this.responseText);
         }};
         xhttp.open("GET", "descriptions.json", true);
         xhttp.send();
