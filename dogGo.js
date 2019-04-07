@@ -100,6 +100,7 @@ console.log('entered random description')
         if (this.readyState == 4 && this.status == 200) {
             console.log('in xhttp')
             descriptions = JSON.parse(this.responseText);
+            console.log(descriptions);
         }};
         xhttp.open("GET", "descriptions.json", true);
         xhttp.send();
