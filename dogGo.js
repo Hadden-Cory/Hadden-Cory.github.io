@@ -12,6 +12,8 @@ window.addEventListener('load', function() {
   randomDescription();
   setContent();
 
+  let fido = new Dog("Fido");
+  console.log(fido);
 }, false);
 
 window.addEventListener('hashchange', setContent, false);
@@ -54,13 +56,13 @@ function displayContent(site, callback) {
 
 
 class Dog {
-  constructor(name, description, bidCeiling) {
+  constructor(name) {
     this.name = name;
     this.date = randomDate();
     this.price = randomPrice();
-    this.description = description;
+    this.description = randomDescription();
     this.highestBidder = "computer";
-    this.bidCeiling = bidCeiling;
+    this.bidCeiling = (Math.floor(Math.random() * 1000 % 10) * 10) + this.price;
   }
 
   bid() {
