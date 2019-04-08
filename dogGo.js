@@ -124,7 +124,6 @@ window.addEventListener('load', function() {
     location.hash = "#dogGo_List";
   }
 
-  randomName();
   setContent();
 
   let fido = new Dog("Fido");
@@ -171,8 +170,8 @@ function displayContent(site, callback) {
 
 
 class Dog {
-  constructor(name) {
-    this.name = name;
+  constructor() {
+    this.name = randomName();
     this.date = randomDate();
     this.price = randomPrice();
     this.description = randomDescription();
@@ -234,5 +233,6 @@ function randomDescription() {
 }
 
 function randomName(){
-    namey.get(function(n) { console.log(n); });
+    name = namey.get(function(n) { return n });
+    return name;
 }
