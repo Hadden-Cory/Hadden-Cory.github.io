@@ -32,6 +32,7 @@ window.addEventListener('load', function() {
     location.hash = "#dogGo_List";
   }
 
+  randomName();
   setContent();
 
   let fido = new Dog("Fido");
@@ -138,7 +139,8 @@ function randomDescription() {
 
 //   xhttp.open("GET", "descriptions.json", true);
 //   xhttp.send();
+}
 
-
-  
+function randomName(){
+    namey.get(function(n) { console.log(n); });
 }
