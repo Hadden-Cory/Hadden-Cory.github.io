@@ -127,7 +127,7 @@ window.addEventListener('load', function() {
   setContent();
 
   let fido = new Dog("Fido");
-  fido.init();
+  initDog(fido);
   console.log(fido);
 }, false);
 
@@ -169,10 +169,9 @@ function displayContent(site, callback) {
   xhttp.send(null);
 }
 
-
 class Dog {
   constructor() {
-    this.name = "fido";
+    this.name = "unnamed";
     this.date = randomDate();
     this.price = randomPrice();
     this.description = randomDescription();
@@ -180,12 +179,8 @@ class Dog {
     this.bidCeiling = (Math.floor(Math.random() * 1000 % 10) * 10) + this.price;
 }
 
-  init(){
-        namey.get(function(n) { 
-        console.log(n[0]);
-        this.name = n[0];
-        console.log('Name is now ' + this.name);
-    });
+  setName(name){
+    this.name = name; 
   }
 
   bid() {
@@ -202,6 +197,16 @@ class Dog {
     }
   }
 }
+
+function initDog (dog){
+    namey.get(function(n) { 
+        console.log(n[0]);
+        dog.setName(n[0]);
+        console.log('Name init to ' + dog.name);
+        return dog;
+});
+}
+
 
 function randomDate() {
   var num = (Math.floor(Math.random() * 400) % 7) + 1;
