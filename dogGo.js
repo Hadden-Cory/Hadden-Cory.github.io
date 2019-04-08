@@ -171,15 +171,20 @@ function displayContent(site, callback) {
 
 class Dog {
   constructor() {
-    this.name = namey.get(function(n) { 
-        console.log(n[0]);
-        return n[0] + "505";
-    });
+    this.name = "fido";
     this.date = randomDate();
     this.price = randomPrice();
     this.description = randomDescription();
     this.highestBidder = "computer";
     this.bidCeiling = (Math.floor(Math.random() * 1000 % 10) * 10) + this.price;
+    setName();
+}
+
+  setName(){
+    this.name = namey.get(function(n) { 
+        console.log(n[0]);
+        return n[0] + "505";
+    });
   }
 
   bid() {
