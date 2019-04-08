@@ -238,6 +238,6 @@ function randomName(){
         console.log(n);
         name = n[0];
     });
-    console.log('randomPrice() returned '+name);
+    console.log('randomName() returned '+name);
     return name;
 }
