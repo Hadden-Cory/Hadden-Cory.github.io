@@ -236,7 +236,7 @@ function randomName(){
     let name = '';
     namey.get(function(n) { 
         console.log(n);
-        name = n;
+        name = n[0];
     });
     console.log('randomPrice() returned '+name);
     return name;
