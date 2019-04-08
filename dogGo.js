@@ -127,6 +127,7 @@ window.addEventListener('load', function() {
   setContent();
 
   let fido = new Dog("Fido");
+  fido.init();
   console.log(fido);
 }, false);
 
@@ -177,13 +178,13 @@ class Dog {
     this.description = randomDescription();
     this.highestBidder = "computer";
     this.bidCeiling = (Math.floor(Math.random() * 1000 % 10) * 10) + this.price;
-    this.setName();
 }
 
-  setName(){
-    this.name = namey.get(function(n) { 
+  init(){
+        namey.get(function(n) { 
         console.log(n[0]);
-        return n[0] + "505";
+        this.name = n[0];
+        console.log('Name is now ' + this.name);
     });
   }
 
