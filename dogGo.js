@@ -177,7 +177,7 @@ class Dog {
     this.description = randomDescription();
     this.highestBidder = "computer";
     this.bidCeiling = (Math.floor(Math.random() * 1000 % 10) * 10) + this.price;
-    setName();
+    this.setName();
 }
 
   setName(){
