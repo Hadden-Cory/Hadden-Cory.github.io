@@ -173,7 +173,7 @@ class Dog {
   constructor() {
     this.name = namey.get(function(n) { 
         console.log(n[0]);
-        return n[0];
+        return n[0] + "505";
     });
     this.date = randomDate();
     this.price = randomPrice();
