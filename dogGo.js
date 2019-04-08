@@ -233,8 +233,7 @@ function randomDescription() {
 }
 
 function randomName(){
-    let name = '';
-    namey.get(function(n) { 
+    let name = namey.get(function(n) { 
         console.log(n[0]);
         return n[0];
     });
