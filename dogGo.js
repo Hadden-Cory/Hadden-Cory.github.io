@@ -181,6 +181,7 @@ class Dog {
 
   setName(name){
     this.name = name; 
+    console.log('after init():' + this);
   }
 
   bid() {
