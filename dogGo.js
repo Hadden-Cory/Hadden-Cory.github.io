@@ -171,7 +171,10 @@ function displayContent(site, callback) {
 
 class Dog {
   constructor() {
-    this.name = randomName();
+    this.name = namey.get(function(n) { 
+        console.log(n[0]);
+        return n[0];
+    });
     this.date = randomDate();
     this.price = randomPrice();
     this.description = randomDescription();
@@ -236,8 +239,8 @@ function randomName(){
     let name = '';
     namey.get(function(n) { 
         console.log(n);
-        name = n[0];
+       return  name = n[0];
     });
     console.log('randomName() returned '+name);
-    return name;
+    
 }
