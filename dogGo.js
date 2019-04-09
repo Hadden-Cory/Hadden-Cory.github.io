@@ -255,10 +255,8 @@ class Dog {
   }
 }
 
-function fetchName(callback){
-    namey.get(function(n) { 
-        callback(n[0]);
-        console.log('in fetchName')
+async function fetchName(){
+    namey.get(function(n) {
         console.log(dog);
 });
 }
@@ -280,7 +278,7 @@ function fetchName(callback){
 // }
 
 function initDog(dog){
-    fetchName(dog.setname());
+   //fetchName(dog.setname());
    // fetchPicture(dog.setPicture(picture));
     console.log('after init():');
     console.log(dog);
