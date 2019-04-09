@@ -277,8 +277,8 @@ function fetchPicture(dog) {
 
         if (this.readyState == 4 && this.status == 200) {
             let pictureObj = JSON.parse(this.responseText);
-            let picture = pictureObj[0];
-            console.log(picture);
+            console.log('pictureObj:');
+            console.log(pictureObj);
             dog.setPicture(picture);
         }
     };
