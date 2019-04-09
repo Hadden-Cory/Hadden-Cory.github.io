@@ -329,7 +329,7 @@ function buildList(value, index, array) {
   let price = 'dog' + index + 'price';
   let picture = 'dog' + index + 'picture';
   console.log(date + ", " + price + ", " + picture)
-  document.getElementById(date).innerHTML = value.date;
-  document.getElementById(price).innerHTML = value.price;
+  document.getElementById(date).innerHTML = value.date.getDay() + ", " + value.date.getMonth()+" "+value.date.getDate();
+  document.getElementById(price).innerHTML = '$'+value.price;
   document.getElementById(picture).innerHTML = value.picture;
 }
