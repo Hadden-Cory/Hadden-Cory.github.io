@@ -175,16 +175,13 @@ window.addEventListener('load', function () {
 
     setContent();
 
-    let fido = new Dog();
-    console.log('creation');
-    console.log(fido);
-    initDog(fido, fetchName, fetchPicture);
-    console.log('final');
-    console.log(fido);
-    setTimeout(() => {
-        console.log('finalfinal');
-        console.log(fido);
-    }, 5000);
+    let fido0 = new Dog();
+    let fido1 = new Dog();
+    let fido2 = new Dog();
+    initDog(fido0, fetchName, fetchPicture);
+    initDog(fido1, fetchName, fetchPicture);
+    initDog(fido2, fetchName, fetchPicture);
+
 }, false);
 
 window.addEventListener('hashchange', setContent, false);
