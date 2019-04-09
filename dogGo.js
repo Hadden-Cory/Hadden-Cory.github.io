@@ -252,14 +252,14 @@ class Dog {
 
 
 
-function fetchName(dog){
+function fetchName(){
     namey.get(function(n) { 
-        dog.setName(n[0]);
-        return dog;
+        //dog.setName(n[0]);
+        return n[0];
 });
 }
 
-function fetchPicture(dog){
+function fetchPicture(){
 const url = 'https://random.dog/woof.json';
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -267,8 +267,7 @@ const url = 'https://random.dog/woof.json';
     if (this.readyState == 4 && this.status == 200) {
         let pictureObj = JSON.parse(this.responseText);
         let picture = pictureObj[0];
-        dog.setPicture(picture);
-        return dog;
+        return picture;
     }
   };
 
@@ -278,11 +277,10 @@ const url = 'https://random.dog/woof.json';
 
 function initDog(dog){
     console.log(dog);
-    console.log(257);
-    dog = fetchName(dog);
-    console.log(dog);
-    console.log(284);
-    dog = fetchPicture(dog);
+    let name = fetchName();
+    let picture = fetchPicture();
+    dog.setName(name);
+    dog.setPicture(picture);
     console.log('after init():');
     console.log(dog);
     return dog
