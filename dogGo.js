@@ -173,6 +173,8 @@ window.addEventListener('load', function() {
   setContent();
 
   let fido = new Dog();
+  console.log('creation');
+  console.log(fido);
   fido = initDog(fido);
 
 }, false);
@@ -256,6 +258,8 @@ class Dog {
 function fetchName(dog){
     namey.get(function(n) { 
         dog.setName(n[0]);
+        console.log('in fetchName')
+        console.log(dog);
 });
 }
 
