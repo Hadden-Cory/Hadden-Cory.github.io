@@ -253,6 +253,8 @@ class Dog {
 
 
 function fetchName(dog){
+    console.log(dog);
+    console.log(257);
     namey.get(function(n) { 
         dog.setName(n[0]);
         console.log(fetchPicture());
