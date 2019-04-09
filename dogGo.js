@@ -157,7 +157,7 @@ let descriptBank = [
     "Lap dog for single elderly owner.",
     "Not your average hound! *winky face*",
     "Great bird dog!",
-    "You love me!- This Dog",
+    "You'll love me!- This Dog",
     "Speaks fluent French and Italian."
 ]
 
@@ -176,6 +176,8 @@ window.addEventListener('load', function() {
   console.log('creation');
   console.log(fido);
   fido = initDog(fido);
+  console.log('final');
+  console.log(fido);
 
 }, false);
 
@@ -252,8 +254,6 @@ class Dog {
     }
   }
 }
-
-
 
 function fetchName(dog){
     namey.get(function(n) { 
