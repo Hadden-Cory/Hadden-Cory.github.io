@@ -175,10 +175,13 @@ window.addEventListener('load', function() {
   let fido = new Dog();
   console.log('creation');
   console.log(fido);
-  initDog(fido, fetchName);
+  initDog(fido, fetchName, fetchPicture);
   console.log('final');
   console.log(fido);
-
+setTimeout(() => {
+    console.log('finalfinal');
+    console.log(fido);
+}, 5000);
 }, false);
 
 window.addEventListener('hashchange', setContent, false);
@@ -265,27 +268,28 @@ async function fetchName(dog){
 });
 }
 
-// function fetchPicture(callback){
-// const url = 'https://random.dog/woof.json';
-//   let xhttp = new XMLHttpRequest();
-//   xhttp.onreadystatechange = function() {
+function fetchPicture(dog){
+const url = 'https://random.dog/woof.json';
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
 
-//     if (this.readyState == 4 && this.status == 200) {
-//         let pictureObj = JSON.parse(this.responseText);
-//         let picture = pictureObj[0];
-//         callback();
-//     }
-//   };
+    if (this.readyState == 4 && this.status == 200) {
+        let pictureObj = JSON.parse(this.responseText);
+        let picture = pictureObj[0];
+        dog.setPicture(picture);
+    }
+  };
 
-//   xhttp.open("GET", url, true);
-//   xhttp.send();
-// }
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
 
-function initDog(dog , callback){
+function initDog(dog , callback0, callback1){
    //fetchName(dog.setname());
    // fetchPicture(dog.setPicture(picture));
    dog.setName('james');
-   callback(dog);
+   callback0(dog);
+   callback1(dog);
     console.log('after init():');
     console.log(dog);
 }
