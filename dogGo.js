@@ -181,8 +181,6 @@ window.addEventListener('load', function () {
     initDog(fido0, fetchName, fetchPicture);
     initDog(fido1, fetchName, fetchPicture);
     initDog(fido2, fetchName, fetchPicture);
-
-
 }, false);
 
 window.addEventListener('hashchange', setContent, false);
@@ -243,8 +241,6 @@ class Dog {
 
     setPicture(url) {
         this.picture = url;
-        console.log('picture after init():');
-        console.log(this.picture);
     }
 
     bid() {
@@ -262,13 +258,9 @@ class Dog {
     }
 }
 
-async function fetchName(dog) {
+function fetchName(dog) {
     namey.get(function (n) {
-
-        dog.setName(n[0])
-        console.log("in fetchname");
-        console.log(dog);
-
+        dog.setName(n[0]);
     });
 }
 
@@ -279,24 +271,17 @@ function fetchPicture(dog) {
 
         if (this.readyState == 4 && this.status == 200) {
             let pictureObj = JSON.parse(this.responseText);
-            console.log('pictureObj:');
-            console.log(pictureObj);
             dog.setPicture(pictureObj['url']);
         }
     };
-
     xhttp.open("GET", url, true);
     xhttp.send();
 }
 
 function initDog(dog, callback0, callback1) {
-    //fetchName(dog.setname());
-    // fetchPicture(dog.setPicture(picture));
     dog.setName('Loading');
     callback0(dog);
     callback1(dog);
-    console.log('after init():');
-    console.log(dog);
     dogBank.push(dog);
     console.log(dogBank);
 }
