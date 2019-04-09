@@ -263,7 +263,7 @@ function fetchName(callback){
 });
 }
 
-function fetchPicture(callback(name)){
+function fetchPicture(callback){
 const url = 'https://random.dog/woof.json';
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
