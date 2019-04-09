@@ -13,6 +13,7 @@ body {
 .thumbnail {
     width: 55%;
     height: 30%;
+    border-radius: 60px;
     object-fit: cover;
 }
 
@@ -29,13 +30,21 @@ body {
 h1 {
     font-size: 5em;
     font-family: 'Raleway', sans-serif;
+    color: black;
 }
 
-h1 {
+h2 {
     font-size: 4.5em;
     font-family: 'Raleway', sans-serif;
     color: rgb(193, 110, 231)
 }
+
+h3 {
+    font-size: 4.5em;
+    font-family: 'Raleway', sans-serif;
+    color: rgb(29, 27, 31)
+}
+
 
 a {
     text-decoration: none;
