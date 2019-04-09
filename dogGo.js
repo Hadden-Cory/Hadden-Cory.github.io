@@ -249,8 +249,7 @@ class Dog {
 function fetchPicture(){
     const url = 'https://random.dog/woof.json';
     fetch(url)
-    .then(resp => resp.json)
-    ,then(function(data) {
+    .then(function(data) {
         let picture = data.results;
         return picture;
     });
