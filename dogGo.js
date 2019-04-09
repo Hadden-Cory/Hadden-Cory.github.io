@@ -255,9 +255,13 @@ class Dog {
   }
 }
 
-async function fetchName(){
+async function fetchName(dog){
     namey.get(function(n) {
+        
+        dog.setName(n[0]);
+        console.log("in fetchname");
         console.log(dog);
+
 });
 }
 
@@ -281,6 +285,7 @@ function initDog(dog){
    //fetchName(dog.setname());
    // fetchPicture(dog.setPicture(picture));
    dog.setName('james');
+   fetchName(dog);
     console.log('after init():');
     console.log(dog);
 }
