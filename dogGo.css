@@ -11,8 +11,8 @@ body {
 }
 
 .thumbnail {
-    width: 25%;
-    height: 80%;
+    width: 55%;
+    height: 30%;
     object-fit: cover;
 }
 
@@ -29,6 +29,12 @@ body {
 h1 {
     font-size: 5em;
     font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+    font-size: 4.5em;
+    font-family: 'Raleway', sans-serif;
+    color: rgb(193, 110, 231)
 }
 
 a {
