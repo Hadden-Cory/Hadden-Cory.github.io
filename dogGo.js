@@ -162,6 +162,7 @@ let descriptBank = [
     "You'll love me!- This Dog",
     "Speaks fluent French and Italian."
 ]
+let dogBank = [];
 
 window.addEventListener('load', function () {
 
@@ -241,8 +242,8 @@ class Dog {
 
     setPicture(url) {
         this.picture = url;
-        console.log('picute after init():');
-        console.log(this);
+        console.log('picture after init():');
+        console.log(this.picture);
     }
 
     bid() {
@@ -295,6 +296,8 @@ function initDog(dog, callback0, callback1) {
     callback1(dog);
     console.log('after init():');
     console.log(dog);
+    dogBank.push(dog);
+    console.log(dogBank);
 }
 
 
