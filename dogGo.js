@@ -279,7 +279,7 @@ function fetchPicture(dog) {
             let pictureObj = JSON.parse(this.responseText);
             console.log('pictureObj:');
             console.log(pictureObj);
-            dog.setPicture(picture);
+            dog.setPicture(pictureObj['url']);
         }
     };
 
