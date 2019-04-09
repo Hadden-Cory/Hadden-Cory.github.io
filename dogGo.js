@@ -173,7 +173,7 @@ window.addEventListener('load', function() {
   setContent();
 
   let fido = new Dog("Fido");
-  initDog(fido);
+  fido = initDog(fido);
 }, false);
 
 window.addEventListener('hashchange', setContent, false);
@@ -250,22 +250,7 @@ class Dog {
   }
 }
 
-function fetchPicture(dog){
-    const url = 'https://random.dog/woof.json';
-  let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
 
-    if (this.readyState == 4 && this.status == 200) {
-        pictureObj = JSON.parse(this.responseText);
-        picture = pictureObj[0];
-        dog.setPicture(picture);
-        return dog;
-    }
-  };
-
-  xhttp.open("GET", url, true);
-  xhttp.send();
-}
 
 function fetchName(dog){
     namey.get(function(n) { 
@@ -275,13 +260,30 @@ function fetchName(dog){
 });
 }
 
+function fetchPicture(dog){
+const url = 'https://random.dog/woof.json';
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+
+    if (this.readyState == 4 && this.status == 200) {
+        let pictureObj = JSON.parse(this.responseText);
+        let picture = pictureObj[0];
+        dog.setPicture(picture);
+        return dog;
+    }
+  };
+
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+
 function initDog(dog){
 
     dog = fetchName(dog);
     dog = fetchPicture(dog);
-
     console.log('after init():');
-    console.log(this);
+    console.log(dog);
+    return dog
 }
 
 
