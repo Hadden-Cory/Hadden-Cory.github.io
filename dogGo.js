@@ -280,6 +280,7 @@ async function fetchName(){
 function initDog(dog){
    //fetchName(dog.setname());
    // fetchPicture(dog.setPicture(picture));
+   dog.setName('james');
     console.log('after init():');
     console.log(dog);
 }
