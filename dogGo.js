@@ -253,11 +253,8 @@ class Dog {
 
 
 function fetchName(dog){
-    console.log(dog);
-    console.log(257);
     namey.get(function(n) { 
         dog.setName(n[0]);
-        console.log(fetchPicture());
         return dog;
 });
 }
@@ -280,8 +277,11 @@ const url = 'https://random.dog/woof.json';
 }
 
 function initDog(dog){
-
+    console.log(dog);
+    console.log(257);
     dog = fetchName(dog);
+    console.log(dog);
+    console.log(284);
     dog = fetchPicture(dog);
     console.log('after init():');
     console.log(dog);
