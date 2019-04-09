@@ -174,7 +174,6 @@ window.addEventListener('load', function() {
 
   let fido = new Dog("Fido");
   initDog(fido);
-  console.log(fido);
 }, false);
 
 window.addEventListener('hashchange', setContent, false);
@@ -247,16 +246,6 @@ class Dog {
   }
 }
 
-function initDog (dog){
-    namey.get(function(n) { 
-        console.log(n[0]);
-        dog.setName(n[0]);
-        console.log('Name init to ' + dog.name);
-        console.log(fetchPicture());
-        return dog;
-});
-}
-
 function fetchPicture(){
     const url = 'https://random.dog/woof.json';
     fetch(url)
@@ -267,26 +256,32 @@ function fetchPicture(){
     });
 }
 
+function initDog(dog){
+    namey.get(function(n) { 
+        dog.setName(n[0]);
+        console.log(fetchPicture());
+        return dog;
+});
+}
+
+
 
 function randomDate() {
   var num = (Math.floor(Math.random() * 400) % 7) + 1;
   let rndDate = new Date();
   let newDate = rndDate.getDate() + num;
   rndDate.setDate(newDate);
-  console.log('randomDate() returned ' + rndDate);
   return rndDate;
 }
 
 function randomPrice() {
   var num = ((Math.floor(Math.random() * 1400 % 10) * 100) + 300);
-  console.log('randomPrice() returned '+num);
   return num;
 }
 
 function randomDescription() {
     
     var num = ((Math.floor(Math.random() * 400) % 20)+1)
-    console.log('randomDescription() returned '+descriptBank[num]);
     return descriptBank[num];
 
 //   let xhttp = new XMLHttpRequest();
@@ -304,14 +299,4 @@ function randomDescription() {
 
 //   xhttp.open("GET", "descriptions.json", true);
 //   xhttp.send();
-}
-
-function randomName(){
-    let name = "";
-    
-    name = namey.get(function(n) { 
-        console.log(n[0]);
-        return n[0];
-    });
-    
 }
