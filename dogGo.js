@@ -321,7 +321,7 @@ function randomDescription() {
 //   xhttp.send();
 }
 
-function buildList(index, value, array) {
+function buildList(value, index, array) {
   console.log(index);
   console.log(value);
   console.log(array);
