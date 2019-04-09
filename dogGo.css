@@ -11,13 +11,16 @@ body {
 }
 
 .thumbnail {
-    width: 55%;
+    width: 85%;
     height: 30%;
     border-radius: 60px;
     object-fit: cover;
 }
+table{
+    width:95%;
+}
 .rightColumn{
-width: 65%;
+width: 75%;
 }
 
 .banner {
