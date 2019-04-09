@@ -19,8 +19,9 @@ body {
 table{
     width:95%;
 }
-.rightColumn{
-width: 75%;
+
+td{
+    padding: 5%;
 }
 
 .banner {
