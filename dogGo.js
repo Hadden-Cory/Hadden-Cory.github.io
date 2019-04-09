@@ -290,7 +290,7 @@ function fetchPicture(dog) {
 function initDog(dog, callback0, callback1) {
     //fetchName(dog.setname());
     // fetchPicture(dog.setPicture(picture));
-    dog.setName('james');
+    dog.setName('Loading');
     callback0(dog);
     callback1(dog);
     console.log('after init():');
