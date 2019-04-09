@@ -322,9 +322,6 @@ function randomDescription() {
 }
 
 function buildList(value, index, array) {
-  console.log(index);
-  console.log(value);
-  console.log(array);
   let dayoOfWeek=['Sunday','Monday', 'Tuesday','Wednesday','Thursday','Friday', 'Saturady'];
   let monthOfYear=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', "October", 'November', 'December'];
 
@@ -333,8 +330,7 @@ function buildList(value, index, array) {
   let picture = 'dog' + index + 'picture';
   console.log(date + ", " + price + ", " + picture)
   document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()]+" "+value.date.getDate();
-  document.getElementById(price).innerHTML = '$'+value.price;
-  
-       document.getElementById(picture).innerHTML = "<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dig'>";
-       console.log("<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dig'>"); 
+  document.getElementById(price).innerHTML = '$'+value.price;  
+document.getElementById(picture).innerHTML = "<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dog'>";
+console.log("<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dog'>"); 
 }
