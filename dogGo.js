@@ -334,5 +334,5 @@ function buildList(value, index, array) {
   console.log(date + ", " + price + ", " + picture)
   document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYEar[value.date.getMonth()]+" "+value.date.getDate();
   document.getElementById(price).innerHTML = '$'+value.price;
-  document.getElementById(picture).innerHTML = value.picture;
+  document.getElementById(picture).innerHTML = "<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dig'>";
 }
