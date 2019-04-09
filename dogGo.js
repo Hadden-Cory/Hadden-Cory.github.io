@@ -182,6 +182,7 @@ window.addEventListener('load', function () {
     initDog(fido1, fetchName, fetchPicture);
     initDog(fido2, fetchName, fetchPicture);
 
+
 }, false);
 
 window.addEventListener('hashchange', setContent, false);
@@ -198,6 +199,9 @@ function setContent() {
         displayContent(location.hash, function (content) {
             console.log("inserting new content");
             document.getElementById("content").innerHTML = content;
+            if (location.hash == "#dogGo_List"){
+                dogBank.forEach(buildList);
+            }
         });
 
     } else {
@@ -332,4 +336,14 @@ function randomDescription() {
 
     //   xhttp.open("GET", "descriptions.json", true);
     //   xhttp.send();
+}
+
+function buildList(index, value, array){
+let date = 'dog'+index+'date';
+let price = 'dog'+index+'price';
+let picture = 'dog'+index+'picture';
+
+document.getElementById(date).innerHTML = value.date;
+document.getElementById(price).innerHTML = value.price;
+document.getElementById(picture).innerHTML = value.picture;   
 }
