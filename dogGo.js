@@ -274,7 +274,7 @@ function randomDate() {
 }
 
 function randomPrice() {
-  var num = ((Math.floor(Math.random() * 1400 % 10) * 100) + 300);
+  var num = ((Math.floor(Math.random() * 1400 % 10) * 100) + 100);
   return num;
 }
 
