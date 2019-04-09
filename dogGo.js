@@ -263,24 +263,24 @@ function fetchName(callback){
 });
 }
 
-function fetchPicture(callback){
-const url = 'https://random.dog/woof.json';
-  let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
+// function fetchPicture(callback){
+// const url = 'https://random.dog/woof.json';
+//   let xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function() {
 
-    if (this.readyState == 4 && this.status == 200) {
-        let pictureObj = JSON.parse(this.responseText);
-        let picture = pictureObj[0];
-        callback();
-    }
-  };
+//     if (this.readyState == 4 && this.status == 200) {
+//         let pictureObj = JSON.parse(this.responseText);
+//         let picture = pictureObj[0];
+//         callback();
+//     }
+//   };
 
-  xhttp.open("GET", url, true);
-  xhttp.send();
-}
+//   xhttp.open("GET", url, true);
+//   xhttp.send();
+// }
 
 function initDog(dog){
-    fetchName(dog.setname(name));
+    fetchName(dog.setname());
    // fetchPicture(dog.setPicture(picture));
     console.log('after init():');
     console.log(dog);
