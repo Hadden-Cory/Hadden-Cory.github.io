@@ -175,7 +175,7 @@ window.addEventListener('load', function() {
   let fido = new Dog();
   console.log('creation');
   console.log(fido);
-  initDog(fido);
+  initDog(fido, fetchName);
   console.log('final');
   console.log(fido);
 
@@ -258,7 +258,7 @@ class Dog {
 async function fetchName(dog){
     namey.get(function(n) {
         
-        dog.setName(n[0]);
+        dog.setName(n[0])
         console.log("in fetchname");
         console.log(dog);
 
@@ -281,11 +281,11 @@ async function fetchName(dog){
 //   xhttp.send();
 // }
 
-function initDog(dog){
+function initDog(dog , callback){
    //fetchName(dog.setname());
    // fetchPicture(dog.setPicture(picture));
    dog.setName('james');
-   fetchName(dog);
+   callback(dog);
     console.log('after init():');
     console.log(dog);
 }
