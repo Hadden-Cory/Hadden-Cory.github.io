@@ -196,7 +196,7 @@ function setContent() {
       console.log("inserting new content");
       document.getElementById("content").innerHTML = content;
       if (location.hash == "#dogGo_List") {
-        dogBank.forEach(buildList);
+        setTimeout(function(){dogBank.forEach(buildList);},1500);
       }
     });
 
@@ -334,9 +334,7 @@ function buildList(value, index, array) {
   console.log(date + ", " + price + ", " + picture)
   document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()]+" "+value.date.getDate();
   document.getElementById(price).innerHTML = '$'+value.price;
-  setTimeout(function(){
+  
        document.getElementById(picture).innerHTML = "<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dig'>";
        console.log("<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dig'>"); 
-  }, 3000);
-
 }
