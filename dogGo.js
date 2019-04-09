@@ -227,8 +227,12 @@ class Dog {
 
   setName(name){
     this.name = name; 
-    console.log('after init():');
-    console.log(this);
+  }
+
+  setPicture(url){
+      this.picture = url
+      console.log('picute after init():');
+      console.log(this);
   }
 
   bid() {
@@ -246,21 +250,38 @@ class Dog {
   }
 }
 
-function fetchPicture(){
+function fetchPicture(dog){
     const url = 'https://random.dog/woof.json';
-    fetch(url)
-    .then(function(data) {
-        let picture = data.results;
-        return picture;
-    });
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+
+    if (this.readyState == 4 && this.status == 200) {
+        pictureObj = JSON.parse(this.responseText);
+        picture = pictureObj[0];
+        dog.setPicture(picture);
+        return dog;
+    }
+  };
+
+  xhttp.open("GET", url, true);
+  xhttp.send();
 }
 
-function initDog(dog){
+function fetchName(dog){
     namey.get(function(n) { 
         dog.setName(n[0]);
         console.log(fetchPicture());
         return dog;
 });
+}
+
+function initDog(dog){
+
+    dog = fetchName(dog);
+    dog = fetchPicture(dog);
+
+    console.log('after init():');
+    console.log(this);
 }
 
 
