@@ -230,7 +230,7 @@ class Dog {
     this.description = randomDescription();
     this.highestBidder = "computer";
     this.bidCeiling = (Math.floor(Math.random() * 1000 % 10) * 10) + this.price;
-    this.picture = "http://pre02.deviantart.net/4d35/th/pre/f/2007/280/8/1/droopy__s_head_by_drawright.png";
+    this.picture = "loading.gif";
   }
 
   setName(name) {
