@@ -16,6 +16,9 @@ body {
     border-radius: 60px;
     object-fit: cover;
 }
+.rightColumn{
+width: 65%;
+}
 
 .banner {
     padding: 20px;
