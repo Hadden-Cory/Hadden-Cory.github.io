@@ -336,7 +336,7 @@ function buildList(value, index, array) {
   document.getElementById(price).innerHTML = '$'+value.price;
   setTimeout(function(){
        document.getElementById(picture).innerHTML = "<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dig'>";
-  console.log("<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dig'>"); 
-  }, 1000);
+       console.log("<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dig'>"); 
+  }, 3000);
 
 }
