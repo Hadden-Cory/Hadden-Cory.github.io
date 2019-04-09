@@ -175,7 +175,7 @@ window.addEventListener('load', function() {
   let fido = new Dog();
   console.log('creation');
   console.log(fido);
-  fido = initDog(fido);
+  initDog(fido);
   console.log('final');
   console.log(fido);
 
@@ -255,15 +255,15 @@ class Dog {
   }
 }
 
-function fetchName(dog){
+function fetchName(callback){
     namey.get(function(n) { 
-        dog.setName(n[0]);
+        callback(n[0]);
         console.log('in fetchName')
         console.log(dog);
 });
 }
 
-function fetchPicture(callback){
+function fetchPicture(callback(name)){
 const url = 'https://random.dog/woof.json';
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -280,7 +280,7 @@ const url = 'https://random.dog/woof.json';
 }
 
 function initDog(dog){
-    fetchName(dog);
+    fetchName(dog.setname(name));
    // fetchPicture(dog.setPicture(picture));
     console.log('after init():');
     console.log(dog);
