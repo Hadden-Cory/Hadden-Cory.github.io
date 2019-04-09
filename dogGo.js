@@ -172,8 +172,9 @@ window.addEventListener('load', function() {
 
   setContent();
 
-  let fido = new Dog("Fido");
+  let fido = new Dog();
   fido = initDog(fido);
+
 }, false);
 
 window.addEventListener('hashchange', setContent, false);
