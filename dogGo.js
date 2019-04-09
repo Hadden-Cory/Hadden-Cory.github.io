@@ -9,7 +9,53 @@ window.namey = {
      * BSD licensed
      */
     // Lightweight JSONP fetcher - www.nonobtrusive.com
-    jsonP:(function(){var a=0,c,f,b,d=this;function e(j){var i=document.createElement("script"),h=false;i.src=j;i.async=true;i.onload=i.onreadystatechange=function(){if(!h&&(!this.readyState||this.readyState==="loaded"||this.readyState==="complete")){h=true;i.onload=i.onreadystatechange=null;if(i&&i.parentNode){i.parentNode.removeChild(i)}}};if(!c){c=document.getElementsByTagName("head")[0]}c.appendChild(i)}function g(h,j,k){f="?";j=j||{};for(b in j){if(j.hasOwnProperty(b)){f+=encodeURIComponent(b)+"="+encodeURIComponent(j[b])+"&"}}var i="json"+(++a);d[i]=function(l){k(l);try{delete d[i]}catch(m){}d[i]=null;};e(h+f+"callback="+i);return i}return{get:g}}()),
+    jsonP:(function(){
+        var a=0,c,f,b,d=this;
+        function e(j){
+            var i=document.createElement("script"),h=false;
+            i.src=j;
+            i.async=true;
+            i.onload=i.onreadystatechange=function(){
+                if(!h&&(!this.readyState||this.readyState==="loaded"||this.readyState==="complete")){
+                    h=true;i.onload=i.onreadystatechange=null;
+                    if(i&&i.parentNode){
+                        i.parentNode.removeChild(i)
+                    }
+                }
+            };
+            if(!c){
+                c=document.getElementsByTagName("head")[0]
+            }
+            c.appendChild(i)
+        }
+        
+        function g(h,j,k){
+            f="?";j=j||{};
+            for(b in j){
+                if(j.hasOwnProperty(b)){
+                    f+=encodeURIComponent(b)+"="+encodeURIComponent(j[b])+"&"
+                }
+            }
+            var i="json"+(++a);
+            d[i]=function(l){k(l);
+                try{delete d[i]
+                }
+                catch(m){
+
+                }
+                d[i]=null;
+            };
+            e(h+f+"callback="+i);
+            return i
+        }
+        return{
+            get:g
+        }
+    }
+    (
+
+    )
+    ),
 
     /**
      * API for namey random name generator.  There's two basic ways to use it.  First, just call namey.get with a callback:
@@ -177,6 +223,7 @@ class Dog {
     this.description = randomDescription();
     this.highestBidder = "computer";
     this.bidCeiling = (Math.floor(Math.random() * 1000 % 10) * 10) + this.price;
+    this.picture = "http://pre02.deviantart.net/4d35/th/pre/f/2007/280/8/1/droopy__s_head_by_drawright.png";
 }
 
   setName(name){
@@ -205,8 +252,19 @@ function initDog (dog){
         console.log(n[0]);
         dog.setName(n[0]);
         console.log('Name init to ' + dog.name);
+        console.log(fetchPicture());
         return dog;
 });
+}
+
+function fetchPicture(){
+    const url = 'https://random.dog/woof.json';
+    fetch(url)
+    .then(resp => resp.json)
+    ,then(function(data) {
+        let picture = data.results;
+        return picture;
+    });
 }
 
 
