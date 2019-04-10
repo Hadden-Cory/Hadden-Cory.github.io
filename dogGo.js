@@ -338,6 +338,6 @@ function buildList(value, index, array) {
   let thumbnail = document.getElementById(picture);
   thumbnail.appendChild(img);
   let dog = document.getElementById('dog'+index);
-  let loader = document.getElementById('loader');
+  let loader = document.getElementById('loader'+index);
   dog.removeChild(loader);
 }
