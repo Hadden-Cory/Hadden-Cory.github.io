@@ -9,7 +9,7 @@ window.namey = {
    * BSD licensed
    */
   // Lightweight JSONP fetcher - www.nonobtrusive.com
-  jsonP: (function() {
+  jsonP: (function () {
     var a = 0,
       c,
       f,
@@ -20,7 +20,7 @@ window.namey = {
         h = false;
       i.src = j;
       i.async = true;
-      i.onload = i.onreadystatechange = function() {
+      i.onload = i.onreadystatechange = function () {
         if (!h && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
           h = true;
           i.onload = i.onreadystatechange = null;
@@ -44,11 +44,11 @@ window.namey = {
         }
       }
       var i = "json" + (++a);
-      d[i] = function(l) {
+      d[i] = function (l) {
         k(l);
         try {
           delete d[i]
-        } catch (m) {}
+        } catch (m) { }
         d[i] = null;
       };
       e(h + f + "callback=" + i);
@@ -91,7 +91,7 @@ window.namey = {
    * passed in will be an array of names -- use them wisely.
    * 
    */
-  get: function(options) {
+  get: function (options) {
     var callback;
     var tmp_params = {};
     var host = "namey.muffinlabs.com";
@@ -128,7 +128,7 @@ window.namey = {
 
     }
 
-    this.jsonP.get('//' + host + '/name.json', tmp_params, function(d) {
+    this.jsonP.get('//' + host + '/name.json', tmp_params, function (d) {
       if (typeof (callback) == "function") {
         callback(d);
       } else {
@@ -162,7 +162,7 @@ let descriptBank = [
 ]
 let dogBank = [];
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
 
   console.log('window loaded')
 
@@ -192,11 +192,11 @@ function setContent() {
   if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
     console.log("Hash identified as " + location.hash + ". Initiating AJAX")
-    displayContent(location.hash, function(content) {
+    displayContent(location.hash, function (content) {
       console.log("inserting new content");
       document.getElementById("content").innerHTML = content;
       if (location.hash == "#dogGo_List") {
-        setTimeout(function(){dogBank.forEach(buildList);},3000);
+        setTimeout(function () { dogBank.forEach(buildList); }, 3000);
       }
     });
 
@@ -210,7 +210,7 @@ function displayContent(site, callback) {
 
   let xhttp = new XMLHttpRequest();
 
-  xhttp.addEventListener("load", function() {
+  xhttp.addEventListener("load", function () {
     callback(xhttp.responseText);
   }, false);
 
@@ -257,7 +257,7 @@ class Dog {
 }
 
 function fetchName(dog) {
-  namey.get(function(n) {
+  namey.get(function (n) {
     dog.setName(n[0]);
   });
 }
@@ -265,7 +265,7 @@ function fetchName(dog) {
 function fetchPicture(dog) {
   const url = 'https://random.dog/woof.json';
   let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
+  xhttp.onreadystatechange = function () {
 
     if (this.readyState == 4 && this.status == 200) {
       let pictureObj = JSON.parse(this.responseText);
@@ -317,25 +317,26 @@ function randomDescription() {
   //     }
   //   };
 
-//   xhttp.open("GET", "descriptions.json", true);
-//   xhttp.send();
+  //   xhttp.open("GET", "descriptions.json", true);
+  //   xhttp.send();
 }
 
 function buildList(value, index, array) {
-  let dayoOfWeek=['Sunday','Monday', 'Tuesday','Wednesday','Thursday','Friday', 'Saturady'];
-  let monthOfYear=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', "October", 'November', 'December'];
+  let dayoOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturady'];
+  let monthOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', "October", 'November', 'December'];
 
   let date = 'dog' + index + 'date';
   let price = 'dog' + index + 'price';
   let picture = 'dog' + index + 'picture';
   console.log(date + ", " + price + ", " + picture)
-  document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()]+" "+value.date.getDate();
-  document.getElementById(price).innerHTML = '$'+value.price; 
-  
+  document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
+  document.getElementById(price).innerHTML = '$' + value.price;
+
   let img = document.createElement("img");
   img.src = value.picture;
+  img.className = 'thumbnail';
   let thumbnail = document.getElementById(picture);
   thumbnail.appendChild(img);
-// document.getElementById(picture).innerHTML = "<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dog'>";
-// console.log("<img scr='"+value.picture+"' class='thumbnail' alt='thumbnail of dog'>"); 
+  let pictureSlot = document.getElementById('pictureData');
+  pictureSlot.removeChild(pictureSlot.firstChild);
 }
