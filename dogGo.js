@@ -261,7 +261,7 @@ class Dog {
 
   setHighestBidder(){
 
-    let timeSeed = (Math.floor(Math.random() * 40000) % 2500);
+    let timeSeed = (Math.floor(Math.random() * 40000) % 4000);
     let bidding = document.getElementById('highestbidder');
     if (this.price > this.bidCeiling) {
       this.highestBidder = "Current User";
@@ -441,4 +441,5 @@ function buildDetailPage(index) {
 
 function bid5(){
   dogBank[dogSelection].bid();
+
 }
