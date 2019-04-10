@@ -279,7 +279,7 @@ function fetchPicture(dog) {
         dog.setPicture(pictureObj['url']);
         callbackCount++;
         console.log(dog);
-        console.log(callbackCount + "callbacks at 277");
+
         if (callbackCount == 3) {
           dogBank.forEach(buildList);
         }
@@ -350,7 +350,7 @@ function buildList(value, index, array) {
   let dog = document.getElementById('dog' + index);
   let table = document.getElementById('dog' + index + 'table');
   let loader = document.getElementById('loader' + index);
-  console.log(loader + ", " + dog);
+
   dog.removeChild(loader);
   table.classList.remove('collapsed');
   let img = document.createElement("img");
@@ -359,5 +359,5 @@ function buildList(value, index, array) {
   let thumbnail = document.getElementById(picture);
   thumbnail.appendChild(img);
   callbackCount++;
-  console.log('callback count at 348 :' + callbackCount);
+
 }
