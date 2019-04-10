@@ -162,6 +162,7 @@ let descriptBank = [
 ]
 let dogBank = [];
 let callbackCount = 0;
+let dogSelection = 0;
 
 window.addEventListener('load', function () {
 
@@ -203,7 +204,7 @@ function setContent() {
           console.log(dogBank);
         }
       } else if (route == "#dogGo_Dog") {
-        buildDetailPage(0);
+        buildDetailPage(dogSelection);
       } else {
         console.log("Hash unidentified. AJAX not called")
         document.getElementById("content").innerHTML = "Oops! Content Not Found";
@@ -299,6 +300,11 @@ function initDog(dog, callback0, callback1) {
   callback0(dog);
   callback1(dog);
   dogBank.push(dog);
+}
+
+function setDogSelection(index){
+  dogSelection = index;
+  location.hash = '#dogGo_Dog'
 }
 
 function randomDate() {
