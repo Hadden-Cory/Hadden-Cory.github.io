@@ -170,7 +170,7 @@ window.addEventListener('load', function () {
 
   console.log('window loaded')
 
-  if (!location.hash) {
+  if (!location.hash || dogBank.length == 0){
     console.log('unset location hash. Hash defaulted to #dogGo');
     location.hash = "#dogGo_List";
   }
