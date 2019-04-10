@@ -262,7 +262,7 @@ class Dog {
     let timeSeed = (Math.floor(Math.random() * 40000) % 2500);
     let bidding = document.getElementById('highestbidder');
     if (this.price > this.bidCeiling) {
-      this.highestBidder = "current User";
+      this.highestBidder = "Current User";
       document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
       bidding.innerHTML = "You are the highest bidder!";
       bidding.classList.remove('loosing');
@@ -389,6 +389,9 @@ function buildList(value, index, array) {
 
   document.getElementById(date).innerHTML = "Ends " + dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
   document.getElementById(price).innerHTML = '$' + value.price;
+  if (value.highestBidder=="Current User"){
+    document.getElementById('price').classList.add('winning');
+  }
 
   let dog = document.getElementById('dog' + index);
   let table = document.getElementById('dog' + index + 'table');
