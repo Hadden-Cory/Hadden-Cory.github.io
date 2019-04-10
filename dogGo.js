@@ -259,8 +259,15 @@ class Dog {
     if (this.price > this.bidCeiling) {
       this.highestBidder = "current User";
     } else {
+      document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
+      document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
+      setTimeout(function(){
+      document.getElementById('highestbidder').innerHTML = "Counter Bid +$5";
       this.price = this.price + 5;
       this.highestBidder = "computer";
+      },1500);
+      document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
+      document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
     }
   }
 }
