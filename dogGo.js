@@ -303,6 +303,7 @@ function randomDate() {
   var num = (Math.floor(Math.random() * 400) % 7) + 1;
   let rndDate = new Date();
   let newDate = rndDate.getDate() + num;
+  newDate.setHours(23,59,59)
   rndDate.setDate(newDate);
   return rndDate;
 }
@@ -359,5 +360,4 @@ function buildList(value, index, array) {
   let thumbnail = document.getElementById(picture);
   thumbnail.appendChild(img);
   callbackCount++;
-
 }
