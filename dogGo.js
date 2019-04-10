@@ -268,13 +268,13 @@ class Dog {
       bidding.classList.remove('loosing');
       bidding.classList.add('winning');
 
+      this.price = this.price + 5;
       setTimeout(function(){
       bidding.innerHTML = "Counter Bid +$5";
       bidding.classList.remove('winning');
       bidding.classList.add('loosing');
 
-      let price = this.price;
-      this.price = price + 5;
+
       console.log(this.price);
       this.highestBidder = "computer";
 
