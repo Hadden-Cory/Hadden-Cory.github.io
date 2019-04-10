@@ -66,3 +66,7 @@ a {
 p {
     font-size: 5em;
 }
+
+.collapsed{
+    visibility: collapse;
+}

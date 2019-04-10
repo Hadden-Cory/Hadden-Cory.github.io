@@ -196,7 +196,7 @@ function setContent() {
       console.log("inserting new content");
       document.getElementById("content").innerHTML = content;
       if (location.hash == "#dogGo_List") {
-        setTimeout(function () { dogBank.forEach(buildList); }, 4000);
+        setTimeout(function () { dogBank.forEach(buildList); }, 5000);
       }
     });
 
@@ -331,9 +331,11 @@ function buildList(value, index, array) {
   document.getElementById(price).innerHTML = '$' + value.price;
   
   let dog = document.getElementById('dog'+index);
+  let table = document.getElementById('dog'+index+'table');
   let loader = document.getElementById('loader'+index);
   console.log(loader+", "+dog);
   dog.removeChild(loader);
+  table.classList.remove('collasped');
   let img = document.createElement("img");
   img.src = value.picture;
   img.className = 'thumbnail';
