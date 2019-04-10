@@ -368,6 +368,7 @@ function buildList(value, index, array) {
   callbackCount++;
 }
 
+
 function buildDetailPage(index) {
   console.log('dog ' + index + ' page');
 
@@ -388,5 +389,13 @@ function buildDetailPage(index) {
     document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
   }
 
+}
 
+function bid5(){
+  dogBank[dogSelection].bid();
+  if (dogBank[dogSelection].highestBidder == 'computer') {
+    document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
+  } else {
+    document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
+  }
 }
