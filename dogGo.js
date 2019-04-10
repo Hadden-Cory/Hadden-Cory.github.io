@@ -337,6 +337,6 @@ function buildList(value, index, array) {
   img.className = 'thumbnail';
   let thumbnail = document.getElementById(picture);
   thumbnail.appendChild(img);
-  let loader = document.getElementById('dog0');
+  let loader = document.getElementById('dog'+index);
   loader.removeChild(loader);
 }
