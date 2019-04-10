@@ -251,7 +251,7 @@ class Dog {
   }
 
   bid() {
-    this.price = this.price.value + 5;
+    this.price = Number(this.price + 5);
     this.setHighestBidder();
   }
 
@@ -322,7 +322,7 @@ function setDogSelection(index) {
 }
 
 function randomDate() {
-  var num = (Math.floor(Math.random() * 400) % 7) + 1;
+  let num = (Math.floor(Math.random() * 400) % 7) + 1;
   let rndDate = new Date();
   let newDate = rndDate.getDate() + num;
   rndDate.setDate(newDate);
@@ -331,7 +331,9 @@ function randomDate() {
 }
 
 function randomPrice() {
-  var num = ((Math.floor(Math.random() * 1400 % 10) * 100) + 100);
+  let num = ((Math.floor(Math.random() * 1400 % 10) * 100) + 100);
+  console.log(num);
+  console.log("36 "+(num+5));
   return num;
 }
 
