@@ -199,7 +199,7 @@ function setContent() {
 
       if (location.hash == "#dogGo_List") {
 
-        dogBank.forEach(buildList);
+
       }
     });
 
@@ -273,6 +273,11 @@ function fetchPicture(dog) {
     if (this.readyState == 4 && this.status == 200) {
       let pictureObj = JSON.parse(this.responseText);
       dog.setPicture(pictureObj['url']);
+      callbackCount++;
+      console.log(callbackCount+"callbacks at 277")
+      if(callbackCount == 2){
+        dogBank.forEach(buildList);
+      }
     }
   };
   xhttp.open("GET", url, true);
