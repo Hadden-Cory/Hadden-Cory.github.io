@@ -10,6 +10,10 @@ body {
     margin: auto;
 }
 
+.loader{
+    position: relative;
+}
+
 .thumbnail {
     width: 160px;
     height: 215px;
