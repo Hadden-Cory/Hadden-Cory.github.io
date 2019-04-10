@@ -382,7 +382,7 @@ function buildDetailPage(index) {
   document.getElementById('date').innerHTML = "Ends " + dayoOfWeek[dog.date.getDay()] + ", " + monthOfYear[dog.date.getMonth()] + " " + dog.date.getDate();
   document.getElementById('description').innerHTML = dog.description;
   document.getElementById('price').innerHTML = 'Current Bid $' + dog.price;
-  if (dog.highestBidder == 'comptuer') {
+  if (dog.highestBidder == 'computer') {
     document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
   } else {
     document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
