@@ -419,11 +419,15 @@ function buildDetailPage(index) {
   document.getElementById('date').innerHTML = "Ends " + dayoOfWeek[dog.date.getDay()] + ", " + monthOfYear[dog.date.getMonth()] + " " + dog.date.getDate();
   document.getElementById('description').innerHTML = dog.description;
   document.getElementById('price').innerHTML = 'Current Bid $' + dog.price;
-  // if (dog.highestBidder == 'computer') {
-  //   document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
-  // } else {
-  //   document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
-  // }
+  if (dog.highestBidder == 'computer') {
+    document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
+      document.getElementById('highestbidder').add('loosing');
+      document.getElementById('highestbidder').remove('winning');
+  } else {
+    document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
+    document.getElementById('highestbidder').remove('loosing');
+    document.getElementById('highestbidder').add('winning');
+  }
 
 }
 
