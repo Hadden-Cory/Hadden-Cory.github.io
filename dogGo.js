@@ -255,7 +255,7 @@ class Dog {
     setHighestBidder();
   }
 
-  setHighestBidder() {
+  setHighestBidder(){
     if (this.price > this.bidCeiling) {
       this.highestBidder = "current User";
     } else {
