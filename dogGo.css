@@ -79,13 +79,13 @@ h3 {
 }
 
 .winning{
-    font-size: 2.5em;
+
     color: rgb(35, 128, 12);
     transition-duration: 700ms;
 }
 
 .loosing{
-    font-size: 2.5em;
+
     color: rgb(214, 63, 63);
     transition-duration: 700ms;
 }
