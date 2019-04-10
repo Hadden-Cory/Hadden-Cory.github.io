@@ -240,6 +240,7 @@ class Dog {
     this.highestBidder = "computer";
     this.bidCeiling = (Math.floor(Math.random() * 1000 % 10) * 10) + this.price;
     this.picture = "loading.gif";
+    this.biddedOn = false;
   }
 
   setName(name) {
@@ -251,6 +252,7 @@ class Dog {
   }
 
   bid() {
+    this.biddedOn = true;
     let price = this.price;
     this.price = price + 5;
 
@@ -391,6 +393,9 @@ function buildList(value, index, array) {
   document.getElementById(price).innerHTML = '$' + value.price;
   if (value.highestBidder=="Current User"){
     document.getElementById(price).classList.add('winning');
+    document.getElementById(price).classList.remove('loosing');
+  } else if (value.biddedOn) {
+    document.getElementById(price).classList.add('loosing');
   }
 
   let dog = document.getElementById('dog' + index);
