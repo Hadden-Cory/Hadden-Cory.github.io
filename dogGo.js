@@ -273,7 +273,8 @@ class Dog {
       bidding.classList.remove('winning');
       bidding.classList.add('loosing');
 
-      this.price = this.price + 5;
+      let price = this.price;
+      this.price = price + 5;
       console.log(this.price);
       this.highestBidder = "computer";
 
