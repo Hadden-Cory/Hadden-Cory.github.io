@@ -264,11 +264,12 @@ class Dog {
       setTimeout(function(){
       document.getElementById('highestbidder').innerHTML = "Counter Bid +$5";
       this.price = this.price + 5;
+      console.log(this.price);
       this.highestBidder = "computer";
 
       },1500);      
       setTimeout(function(){
-     // document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
+      document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
       document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
       },2200);
 
