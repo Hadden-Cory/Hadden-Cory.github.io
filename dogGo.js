@@ -274,6 +274,7 @@ class Dog {
       console.log(this.price);
 
       this.price = this.price + 5;
+      console.log(this.price);
       setTimeout(function(){
       bidding.innerHTML = "Counter Bid +$5";
       bidding.classList.remove('winning');
