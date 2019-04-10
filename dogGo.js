@@ -274,24 +274,28 @@ class Dog {
       console.log(this.price);
 
       this.price = this.price + 5;
-      console.log(this.price);
+      
+      let price = this.price;
+      
+      console.log(price+", "+this.price);
       setTimeout(function(){
       bidding.innerHTML = "Counter Bid +$5";
       bidding.classList.remove('winning');
       bidding.classList.add('loosing');
 
 
-      console.log(this.price);
+      console.log(price);
       this.highestBidder = "computer";
 
       },1500);      
       setTimeout(function(){
-      document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
+      document.getElementById('price').innerHTML = 'Current Bid $' + price;
       document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
       bidding.classList.remove('winning');
       bidding.classList.add('loosing');
       },2200);
 
+      console.log(this.price);
     }
   }
 }
