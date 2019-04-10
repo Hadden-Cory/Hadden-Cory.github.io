@@ -440,6 +440,7 @@ function buildDetailPage(index) {
 }
 
 function bid5(){
+  let date = new Date();
   dogBank[dogSelection].bid();
-
+  localStorage.setItem(date,dogBank[dogSelection]);
 }
