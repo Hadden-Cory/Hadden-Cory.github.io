@@ -196,7 +196,7 @@ function setContent() {
       console.log("inserting new content");
       document.getElementById("content").innerHTML = content;
       if (location.hash == "#dogGo_List") {
-        setTimeout(function () { dogBank.forEach(buildList); }, 3000);
+        setTimeout(function () { dogBank.forEach(buildList); }, 4000);
       }
     });
 
