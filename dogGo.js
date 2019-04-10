@@ -370,7 +370,14 @@ function buildList(value, index, array) {
 
 function buildDetailPage(index) {
   console.log('dog ' + index + ' page');
-  dog = dogBank[index]
+  
+  dog = dogBank[index];
+  let img = document.createElement("img");
+  img.src = dog.picture;
+  img.className = 'picture';
+  let parent = document.getElementById('dogDetails');
+  parent.appendChild(img);
+
   document.getElementById('name').innerHTML = dog.name;
   document.getElementById(date).innerHTML = "Ends " + dayoOfWeek[dog.date.getDay()] + ", " + monthOfYear[dog.date.getMonth()] + " " + dog.date.getDate();
   document.getElementById('description').innerHTML = dog.description;
@@ -381,9 +388,5 @@ function buildDetailPage(index) {
     document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
   }
 
-  let img = document.createElement("img");
-  img.src = dog.picture;
-  img.className = 'picture';
-  let parent = document.getElementById('dogDetails');
-  parent.appendChild(img);
+
 }
