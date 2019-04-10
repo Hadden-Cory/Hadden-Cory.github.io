@@ -201,10 +201,9 @@ function setContent() {
         if (callbackCount > 3) {
           dogBank.forEach(buildList);
           console.log(dogBank);
-        } else if (route == "#dogGo_Dog") {
-          buildDetailPage(0);
         }
-
+      } else if (route == "#dogGo_Dog") {
+        buildDetailPage(0);
       } else {
         console.log("Hash unidentified. AJAX not called")
         document.getElementById("content").innerHTML = "Oops! Content Not Found";
@@ -363,5 +362,5 @@ function buildList(value, index, array) {
 }
 
 function buildDetailPage(index) {
-  console.log('dog '+index+' page');
+  console.log('dog ' + index + ' page');
 }
