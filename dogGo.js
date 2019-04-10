@@ -341,11 +341,8 @@ function buildList(value, index, array) {
   let date = 'dog' + index + 'date';
   let price = 'dog' + index + 'price';
   let picture = 'dog' + index + 'picture';
-  let today = new Date();
-  let timeLeft = date - today;
-  console.log(timeLeft);
-  console.log(today);
-  document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
+
+  document.getElementById(date).innerHTML = "Ends "+ dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
   document.getElementById(price).innerHTML = '$' + value.price;
 
   let dog = document.getElementById('dog' + index);
