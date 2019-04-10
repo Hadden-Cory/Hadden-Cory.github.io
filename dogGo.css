@@ -10,11 +10,11 @@ body {
     margin: auto;
 }
 
-.loader{
+.loader {
     position: relative;
 }
 
-#bid5{
+#bid5 {
     background-color: rgb(38, 148, 56);
     color: #ffffff;
     width: 150px;
@@ -34,18 +34,18 @@ body {
     box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.75);
 }
 
-
 .thumbnail {
     width: 160px;
     height: 215px;
     border-radius: 75px;
     object-fit: cover;
 }
-table{
-    width:95%;
+
+table {
+    width: 95%;
 }
 
-td{
+td {
     padding: 2%;
 }
 
@@ -78,13 +78,13 @@ h3 {
     color: rgb(95, 95, 95)
 }
 
-.winning{
+.winning {
 
     color: rgb(35, 128, 12);
     transition-duration: 700ms;
 }
 
-.loosing{
+.loosing {
 
     color: rgb(214, 63, 63);
     transition-duration: 700ms;
@@ -100,6 +100,6 @@ p {
     font-size: 5em;
 }
 
-.collapsed{
+.collapsed {
     visibility: collapse;
 }
