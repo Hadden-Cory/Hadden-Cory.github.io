@@ -200,6 +200,7 @@ function setContent() {
       if (location.hash == "#dogGo_List") {
         if (callbackCount > 3) {
           dogBank.forEach(buildList);
+          console.log(dogBank);
         }
       }
     });
@@ -305,7 +306,6 @@ function randomDate() {
   let newDate = rndDate.getDate() + num;
   rndDate.setDate(newDate);
   rndDate.setHours(23,59,59)
-  console.log(rndDate);
   return rndDate;
 }
 
