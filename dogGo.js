@@ -324,20 +324,19 @@ function randomDescription() {
 function buildList(value, index, array) {
   let dayoOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturady'];
   let monthOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', "October", 'November', 'December'];
-
   let date = 'dog' + index + 'date';
   let price = 'dog' + index + 'price';
   let picture = 'dog' + index + 'picture';
-  console.log(date + ", " + price + ", " + picture)
-  document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
+   document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
   document.getElementById(price).innerHTML = '$' + value.price;
-
+  thumbnail.appendChild(img);
+  let dog = document.getElementById('dog'+index);
+  let loader = document.getElementById('loader'+index);
+  console.log(loader+", "+dog);
+  dog.removeChild(loader);
   let img = document.createElement("img");
   img.src = value.picture;
   img.className = 'thumbnail';
   let thumbnail = document.getElementById(picture);
-  thumbnail.appendChild(img);
-  let dog = document.getElementById('dog'+index);
-  let loader = document.getElementById('loader'+index);
-  dog.removeChild(loader);
+
 }
