@@ -160,6 +160,8 @@ let descriptBank = [
   "You'll love me!- This Dog",
   "Speaks fluent French and Italian."
 ]
+let dayoOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturady'];
+let monthOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', "October", 'November', 'December'];
 let dogBank = [];
 let callbackCount = 0;
 let dogSelection = 0;
@@ -302,7 +304,7 @@ function initDog(dog, callback0, callback1) {
   dogBank.push(dog);
 }
 
-function setDogSelection(index){
+function setDogSelection(index) {
   dogSelection = index;
   location.hash = '#dogGo_Dog'
 }
@@ -344,8 +346,7 @@ function randomDescription() {
 }
 
 function buildList(value, index, array) {
-  let dayoOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturady'];
-  let monthOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', "October", 'November', 'December'];
+
   let date = 'dog' + index + 'date';
   let price = 'dog' + index + 'price';
   let picture = 'dog' + index + 'picture';
@@ -369,20 +370,20 @@ function buildList(value, index, array) {
 
 function buildDetailPage(index) {
   console.log('dog ' + index + ' page');
-  dog=dogBank[index]
+  dog = dogBank[index]
   document.getElementById('name').innerHTML = dog.name;
-  document.getElementById('date').innerHTML = dog.date;
-document.getElementById('description').innerHTML = dog.description;
-document.getElementById('price').innerHTML = dog.price;
-if(dog.highestBidder == 'comptuer'){
-document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
-} else {
-  document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
-}
+  document.getElementById(date).innerHTML = "Ends " + dayoOfWeek[dog.date.getDay()] + ", " + monthOfYear[dog.date.getMonth()] + " " + dog.date.getDate();
+  document.getElementById('description').innerHTML = dog.description;
+  document.getElementById('price').innerHTML = 'Current Bid $' + dog.price;
+  if (dog.highestBidder == 'comptuer') {
+    document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
+  } else {
+    document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
+  }
 
-let img = document.createElement("img");
-img.src = dog.picture;
-img.className = 'picture';
-let parent = document.getElementById('dogDetails');
-parent.appendChild(img);
+  let img = document.createElement("img");
+  img.src = dog.picture;
+  img.className = 'picture';
+  let parent = document.getElementById('dogDetails');
+  parent.appendChild(img);
 }
