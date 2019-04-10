@@ -390,7 +390,7 @@ function buildList(value, index, array) {
   document.getElementById(date).innerHTML = "Ends " + dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
   document.getElementById(price).innerHTML = '$' + value.price;
   if (value.highestBidder=="Current User"){
-    document.getElementById('price').classList.add('winning');
+    document.getElementById(price).classList.add('winning');
   }
 
   let dog = document.getElementById('dog' + index);
