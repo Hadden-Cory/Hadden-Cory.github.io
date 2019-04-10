@@ -251,7 +251,7 @@ class Dog {
   }
 
   bid() {
-    this.price = this.price + 5;
+    this.price = this.price.value + 5;
     this.setHighestBidder();
   }
 
