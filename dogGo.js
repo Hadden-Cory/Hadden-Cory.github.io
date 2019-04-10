@@ -201,7 +201,7 @@ function setContent() {
         if (callbackCount > 3) {
           dogBank.forEach(buildList);
           console.log(dogBank);
-        } else if (route == "#dogGo_dog") {
+        } else if (route == "#dogGo_Dog") {
           buildDetailPage(0);
         }
 
