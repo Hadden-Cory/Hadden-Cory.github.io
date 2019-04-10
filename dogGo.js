@@ -258,13 +258,21 @@ class Dog {
   }
 
   setHighestBidder(){
+
+    let bidding = document.getElementById('highestbidder');
     if (this.price > this.bidCeiling) {
       this.highestBidder = "current User";
     } else {
       document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
-      document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
+      bidding.innerHTML = "You are the highest bidder";
+      bidding.classList.remove('loosing');
+      bidding.classList.add('winning');
+
       setTimeout(function(){
-      document.getElementById('highestbidder').innerHTML = "Counter Bid +$5";
+      bidding.innerHTML = "Counter Bid +$5";
+      bidding.classList.remove('winning');
+      bidding.classList.add('loosing');
+
       this.price = this.price + 5;
       console.log(this.price);
       this.highestBidder = "computer";
@@ -273,6 +281,8 @@ class Dog {
       setTimeout(function(){
       document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
       document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
+      bidding.classList.remove('winning');
+      bidding.classList.add('loosing');
       },2200);
 
     }
