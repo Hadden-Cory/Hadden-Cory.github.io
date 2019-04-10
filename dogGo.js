@@ -369,5 +369,20 @@ function buildList(value, index, array) {
 
 function buildDetailPage(index) {
   console.log('dog ' + index + ' page');
-  document.getElementById('dogDetails').innerHTML = dogBank[index];
+  dog=dogBank[index]
+  document.getElementById('name').innerHTML = dog.name;
+  document.getElementById('date').innerHTML = dog.date;
+document.getElementById('description').innerHTML = dog.description;
+document.getElementById('price').innerHTML = dog.price;
+if(dog.highestBidder == 'comptuer'){
+document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
+} else {
+  document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
+}
+
+let img = document.createElement("img");
+img.src = dog.picture;
+img.className = 'picture';
+let parent = document.getElementById('dogDetails');
+parent.appendChild(img);
 }

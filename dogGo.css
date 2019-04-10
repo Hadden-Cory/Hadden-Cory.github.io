@@ -10,11 +10,17 @@ body {
     margin: auto;
 }
 
-
-
 .loader{
     position: relative;
 }
+
+.picture {
+    width: 350px;
+    height: 350px;
+    border-radius: 75px;
+    object-fit: cover;
+}
+
 
 .thumbnail {
     width: 160px;
