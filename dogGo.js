@@ -273,12 +273,16 @@ function fetchPicture(dog) {
 
     if (this.readyState == 4 && this.status == 200) {
       let pictureObj = JSON.parse(this.responseText);
+      let isMovie = /.mp4/;
+      if(!isMovie.test(pictureObj['url'])){
       dog.setPicture(pictureObj['url']);
       callbackCount++;
       console.log(dog);
       console.log(callbackCount+"callbacks at 277");
       if(callbackCount == 3){
         dogBank.forEach(buildList);
+      } else {
+        fetchPicture(dog);
       }
     }
   };
