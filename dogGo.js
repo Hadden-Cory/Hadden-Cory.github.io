@@ -262,11 +262,16 @@ class Dog {
     let bidding = document.getElementById('highestbidder');
     if (this.price > this.bidCeiling) {
       this.highestBidder = "current User";
+      document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
+      bidding.innerHTML = "You are the highest bidder";
+      bidding.classList.remove('loosing');
+      bidding.classList.add('winning');
     } else {
       document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
       bidding.innerHTML = "You are the highest bidder";
       bidding.classList.remove('loosing');
       bidding.classList.add('winning');
+      console.log(this.price);
 
       this.price = this.price + 5;
       setTimeout(function(){
@@ -345,8 +350,6 @@ function randomDate() {
 
 function randomPrice() {
   let num = ((Math.floor(Math.random() * 1400 % 10) * 100) + 100);
-  console.log(num);
-  console.log("36 "+(num+5));
   return num;
 }
 
