@@ -421,12 +421,12 @@ function buildDetailPage(index) {
   document.getElementById('price').innerHTML = 'Current Bid $' + dog.price;
   if (dog.highestBidder == 'computer') {
     document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
-      document.getElementById('highestbidder').add('loosing');
-      document.getElementById('highestbidder').remove('winning');
+      document.getElementById('highestbidder').classList.add('loosing');
+      document.getElementById('highestbidder').classList.remove('winning');
   } else {
     document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
-    document.getElementById('highestbidder').remove('loosing');
-    document.getElementById('highestbidder').add('winning');
+    document.getElementById('highestbidder').classList.remove('loosing');
+    document.getElementById('highestbidder').classList.add('winning');
   }
 
 }
