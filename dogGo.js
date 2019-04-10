@@ -274,7 +274,8 @@ function fetchPicture(dog) {
     if (this.readyState == 4 && this.status == 200) {
       let pictureObj = JSON.parse(this.responseText);
       let isMovie = /.mp4/;
-      if (!isMovie.test(pictureObj['url'])) {
+      let isWebm = /.webm/;
+      if (!isMovie.test(pictureObj['url'])&&!isWebm.test(pictureObj['url'])){
         dog.setPicture(pictureObj['url']);
         callbackCount++;
         console.log(dog);
@@ -339,6 +340,8 @@ function buildList(value, index, array) {
   let date = 'dog' + index + 'date';
   let price = 'dog' + index + 'price';
   let picture = 'dog' + index + 'picture';
+  let today = new Date();
+  console.log(today);
   document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
   document.getElementById(price).innerHTML = '$' + value.price;
 
