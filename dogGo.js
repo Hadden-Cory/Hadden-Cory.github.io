@@ -335,7 +335,7 @@ function buildList(value, index, array) {
   let loader = document.getElementById('loader'+index);
   console.log(loader+", "+dog);
   dog.removeChild(loader);
-  table.classList.remove('collasped');
+  table.classList.remove('collapsed');
   let img = document.createElement("img");
   img.src = value.picture;
   img.className = 'thumbnail';
