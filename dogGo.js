@@ -15,6 +15,7 @@ window.namey = {
       f,
       b,
       d = this;
+
     function e(j) {
       var i = document.createElement("script"),
         h = false;
@@ -48,7 +49,7 @@ window.namey = {
         k(l);
         try {
           delete d[i]
-        } catch (m) { }
+        } catch (m) {}
         d[i] = null;
       };
       e(h + f + "callback=" + i);
@@ -113,8 +114,7 @@ window.namey = {
 
       if (typeof (options.type) != "undefined" && options.type != "both") {
         tmp_params.type = options.type;
-      }
-      ;
+      };
 
       if (options.type != "surname" && typeof (options.with_surname) != "undefined") {
         tmp_params.with_surname = options.with_surname;
@@ -198,16 +198,9 @@ function setContent() {
       document.getElementById("content").innerHTML = content;
 
       if (location.hash == "#dogGo_List") {
-            while (callbackCount<4){
-        console.log('IN WHILE 4, callback count at 200 :'+callbackCount);
-        while(callbackCount>3){
-          console.log('IN WHILE 3, callback count at 202 :'+callbackCount);
-          dogBank.forEach(buildList);
-      console.log('IN IF, callback count at 205 :'+callbackCount);
-      }
 
-    }console.log('Exited While 4, callback count at 209 :'+callbackCount);}
-    
+        dogBank.forEach(buildList);
+      }
     });
 
   } else {
@@ -337,13 +330,13 @@ function buildList(value, index, array) {
   let date = 'dog' + index + 'date';
   let price = 'dog' + index + 'price';
   let picture = 'dog' + index + 'picture';
-   document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
+  document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
   document.getElementById(price).innerHTML = '$' + value.price;
-  
-  let dog = document.getElementById('dog'+index);
-  let table = document.getElementById('dog'+index+'table');
-  let loader = document.getElementById('loader'+index);
-  console.log(loader+", "+dog);
+
+  let dog = document.getElementById('dog' + index);
+  let table = document.getElementById('dog' + index + 'table');
+  let loader = document.getElementById('loader' + index);
+  console.log(loader + ", " + dog);
   dog.removeChild(loader);
   table.classList.remove('collapsed');
   let img = document.createElement("img");
@@ -352,5 +345,5 @@ function buildList(value, index, array) {
   let thumbnail = document.getElementById(picture);
   thumbnail.appendChild(img);
   callbackCount++;
-  console.log('callback count at 348 :'+callbackCount);
+  console.log('callback count at 348 :' + callbackCount);
 }
