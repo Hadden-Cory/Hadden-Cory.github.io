@@ -198,8 +198,9 @@ function setContent() {
       document.getElementById("content").innerHTML = content;
 
       if (location.hash == "#dogGo_List") {
-
-
+        if(callbackCount > 3){
+          dogBank.forEach(buildList);
+        }
       }
     });
 
