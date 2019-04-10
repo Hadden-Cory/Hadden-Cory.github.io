@@ -161,6 +161,7 @@ let descriptBank = [
   "Speaks fluent French and Italian."
 ]
 let dogBank = [];
+let callbackCount = 0;
 
 window.addEventListener('load', function () {
 
@@ -195,9 +196,17 @@ function setContent() {
     displayContent(location.hash, function (content) {
       console.log("inserting new content");
       document.getElementById("content").innerHTML = content;
+      while (callbackCount<4){
+        console.log('IN WHILE 4, callback count at 200 :'+callbackCount);
+        while(callbackCount>3){
+          console.log('IN WHILE 3, callback count at 202 :'+callbackCount);
       if (location.hash == "#dogGo_List") {
-        setTimeout(function () { dogBank.forEach(buildList); }, 5000);
+      dogBank.forEach(buildList);
+      console.log('IN IF, callback count at 205 :'+callbackCount);
       }
+
+    }}
+    console.log('Exited While 4, callback count at 209 :'+callbackCount);
     });
 
   } else {
@@ -270,6 +279,7 @@ function fetchPicture(dog) {
     if (this.readyState == 4 && this.status == 200) {
       let pictureObj = JSON.parse(this.responseText);
       dog.setPicture(pictureObj['url']);
+      callbackCount++;
     }
   };
   xhttp.open("GET", url, true);
@@ -281,7 +291,6 @@ function initDog(dog, callback0, callback1) {
   callback0(dog);
   callback1(dog);
   dogBank.push(dog);
-  console.log(dogBank);
 }
 
 
@@ -341,4 +350,6 @@ function buildList(value, index, array) {
   img.className = 'thumbnail';
   let thumbnail = document.getElementById(picture);
   thumbnail.appendChild(img);
+  callbackCount++;
+  console.log('callback count at 348 :'+callbackCount);
 }
