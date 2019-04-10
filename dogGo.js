@@ -172,14 +172,14 @@ window.addEventListener('load', function () {
     location.hash = "#dogGo_List";
   }
 
-  setContent();
-
   let fido0 = new Dog();
   let fido1 = new Dog();
   let fido2 = new Dog();
   initDog(fido0, fetchName, fetchPicture);
   initDog(fido1, fetchName, fetchPicture);
   initDog(fido2, fetchName, fetchPicture);
+  
+  setContent();
 }, false);
 
 window.addEventListener('hashchange', setContent, false);
@@ -273,7 +273,6 @@ function fetchPicture(dog) {
     if (this.readyState == 4 && this.status == 200) {
       let pictureObj = JSON.parse(this.responseText);
       dog.setPicture(pictureObj['url']);
-      callbackCount++;
     }
   };
   xhttp.open("GET", url, true);
@@ -286,8 +285,6 @@ function initDog(dog, callback0, callback1) {
   callback1(dog);
   dogBank.push(dog);
 }
-
-
 
 function randomDate() {
   var num = (Math.floor(Math.random() * 400) % 7) + 1;
