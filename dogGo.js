@@ -275,7 +275,7 @@ function fetchPicture(dog) {
       let pictureObj = JSON.parse(this.responseText);
       dog.setPicture(pictureObj['url']);
       callbackCount++;
-      console.log(dog+' at 277, callback'+callbackCount);
+      console.log(dog);
       console.log(callbackCount+"callbacks at 277");
       if(callbackCount == 3){
         dogBank.forEach(buildList);
