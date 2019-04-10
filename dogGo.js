@@ -275,7 +275,7 @@ function fetchPicture(dog) {
       dog.setPicture(pictureObj['url']);
       callbackCount++;
       console.log(callbackCount+"callbacks at 277")
-      if(callbackCount == 2){
+      if(callbackCount == 3){
         dogBank.forEach(buildList);
       }
     }
