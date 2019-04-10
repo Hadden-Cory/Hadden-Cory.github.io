@@ -392,10 +392,12 @@ function buildDetailPage(index) {
 }
 
 function bid5(){
-  dogBank[dogSelection].bid();
-  if (dogBank[dogSelection].highestBidder == 'computer') {
+  let dog = dogBank[dogSelection]
+  dog.bid();
+  if (dog.highestBidder == 'computer') {
     document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
   } else {
     document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
   }
+  document.getElementById('price').innerHTML = 'Current Bid $' + dog.price;
 }
