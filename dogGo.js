@@ -259,6 +259,7 @@ class Dog {
 
   setHighestBidder(){
 
+    let timeSeed = (Math.floor(Math.random() * 40000) % 2500);
     let bidding = document.getElementById('highestbidder');
     if (this.price > this.bidCeiling) {
       this.highestBidder = "current User";
@@ -271,31 +272,31 @@ class Dog {
       bidding.innerHTML = "You are the highest bidder";
       bidding.classList.remove('loosing');
       bidding.classList.add('winning');
-      console.log(this.price);
+
 
       this.price = this.price + 5;
       
       let price = this.price;
       
-      console.log(price+", "+this.price);
+
       setTimeout(function(){
       bidding.innerHTML = "Counter Bid +$5";
       bidding.classList.remove('winning');
       bidding.classList.add('loosing');
 
 
-      console.log(price);
+
       this.highestBidder = "computer";
 
-      },1500);      
+      },timeSeed);      
       setTimeout(function(){
       document.getElementById('price').innerHTML = 'Current Bid $' + price;
       document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
       bidding.classList.remove('winning');
       bidding.classList.add('loosing');
-      },2200);
+      },(timeSeed + 1000));
 
-      console.log(this.price);
+
     }
   }
 }
