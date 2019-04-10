@@ -264,12 +264,12 @@ class Dog {
     if (this.price > this.bidCeiling) {
       this.highestBidder = "current User";
       document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
-      bidding.innerHTML = "You are the highest bidder";
+      bidding.innerHTML = "You are the highest bidder!";
       bidding.classList.remove('loosing');
       bidding.classList.add('winning');
     } else {
       document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
-      bidding.innerHTML = "You are the highest bidder";
+      bidding.innerHTML = "You are the highest bidder!";
       bidding.classList.remove('loosing');
       bidding.classList.add('winning');
 
@@ -294,7 +294,7 @@ class Dog {
       document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
       bidding.classList.remove('winning');
       bidding.classList.add('loosing');
-      },(timeSeed + 1000));
+      },(timeSeed + 1500));
 
 
     }
