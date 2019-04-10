@@ -265,9 +265,12 @@ class Dog {
       document.getElementById('highestbidder').innerHTML = "Counter Bid +$5";
       this.price = this.price + 5;
       this.highestBidder = "computer";
-      },1500);
-      document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
+      setTimeout(function(){
+              document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
       document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
+      },500);
+      },1500);
+
     }
   }
 }
