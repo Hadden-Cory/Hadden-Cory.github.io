@@ -201,12 +201,8 @@ function setContent() {
         if (callbackCount > 3) {
           dogBank.forEach(buildList);
           console.log(dogBank);
-        } else if (route == "#dog0") {
+        } else if (route == "#dogGo_dog") {
           buildDetailPage(0);
-        } else if (route == "#dog1") {
-          buildDetailPage(1);
-        } else if (route == "#dog2") {
-          buildDetailPage(2);
         }
 
       } else {
@@ -367,5 +363,5 @@ function buildList(value, index, array) {
 }
 
 function buildDetailPage(index) {
-  console.log('dog '+index+' page selected');
+  console.log('dog '+index+' page');
 }
