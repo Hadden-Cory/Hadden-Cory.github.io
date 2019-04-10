@@ -196,17 +196,18 @@ function setContent() {
     displayContent(location.hash, function (content) {
       console.log("inserting new content");
       document.getElementById("content").innerHTML = content;
-      while (callbackCount<4){
+
+      if (location.hash == "#dogGo_List") {
+            while (callbackCount<4){
         console.log('IN WHILE 4, callback count at 200 :'+callbackCount);
         while(callbackCount>3){
           console.log('IN WHILE 3, callback count at 202 :'+callbackCount);
-      if (location.hash == "#dogGo_List") {
-      dogBank.forEach(buildList);
+          dogBank.forEach(buildList);
       console.log('IN IF, callback count at 205 :'+callbackCount);
       }
 
-    }}
-    console.log('Exited While 4, callback count at 209 :'+callbackCount);
+    }console.log('Exited While 4, callback count at 209 :'+callbackCount);}
+    
     });
 
   } else {
