@@ -369,4 +369,5 @@ function buildList(value, index, array) {
 
 function buildDetailPage(index) {
   console.log('dog ' + index + ' page');
+  document.getElementById('dogDetails').innerHTML = dogBank[index];
 }
