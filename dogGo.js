@@ -192,22 +192,28 @@ function setContent() {
 
   if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
-    console.log("Hash identified as " + location.hash + ". Initiating AJAX")
-    displayContent(location.hash, function (content) {
+    console.log("Hash identified as " + route + ". Initiating AJAX")
+    displayContent(route, function (content) {
       console.log("inserting new content");
       document.getElementById("content").innerHTML = content;
 
-      if (location.hash == "#dogGo_List") {
+      if (route == "#dogGo_List") {
         if (callbackCount > 3) {
           dogBank.forEach(buildList);
           console.log(dogBank);
+        } else if (route == "#dog0") {
+          buildDetailPage(0);
+        } else if (route == "#dog1") {
+          buildDetailPage(1);
+        } else if (route == "#dog2") {
+          buildDetailPage(2);
         }
+
+      } else {
+        console.log("Hash unidentified. AJAX not called")
+        document.getElementById("content").innerHTML = "Oops! Content Not Found";
       }
     });
-
-  } else {
-    console.log("Hash unidentified. AJAX not called")
-    document.getElementById("content").innerHTML = "Oops! Content Not Found";
   }
 }
 
@@ -276,7 +282,7 @@ function fetchPicture(dog) {
       let pictureObj = JSON.parse(this.responseText);
       let isMovie = /.mp4/;
       let isWebm = /.webm/;
-      if (!isMovie.test(pictureObj['url'])&&!isWebm.test(pictureObj['url'])){
+      if (!isMovie.test(pictureObj['url']) && !isWebm.test(pictureObj['url'])) {
         dog.setPicture(pictureObj['url']);
         callbackCount++;
         console.log(dog);
@@ -305,7 +311,7 @@ function randomDate() {
   let rndDate = new Date();
   let newDate = rndDate.getDate() + num;
   rndDate.setDate(newDate);
-  rndDate.setHours(23,59,59)
+  rndDate.setHours(23, 59, 59)
   return rndDate;
 }
 
@@ -343,7 +349,7 @@ function buildList(value, index, array) {
   let price = 'dog' + index + 'price';
   let picture = 'dog' + index + 'picture';
 
-  document.getElementById(date).innerHTML = "Ends "+ dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
+  document.getElementById(date).innerHTML = "Ends " + dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
   document.getElementById(price).innerHTML = '$' + value.price;
 
   let dog = document.getElementById('dog' + index);
@@ -358,4 +364,8 @@ function buildList(value, index, array) {
   let thumbnail = document.getElementById(picture);
   thumbnail.appendChild(img);
   callbackCount++;
+}
+
+function buildDetailPage(index) {
+  console.log('dog '+index+' page selected');
 }
