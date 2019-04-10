@@ -329,7 +329,7 @@ function buildList(value, index, array) {
   let picture = 'dog' + index + 'picture';
    document.getElementById(date).innerHTML = dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
   document.getElementById(price).innerHTML = '$' + value.price;
-  thumbnail.appendChild(img);
+  
   let dog = document.getElementById('dog'+index);
   let loader = document.getElementById('loader'+index);
   console.log(loader+", "+dog);
@@ -338,5 +338,5 @@ function buildList(value, index, array) {
   img.src = value.picture;
   img.className = 'thumbnail';
   let thumbnail = document.getElementById(picture);
-
+  thumbnail.appendChild(img);
 }
