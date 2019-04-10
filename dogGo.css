@@ -18,11 +18,12 @@ body {
     background-color: rgb(38, 148, 56);
     color: #ffffff;
     width: 150px;
-    height: 150px;
+    height: 100px;
     border-radius: 100px;
     padding-top: 30px;
     padding: 20px;
     margin: auto;
+    box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.75);
 }
 
 .picture {
