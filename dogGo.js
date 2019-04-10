@@ -370,7 +370,7 @@ function buildList(value, index, array) {
 
 function buildDetailPage(index) {
   console.log('dog ' + index + ' page');
-  
+
   dog = dogBank[index];
   let img = document.createElement("img");
   img.src = dog.picture;
@@ -379,7 +379,7 @@ function buildDetailPage(index) {
   parent.appendChild(img);
 
   document.getElementById('name').innerHTML = dog.name;
-  document.getElementById(date).innerHTML = "Ends " + dayoOfWeek[dog.date.getDay()] + ", " + monthOfYear[dog.date.getMonth()] + " " + dog.date.getDate();
+  document.getElementById('date').innerHTML = "Ends " + dayoOfWeek[dog.date.getDay()] + ", " + monthOfYear[dog.date.getMonth()] + " " + dog.date.getDate();
   document.getElementById('description').innerHTML = dog.description;
   document.getElementById('price').innerHTML = 'Current Bid $' + dog.price;
   if (dog.highestBidder == 'comptuer') {
