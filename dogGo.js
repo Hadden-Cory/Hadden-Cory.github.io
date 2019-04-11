@@ -210,21 +210,21 @@ function setContent() {
         buildDetailPage(dogSelection);
       } else if (route == "#dogGo_Cart") {
         if (!localStorage.getItem('myBids') == null || !localStorage.getItem('myBids') == 0) {
-        
-          let myBidsStr =localStorage.getItem('myBids')
-          console.log('myBidStr'+ myBidsStr);  
+
+          let myBidsStr = localStorage.getItem('myBids')
+          console.log('myBidStr' + myBidsStr);
           let myBids = JSON.parse(myBidsStr);
-          console.log('myBids'+myBids); 
+          console.log('myBids' + myBids);
 
           Object.keys(myBids).forEach(buildCart);
-          
+
           // Object.keys(myBids).forEach(function(value, index, array){
           //   let dogObj = JSON.parse(value);
           //   array[index] = dogObj;
           // });
 
-          // console.log('after unpack'+myBids); 
-         // myBids.forEach(buildCart);
+        // console.log('after unpack'+myBids); 
+        // myBids.forEach(buildCart);
         }
 
       } else {
@@ -459,33 +459,20 @@ function bid5() {
   let dog = dogBank[dogSelection];
 
   dog.bid();
-  if (localStorage.getItem('myBids') == 0 || localStorage.getItem('myBids') == null) {
 
-    let myBidsObj = {};
     let dogStr = JSON.stringify(dog);
 
-    myBidsObj[dog.name + dog.date] = dogStr;
+    localStorage.setItem(dog.name + dog.date, dog);
+    console.log("IF local storage "+dog.name+" :" + localStorage.getItem(dog.name + dog.date));
 
-    //let myBids = JSON.stringify(myBidsObj) + "";
-
-    localStorage.setItem('myBids', myBidsObj);
-    console.log('If Local Storage myBids: ' + localStorage.getItem('myBids'));
-    console.log('If Local Storage myBids: ' + JSON.stringify(localStorage.getItem('myBids')));
-  } else {
-
-    let myBidsObj = JSON.parse(localStorage.getItem('myBids'));
-    myBidsObj[dog.name + dog.date] = dog;
-    let myBids = JSON.stringify(myBidsObj);
-    localStorage.setItem('else myBids ', myBids);
-
-    let local = JSON.parse(localStorage.getItem('myBids'));
-    console.log('else local ' + local);
-  }
+    for (let i = 0; i < localStorage.length; i++) {
+      console.log('Local Storage' + localStorage.getItem(localStorage.key(i)));
+    }
 }
 
 function buildCart(value, index, array) {
   let dog = value;
-  console.log("buildCart dog "+ dog)
+  console.log("buildCart dog " + dog)
   let div = document.createElement("div");
   let text = document.createElement("h1");
   text.innerText = dog.name;
