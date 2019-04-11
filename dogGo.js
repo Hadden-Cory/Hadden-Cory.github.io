@@ -504,7 +504,7 @@ function buildCart(dogStr) {
 }
 
 function buttonPress(btn) {
-  console.log(this.id);
+  console.log('507'+btn);
   btn.classList.toggle("quoteButtonPressed");
   btn.style.backgroundColor = "#ffdddd";
 
@@ -512,7 +512,7 @@ function buttonPress(btn) {
 
 //Lanuches button release animation
 function buttonRelease(btn) {
-  console.log(this.id);
+  console.log('515'+btn);
   btn.classList.toggle("ButtonPressed");
   btn.style.animation = "buttonRelease 700ms";
   setTimeout(function () {
