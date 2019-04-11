@@ -207,7 +207,9 @@ function setContent() {
         }
       } else if (route == "#dogGo_Dog") {
         buildDetailPage(dogSelection);
-      } else {
+      } else if (route == "#dogGo_Cart") {
+        dogBank.forEach(buildCart);
+      }else {
         console.log("Hash unidentified. AJAX not called")
         document.getElementById("content").innerHTML = "Oops! Content Not Found";
       }
