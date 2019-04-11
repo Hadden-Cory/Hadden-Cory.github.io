@@ -275,18 +275,14 @@ class Dog {
       bidding.classList.remove('loosing');
       bidding.classList.add('winning');
 
-
       this.price = this.price + 5;
       
       let price = this.price;
-      
 
       setTimeout(function(){
       bidding.innerHTML = "Counter Bid +$5";
       bidding.classList.remove('winning');
       bidding.classList.add('loosing');
-
-
 
       this.highestBidder = "computer";
 
@@ -443,4 +439,15 @@ function bid5(){
   let date = new Date();
   dogBank[dogSelection].bid();
   localStorage.setItem(date,dogBank[dogSelection]);
+}
+
+function buildCart(value, index, array){
+  let dog = value;
+  let div = document.createElement("div");
+  let text = document.createElement("h1");
+  text.innerText = dog.name;
+  div.className = 'banner';
+  let parent = document.getElementById('container');
+  div.appendChild(text);
+  parent.appendChild(div);
 }
