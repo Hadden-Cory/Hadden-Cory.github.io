@@ -445,8 +445,8 @@ function bid5(){
   if (localStorage.getItem('myBids')==null){
     let myBids = [];
     dog.bid();
-    myBids[dog.name+dog.date]=dog;
-    console.log('if: '+myBids[dog.name+dog.date]);
+    myBids[dog.name+dog.date] = dog;
+    console.log('if: '+myBids[dog.name+dog.date].name);
     localStorage.setItem('myBids',myBids);
     let local = localStorage.getItem('myBids');
     console.log('if local '+local);
@@ -454,7 +454,7 @@ function bid5(){
     let myBids = localStorage.getItem('myBids');
     dog.bid();
     myBids[dog.name+dog.date]=dog;
-    console.log('else: '+myBids[dog.name+dog.date]);
+    console.log('else: '+myBids[dog.name+dog.date].name);
     localStorage.setItem('myBids',myBids);
     let local = localStorage.getItem('myBids');
     console.log('else local '+local);
