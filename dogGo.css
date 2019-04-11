@@ -117,3 +117,8 @@ p {
     transition: 100ms;
     transform: scale(0.8);
 }
+
+.pressable:hover{
+    transition: 100ms;
+    transform: scale(0.8);
+}
