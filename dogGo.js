@@ -443,7 +443,6 @@ function buildDetailPage(index) {
   }
 
 }
-
 function bid5() {
   let dog = dogBank[dogSelection];
   dog.bid();
@@ -459,10 +458,10 @@ function bid5() {
 
 function buildCart(dogStr) {
   let dog = JSON.parse(dogStr);
-  console.log("buildCart dog " + dog)
+
   let div = document.createElement("div");
   let text = document.createElement("h1");
-  text.innerText = dog.name;
+  text.innerHTML = '<table><tr><td><h1>'+dog.name+'</h1></td><h2>'+dog.date+'</h2><td></td><td><h1>'+dog.price+'</h1></td></tr></table>';
   div.className = 'banner';
   let parent = document.getElementById('container');
   div.appendChild(text);
