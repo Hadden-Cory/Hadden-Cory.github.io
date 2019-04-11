@@ -14,7 +14,7 @@ body {
     position: relative;
 }
 
-#bid5 {
+.bid5 {
     background-color: rgb(38, 148, 56);
     color: #ffffff;
     width: 150px;
