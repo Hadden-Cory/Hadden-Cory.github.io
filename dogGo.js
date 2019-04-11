@@ -167,14 +167,16 @@ let dogBank = [];
 let callbackCount = 0;
 let dogSelection = 0;
 
+
+
+window.addEventListener('load', function () {
+
 document.getElementsByClassName('pressable').addEventListener('touchstart', buttonPress);
 document.getElementsByClassName('pressable').addEventListener('touchend', buttonRelease);
 document.getElementsByClassName('pressable').addEventListener('mouseup', buttonPress);
 document.getElementsByClassName('pressable').addEventListener('mousedown', buttonRelease);
-
-window.addEventListener('load', function () {
-
-  console.log('window loaded')
+  
+console.log('window loaded')
 
   if (!location.hash || dogBank.length == 0) {
     console.log('unset location hash. Hash defaulted to #dogGo');
