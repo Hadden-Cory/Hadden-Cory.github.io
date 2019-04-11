@@ -163,8 +163,6 @@ let descriptBank = [
 let dayoOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturady'];
 let monthOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', "October", 'November', 'December'];
 let dogBank = [];
-let bidBank = [];
-localStorage.setItem("mybids",bidBank);
 let callbackCount = 0;
 let dogSelection = 0;
 
@@ -442,11 +440,22 @@ function buildDetailPage(index) {
 function bid5(){
   let date = new Date();
   let dog = dogBank[dogSelection];
-  let myBids = localStorage.getItem('myBids');
+  if (!localStorage.getItem('myBids')){
+    let myBids = [];
+    myBids[dog.name+dog.date]=dog;
+    console.log('if: '+myBids[dog.name+dog.date]);
+    localStorage.setItem('myBids',myBids);
+  } else {
+    let myBids = localStorage.getItem('myBids');
+    myBids[dog.name+dog.date]=dog;
+    console.log('else: '+myBids[dog.name+dog.date]);
+    localStorage.setItem('myBids',myBids);
+  }
+  
   console.log(myBids);
   dog.bid();
-  myBids[dog.name+dog.date]=dog;
-  localStorage.setItem('myBids',myBids);
+  
+  
 }
 
 function buildCart(value, index, array){
