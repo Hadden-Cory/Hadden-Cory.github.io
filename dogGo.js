@@ -446,20 +446,20 @@ function buildCart(dogStr) {
   let text = document.createElement("h1");
   text.innerHTML = '<table><tr><td><h2>'+dog.name+'</h2></td><td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2><td></td><td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table>';
   div.className = 'banner';
-  
+
   let parent = null;
   if(dog.highestBidder=="Current User" && date > now){
     parent = document.getElementById('winningContainer');
-    document.getElementById('winningContainer').classList.remove('collasped');
+    document.getElementById('winningContainer').classList.remove('collapsed');
   } else if(dog.highestBidder=="computer" && date > now){
     parent = document.getElementById('loosingContainer');
-    document.getElementById('loosingContainer').classList.remove('collasped');
+    document.getElementById('loosingContainer').classList.remove('collapsed');
   } else if(dog.highestBidder=="Current User" && date <= now){
     parent = document.getElementById('wonContainer')
-    document.getElementById('wonContainer').classList.remove('collasped');
+    document.getElementById('wonContainer').classList.remove('collapsed');
   } else {
     parent = document.getElementById('lostContainer')
-    document.getElementById('lostContainer').classList.remove('collasped');
+    document.getElementById('lostContainer').classList.remove('collapsed');
   }
 
   div.appendChild(text);
