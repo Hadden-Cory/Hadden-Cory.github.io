@@ -448,7 +448,7 @@ function buildCart(dogStr) {
   let div = document.createElement("div");
   let text = document.createElement("h1");
 
-  text.innerHTML = '<table><tr><td id="picture' + dog.name + date + '"></td><td><h1>' + dog.name + '</h1><h3>'+dog.description+'</h3><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table><div id="button'+ dog.name + date+'"></div>';
+  text.innerHTML = '<table><tr><td id="picture' + dog.name + date + '"></td><td><h1>' + dog.name + '</h1><h3>'+dog.description+'</h3><h3>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h3><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table><div id="button'+ dog.name + date+'"></div>';
   div.className = 'banner';
 
   let parent = null;
@@ -464,8 +464,9 @@ function buildCart(dogStr) {
     parent.appendChild(div);
     let div1 = document.createElement("div");
     let buttonArea = document.getElementById("button"+ dog.name + date) 
-    div1.innerHTML = '<h1 class="pressable" onclick="bid5()" id="bid5">+$5</h1>';
+    div1.innerHTML = '<h1 class="pressable" onclick="bid5()">+$5</h1>';
     buttonArea.appendChild(div1);
+
 
   } else if (dog.highestBidder == "Current User" && date <= now) {
     parent = document.getElementById('wonContainer')
