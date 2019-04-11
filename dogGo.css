@@ -28,7 +28,7 @@ body {
 
 .picture {
     padding: 10px;
-    margin: 10px;
+    margin: 15px;
     width: 350px;
     height: 350px;
     border-radius: 75px;
@@ -48,7 +48,7 @@ table {
 }
 
 td {
-    padding: 3%;
+    padding: 2%;
 }
 
 .banner {
