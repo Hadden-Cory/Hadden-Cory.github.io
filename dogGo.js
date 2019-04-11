@@ -210,8 +210,13 @@ function setContent() {
         buildDetailPage(dogSelection);
       } else if (route == "#dogGo_Cart") {
         if (!localStorage.getItem('myBids') == null || !localStorage.getItem('myBids') == 0) {
-          let myBids = JSON.parse(localStorage.getItem('myBids'));
-          myBids.forEach(buildCart);
+        
+          let myBidsStr =localStorage.getItem('myBids')
+          console.log('myBidStr'+ myBidsStr);  
+          let myBids = JSON.parse(myBidsStr);
+          console.log(myBids); 
+          
+         // myBids.forEach(buildCart);
         }
 
       } else {
