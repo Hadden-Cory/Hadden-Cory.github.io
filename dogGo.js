@@ -171,10 +171,10 @@ let dogSelection = 0;
 
 window.addEventListener('load', function () {
 
-document.getElementsByClassName('pressable').addEventListener('touchstart', buttonPress);
-document.getElementsByClassName('pressable').addEventListener('touchend', buttonRelease);
-document.getElementsByClassName('pressable').addEventListener('mouseup', buttonPress);
-document.getElementsByClassName('pressable').addEventListener('mousedown', buttonRelease);
+  document.getElementsByClassName('pressable').addEventListener('touchstart', buttonPress);
+  document.getElementsByClassName('pressable').addEventListener('touchend', buttonRelease);
+  document.getElementsByClassName('pressable').addEventListener('mouseup', buttonPress);
+  document.getElementsByClassName('pressable').addEventListener('mousedown', buttonRelease);
   
 console.log('window loaded')
 
