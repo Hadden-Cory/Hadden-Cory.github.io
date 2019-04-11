@@ -466,9 +466,9 @@ function bid5() {
 
     myBidsObj[dog.name + dog.date] = dogStr;
 
-    let myBids = JSON.stringify(myBidsObj) + "";
+    //let myBids = JSON.stringify(myBidsObj) + "";
 
-    localStorage.setItem('myBids', myBids);
+    localStorage.setItem('myBids', myBidsObj);
     console.log('Local Storage myBids: ' + localStorage.getItem('myBids'));
   } else {
 
