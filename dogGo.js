@@ -504,18 +504,3 @@ function buildCart(dogStr) {
 
 }
 
-function buttonPress(btn) {
-  console.log('507'+btn);
-  btn.classList.toggle("quoteButtonPressed");
-  btn.style.backgroundColor = "#ffdddd";
-
-}
-
-//Lanuches button release animation
-function buttonRelease(btn) {
-  console.log('515'+btn);
-  btn.classList.toggle("ButtonPressed");
-  btn.style.animation = "buttonRelease 700ms";
-  setTimeout(function () {
-    btn.style.animation = "unset";
-  }, 700);}
