@@ -469,7 +469,8 @@ function bid5() {
     //let myBids = JSON.stringify(myBidsObj) + "";
 
     localStorage.setItem('myBids', myBidsObj);
-    console.log('Local Storage myBids: ' + localStorage.getItem('myBids'));
+    console.log('If Local Storage myBids: ' + localStorage.getItem('myBids'));
+    console.log('If Local Storage myBids: ' + JSON.stringify(localStorage.getItem('myBids')));
   } else {
 
     let myBidsObj = JSON.parse(localStorage.getItem('myBids'));
