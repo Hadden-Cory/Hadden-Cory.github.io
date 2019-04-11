@@ -167,10 +167,10 @@ let dogBank = [];
 let callbackCount = 0;
 let dogSelection = 0;
 
-document.getElementsByClassName('btn').addEventListener('touchstart', buttonPress);
-document.getElementsByClassName('btn').addEventListener('touchend', buttonRelease);
-document.getElementsByClassName('btn').addEventListener('mouseup', buttonPress);
-document.getElementsByClassName('btn').addEventListener('mousedown', buttonRelease);
+document.getElementsByClassName('pressable').addEventListener('touchstart', buttonPress);
+document.getElementsByClassName('pressable').addEventListener('touchend', buttonRelease);
+document.getElementsByClassName('pressable').addEventListener('mouseup', buttonPress);
+document.getElementsByClassName('pressable').addEventListener('mousedown', buttonRelease);
 
 window.addEventListener('load', function () {
 
