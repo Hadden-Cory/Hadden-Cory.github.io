@@ -443,7 +443,7 @@ function bid5(){
   let date = new Date();
   dogBank[dogSelection].bid();
   let myBids = localStorage.getItem('myBids');
-  myBids.push(this);
+  myBids[this.name+this.date]=this;
   localStorage.setItem('myBids',myBids);
 }
 
