@@ -448,38 +448,25 @@ function buildCart(dogStr) {
   let div = document.createElement("div");
   let text = document.createElement("h1");
 
-  text.innerHTML = '<table><tr><td id="picture' + dog.name + date + '"></td><td><h1>' + dog.name + '</h1><h3>'+dog.description+'</h3><h3>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h3><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table><div id="button'+ dog.name + date+'"></div>';
+  text.innerHTML = '<table><tr><td id="picture' + dog.name + date + '"></td><td><h1>' + dog.name + '</h1><h3>' + dog.description + '</h3><h3>' + dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate() + '</h3><h1 id="price' + dog.name + date + '">$' + dog.price + '</h1></td></tr></table><div id="button' + dog.name + date + '"></div>';
   div.className = 'banner';
 
   let parent = null;
   if (dog.highestBidder == "Current User" && date > now) {
     parent = document.getElementById('winningContainer');
     document.getElementById('winningContainer').classList.remove('collapsed');
-    div.appendChild(text);
-    parent.appendChild(div);
   } else if (dog.highestBidder == "computer" && date > now) {
     parent = document.getElementById('loosingContainer');
     document.getElementById('loosingContainer').classList.remove('collapsed');
-    div.appendChild(text);
-    parent.appendChild(div);
-    let div1 = document.createElement("div");
-    let buttonArea = document.getElementById("button"+ dog.name + date) 
-    div1.innerHTML = '<h1 class="pressable bid5" onclick="bid5()">+$5<h1>  ';
-    buttonArea.appendChild(div1);
-
-
   } else if (dog.highestBidder == "Current User" && date <= now) {
     parent = document.getElementById('wonContainer')
     document.getElementById('wonContainer').classList.remove('collapsed');
-    div.appendChild(text);
-    parent.appendChild(div);
   } else {
     parent = document.getElementById('lostContainer')
     document.getElementById('lostContainer').classList.remove('collapsed');
-    div.appendChild(text);
-    parent.appendChild(div);
   }
-
+  div.appendChild(text);
+  parent.appendChild(div);
   let img = document.createElement("img");
   img.src = dog.picture;
   img.className = 'picture';
