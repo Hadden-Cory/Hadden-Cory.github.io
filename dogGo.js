@@ -448,8 +448,7 @@ function bid5(){
     myBids[dog.name+dog.date] = dog;
     console.log('if: '+myBids[dog.name+dog.date].name);
     localStorage.setItem('myBids', myBids);
-    let local = localStorage.getItem('myBids');
-    console.log('if local '+local);
+    console.log('if local '+localStorage.getItem('myBids'));
   } else {
     let myBids = localStorage.getItem('myBids');
     console.log('else mybids: '+myBids);
