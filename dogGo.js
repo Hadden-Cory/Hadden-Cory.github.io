@@ -484,6 +484,7 @@ function bid5() {
 
 function buildCart(value, index, array) {
   let dog = value;
+  console.log("buildCart dog "+ dog)
   let div = document.createElement("div");
   let text = document.createElement("h1");
   text.innerText = dog.name;
