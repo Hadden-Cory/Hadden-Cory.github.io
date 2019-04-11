@@ -215,13 +215,15 @@ function setContent() {
           console.log('myBidStr'+ myBidsStr);  
           let myBids = JSON.parse(myBidsStr);
           console.log('before unpack'+myBids); 
-          
-          Object.keys(myBids).forEach(function(value, index, array){
-            let dogObj = JSON.parse(value);
-            array[index] = dogObj;
-          });
 
-          console.log('after unpack'+myBids); 
+          Object.keys(myBids).forEach(buildCart);
+          
+          // Object.keys(myBids).forEach(function(value, index, array){
+          //   let dogObj = JSON.parse(value);
+          //   array[index] = dogObj;
+          // });
+
+          // console.log('after unpack'+myBids); 
          // myBids.forEach(buildCart);
         }
 
