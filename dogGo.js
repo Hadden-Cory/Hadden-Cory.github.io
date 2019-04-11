@@ -462,7 +462,7 @@ function bid5() {
 
     let dogStr = JSON.stringify(dog);
 
-    localStorage.setItem(dog.name + dog.date, dog);
+    localStorage.setItem(dog.name + dog.date, dogStr);
     console.log("IF local storage "+dog.name+" :" + localStorage.getItem(dog.name + dog.date));
 
     for (let i = 0; i < localStorage.length; i++) {
