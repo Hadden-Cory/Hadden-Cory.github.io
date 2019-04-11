@@ -108,3 +108,7 @@ p {
 .collapsed {
     display: none;
 }
+
+.hidden{
+    visibility: hidden;
+}
