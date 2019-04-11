@@ -204,7 +204,6 @@ function setContent() {
       if (route == "#dogGo_List") {
         if (callbackCount > 3) {
           dogBank.forEach(buildList);
-          console.log(dogBank);
         }
       } else if (route == "#dogGo_Dog") {
         buildDetailPage(dogSelection);
@@ -212,7 +211,6 @@ function setContent() {
         {
 
           for (var i = 0; i < localStorage.length; i++) {
-            console.log('Calling buildCart with ' + localStorage.getItem(localStorage.key(i)))
             buildCart(localStorage.getItem(localStorage.key(i)))
           }
         }
@@ -235,7 +233,6 @@ function displayContent(site, callback) {
 
   site = site.substr(1);
   let ajaxUrl = site + '.html';
-  console.log(ajaxUrl);
 
   xhttp.open("GET", ajaxUrl);
   xhttp.send(null);
@@ -326,7 +323,6 @@ function fetchPicture(dog) {
       if (!isMovie.test(pictureObj['url']) && !isWebm.test(pictureObj['url'])) {
         dog.setPicture(pictureObj['url']);
         callbackCount++;
-        console.log(dog);
 
         if (callbackCount == 3) {
           dogBank.forEach(buildList);
@@ -402,10 +398,17 @@ function buildList(value, index, array) {
   callbackCount++;
 }
 
-function buildDetailPage(index) {
-  console.log('dog ' + index + ' page');
+function buildDetailPage(index, hasBid) {
+  let dog = null;
 
-  dog = dogBank[index];
+  if (hasBid){
+    
+    
+    dog = localStorage.getItem()
+  } else {
+    dog = dogBank[index];
+  }
+  
   let img = document.createElement("img");
   img.src = dog.picture;
   img.className = 'picture';
@@ -433,7 +436,6 @@ function bid5() {
 
   let dogStr = JSON.stringify(dog);
   localStorage.setItem(dog.name + dog.date, dogStr);
-  console.log("Storing " + dog.name + " in Local Storage as:" + localStorage.getItem(dog.name + dog.date));
 }
 
 function buildCart(dogStr) {
@@ -454,6 +456,10 @@ function buildCart(dogStr) {
   } else if(dog.highestBidder=="computer" && date > now){
     parent = document.getElementById('loosingContainer');
     document.getElementById('loosingContainer').classList.remove('collapsed');
+    let div1 = document.createElement("div");
+    div1.innerHTML ='<h1 class="pressable" onclick="bid5()" id="bid5">+$5<h1>';
+    parent.appendChild(div1);
+    
   } else if(dog.highestBidder=="Current User" && date <= now){
     parent = document.getElementById('wonContainer')
     document.getElementById('wonContainer').classList.remove('collapsed');
