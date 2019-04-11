@@ -221,7 +221,7 @@ function setContent() {
       }
     });
   }
-} 
+}
 
 function displayContent(site, callback) {
 
@@ -401,14 +401,14 @@ function buildList(value, index, array) {
 function buildDetailPage(index, hasBid) {
   let dog = null;
 
-  if (hasBid){
-    
-    
+  if (hasBid) {
+
+
     dog = localStorage.getItem()
   } else {
     dog = dogBank[index];
   }
-  
+
   let img = document.createElement("img");
   img.src = dog.picture;
   img.className = 'picture';
@@ -430,6 +430,7 @@ function buildDetailPage(index, hasBid) {
   }
 
 }
+
 function bid5() {
   let dog = dogBank[dogSelection];
   dog.bid();
@@ -446,21 +447,25 @@ function buildCart(dogStr) {
 
   let div = document.createElement("div");
   let text = document.createElement("h1");
-  text.innerHTML = '<table><tr><td id="picture'+dog.name+date+'"></td><td><h2>'+dog.name+'</h2></td></tr><tr><td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2><td></td><td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table>';
+  text.innerHTML = '<table><tr><td id="picture' + dog.name + date + '"></td><td><h1>' + dog.name + '</h1></td></tr>
+                    <tr> <td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2></td>
+                    <td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr ><tr id="button'+ dog.name + date +'"></tr></table > ';
   div.className = 'banner';
 
   let parent = null;
-  if(dog.highestBidder=="Current User" && date > now){
+  if (dog.highestBidder == "Current User" && date > now) {
     parent = document.getElementById('winningContainer');
     document.getElementById('winningContainer').classList.remove('collapsed');
-  } else if(dog.highestBidder=="computer" && date > now){
+  } else if (dog.highestBidder == "computer" && date > now) {
     parent = document.getElementById('loosingContainer');
     document.getElementById('loosingContainer').classList.remove('collapsed');
+
     let div1 = document.createElement("div");
-    div1.innerHTML ='<h1 class="pressable" onclick="bid5()" id="bid5">+$5<h1>';
-    div.appendChild(div1);
-    
-  } else if(dog.highestBidder=="Current User" && date <= now){
+    let buttonArea = document.getElementById("button"+ dog.name + date) 
+    div1.innerHTML = '<h1 class="pressable" onclick="bid5()" id="bid5">+$5<h1>';
+    buttonArea.appendChild(div1);
+
+  } else if (dog.highestBidder == "Current User" && date <= now) {
     parent = document.getElementById('wonContainer')
     document.getElementById('wonContainer').classList.remove('collapsed');
   } else {
@@ -474,15 +479,15 @@ function buildCart(dogStr) {
   let img = document.createElement("img");
   img.src = dog.picture;
   img.className = 'picture';
-  parent = document.getElementById('picture'+dog.name+date);
+  parent = document.getElementById('picture' + dog.name + date);
   parent.appendChild(img);
 
-  if(dog.highestBidder=="Current User" ){
-    document.getElementById("price"+dog.name+date).classList.add('winning');
-    document.getElementById("price"+dog.name+date).classList.remove('loosing');
+  if (dog.highestBidder == "Current User") {
+    document.getElementById("price" + dog.name + date).classList.add('winning');
+    document.getElementById("price" + dog.name + date).classList.remove('loosing');
   } else {
-    document.getElementById("price"+dog.name+date).classList.add('loosing');
-    document.getElementById("price"+dog.name+date).classList.remove('winning');
+    document.getElementById("price" + dog.name + date).classList.add('loosing');
+    document.getElementById("price" + dog.name + date).classList.remove('winning');
   }
-  
+
 }
