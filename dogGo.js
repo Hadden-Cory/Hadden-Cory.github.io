@@ -437,6 +437,7 @@ function bid5() {
 }
 
 function buildCart(dogStr) {
+
   let dog = JSON.parse(dogStr);
   let date = new Date(dog.date);
 
@@ -444,7 +445,12 @@ function buildCart(dogStr) {
   let text = document.createElement("h1");
   text.innerHTML = '<table><tr><td><h2>'+dog.name+'</h2></td><td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2><td></td><td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table>';
   div.className = 'banner';
-  let parent = document.getElementById('container');
+  let parent = null;
+  if(dog.highestBidder=="Current User"){
+    parent = document.getElementById('winningContainer');
+  } else {
+    parent = document.getElementById('loosingContainer');
+  }
   div.appendChild(text);
   parent.appendChild(div);
 
