@@ -448,7 +448,7 @@ function bid5(){
     dog.bid();
     console.log('if name'+dog.name);
     myBids[dog.name+dog.date] = dog;
-    console.log('if myBids 451'+mybids[dog.name+dog.date])
+    console.log('if myBids 451'+myBids[dog.name+dog.date])
     myBids = JSON.stringify(myBids);
     console.log('if: '+myBids);
     localStorage.setItem('myBids', myBids);
