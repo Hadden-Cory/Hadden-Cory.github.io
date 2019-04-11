@@ -440,20 +440,25 @@ function buildDetailPage(index) {
 function bid5(){
   let date = new Date();
   let dog = dogBank[dogSelection];
+  let local = localStorage.getItem('myBids');
+  console.log('before local '+local);
   if (!localStorage.getItem('myBids')){
     let myBids = [];
+    dog.bid();
     myBids[dog.name+dog.date]=dog;
     console.log('if: '+myBids[dog.name+dog.date]);
     localStorage.setItem('myBids',myBids);
-    console.log('if local '+localStorage.getItem('myBids'));
+    let local = localStorage.getItem('myBids');
+    console.log('if local '+local);
   } else {
     let myBids = localStorage.getItem('myBids');
+    dog.bid();
     myBids[dog.name+dog.date]=dog;
     console.log('else: '+myBids[dog.name+dog.date]);
     localStorage.setItem('myBids',myBids);
-    console.log('else local '+localStorage.getItem('myBids'));
+    let local = localStorage.getItem('myBids');
+    console.log('else local '+local);
   }
-  dog.bid();
 }
 
 function buildCart(value, index, array){
