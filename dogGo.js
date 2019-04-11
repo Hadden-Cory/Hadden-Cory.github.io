@@ -322,7 +322,7 @@ function fetchPicture(dog) {
         console.log(dog);
 
         if (callbackCount == 3) {
-          dogBank.forEach(buildList);
+          localStorage.forEach(buildList);
         }
       } else {
         fetchPicture(dog);
