@@ -174,15 +174,15 @@ window.addEventListener('load', function () {
   console.log('window loaded')
 
 
-  let classname = document.getElementsByClassName("pressable");
+//   let classname = document.getElementsByClassName("pressable");
 
-for (var i = 0; i < classname.length; i++) {
-  console.log('line 180');
-    classname[i].addEventListener('mousedown', buttonPress(classname[i]));
-    classname[i].addEventListener('mouseup', buttonPress(classname[i]));
-    classname[i].addEventListener('touchstart', buttonRelease(classname[i]));
-    classname[i].addEventListener('mouseend', buttonRelease(classname[i]));
-}
+// for (var i = 0; i < classname.length; i++) {
+//   console.log('line 180');
+//     classname[i].addEventListener('mousedown', buttonPress(classname[i]));
+//     classname[i].addEventListener('mouseup', buttonPress(classname[i]));
+//     classname[i].addEventListener('touchstart', buttonRelease(classname[i]));
+//     classname[i].addEventListener('mouseend', buttonRelease(classname[i]));
+// }
 
 
   // document.getElementsByClassName('pressable').addEventListener('touchstart',function() {
