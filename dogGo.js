@@ -163,6 +163,8 @@ let descriptBank = [
 let dayoOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturady'];
 let monthOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', "October", 'November', 'December'];
 let dogBank = [];
+let bidBank = [];
+localStorage.setItem("mybids",bidBank);
 let callbackCount = 0;
 let dogSelection = 0;
 
@@ -208,7 +210,8 @@ function setContent() {
       } else if (route == "#dogGo_Dog") {
         buildDetailPage(dogSelection);
       } else if (route == "#dogGo_Cart") {
-        dogBank.forEach(buildCart);
+        let myBids = localStorage.getItem('myBids');
+        myBids.forEach(buildCart);
       }else {
         console.log("Hash unidentified. AJAX not called")
         document.getElementById("content").innerHTML = "Oops! Content Not Found";
@@ -262,7 +265,6 @@ class Dog {
   }
 
   setHighestBidder(){
-
     let timeSeed = (Math.floor(Math.random() * 40000) % 4000);
     let bidding = document.getElementById('highestbidder');
     if (this.price > this.bidCeiling) {
@@ -322,7 +324,7 @@ function fetchPicture(dog) {
         console.log(dog);
 
         if (callbackCount == 3) {
-          localStorage.forEach(buildList);
+          dogBank.forEach(buildList);
         }
       } else {
         fetchPicture(dog);
