@@ -9,7 +9,7 @@ window.namey = {
    * BSD licensed
    */
   // Lightweight JSONP fetcher - www.nonobtrusive.com
-  jsonP: (function() {
+  jsonP: (function () {
     var a = 0,
       c,
       f,
@@ -21,7 +21,7 @@ window.namey = {
         h = false;
       i.src = j;
       i.async = true;
-      i.onload = i.onreadystatechange = function() {
+      i.onload = i.onreadystatechange = function () {
         if (!h && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
           h = true;
           i.onload = i.onreadystatechange = null;
@@ -45,11 +45,11 @@ window.namey = {
         }
       }
       var i = "json" + (++a);
-      d[i] = function(l) {
+      d[i] = function (l) {
         k(l);
         try {
           delete d[i]
-        } catch (m) {}
+        } catch (m) { }
         d[i] = null;
       };
       e(h + f + "callback=" + i);
@@ -92,7 +92,7 @@ window.namey = {
    * passed in will be an array of names -- use them wisely.
    * 
    */
-  get: function(options) {
+  get: function (options) {
     var callback;
     var tmp_params = {};
     var host = "namey.muffinlabs.com";
@@ -129,7 +129,7 @@ window.namey = {
 
     }
 
-    this.jsonP.get('//' + host + '/name.json', tmp_params, function(d) {
+    this.jsonP.get('//' + host + '/name.json', tmp_params, function (d) {
       if (typeof (callback) == "function") {
         callback(d);
       } else {
@@ -167,7 +167,7 @@ let dogBank = [];
 let callbackCount = 0;
 let dogSelection = 0;
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
 
   console.log('window loaded')
 
@@ -197,7 +197,7 @@ function setContent() {
   if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
     console.log("Hash identified as " + route + ". Initiating AJAX")
-    displayContent(route, function(content) {
+    displayContent(route, function (content) {
       console.log("inserting new content");
       document.getElementById("content").innerHTML = content;
 
@@ -211,12 +211,10 @@ function setContent() {
       } else if (route == "#dogGo_Cart") {
         {
 
-          for (var i = 0; i < localStorage.length; i++){
-            console.log('Calling buildCart with '+localStorage.getItem(localStorage.key(i)))
+          for (var i = 0; i < localStorage.length; i++) {
+            console.log('Calling buildCart with ' + localStorage.getItem(localStorage.key(i)))
             buildCart(localStorage.getItem(localStorage.key(i)))
-        }
-          let myBidsStr = localStorage.getItem('myBids')
-          Object.keys(myBids).forEach(buildCart);
+          }
         }
 
       } else {
@@ -231,7 +229,7 @@ function displayContent(site, callback) {
 
   let xhttp = new XMLHttpRequest();
 
-  xhttp.addEventListener("load", function() {
+  xhttp.addEventListener("load", function () {
     callback(xhttp.responseText);
   }, false);
 
@@ -290,7 +288,7 @@ class Dog {
 
       let price = this.price;
 
-      setTimeout(function() {
+      setTimeout(function () {
         bidding.innerHTML = "Counter Bid +$5";
         bidding.classList.remove('winning');
         bidding.classList.add('loosing');
@@ -298,7 +296,7 @@ class Dog {
         this.highestBidder = "computer";
 
       }, timeSeed);
-      setTimeout(function() {
+      setTimeout(function () {
         document.getElementById('price').innerHTML = 'Current Bid $' + price;
         document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
         bidding.classList.remove('winning');
@@ -311,7 +309,7 @@ class Dog {
 }
 
 function fetchName(dog) {
-  namey.get(function(n) {
+  namey.get(function (n) {
     dog.setName(n[0]);
   });
 }
@@ -319,7 +317,7 @@ function fetchName(dog) {
 function fetchPicture(dog) {
   const url = 'https://random.dog/woof.json';
   let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
+  xhttp.onreadystatechange = function () {
 
     if (this.readyState == 4 && this.status == 200) {
       let pictureObj = JSON.parse(this.responseText);
@@ -386,8 +384,8 @@ function randomDescription() {
   //     }
   //   };
 
-//   xhttp.open("GET", "descriptions.json", true);
-//   xhttp.send();
+  //   xhttp.open("GET", "descriptions.json", true);
+  //   xhttp.send();
 }
 
 function buildList(value, index, array) {
@@ -455,7 +453,7 @@ function bid5() {
   console.log("Storing " + dog.name + " in Local Storage as:" + localStorage.getItem(dog.name + dog.date));
 
   for (let i = 0; i < localStorage.length; i++) {
-    console.log('Local Storage Item at Index '+i+': ' + localStorage.getItem(localStorage.key(i)));
+    console.log('Local Storage Item at Index ' + i + ': ' + localStorage.getItem(localStorage.key(i)));
   }
 }
 
