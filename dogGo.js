@@ -448,7 +448,7 @@ function buildCart(dogStr) {
   let div = document.createElement("div");
   let text = document.createElement("h1");
 
-  text.innerHTML = '<table><tr><td id="picture' + dog.name + date + '"></td><td><h1>' + dog.name + '</h1></td></tr><tr><td><h3>'+dog.descriction+'</h3></td></tr><tr> <td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2></td><td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr ><tr id="button'+ dog.name + date +'"></tr></table > ';
+  text.innerHTML = '<table><tr><td id="picture' + dog.name + date + '"></td><td><h1>' + dog.name + '</h1></td></tr><tr><td><h3>'+dog.descriction+'</h3></td></tr><tr> <td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2></td><td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr ><tr id="buttonArea'+ dog.name + date +'"></tr></table > ';
   div.className = 'banner';
 
   let parent = null;
