@@ -441,24 +441,24 @@ function buildDetailPage(index) {
 function bid5(){
   let date = new Date();
   let dog = dogBank[dogSelection];
+  console.log( 'name '+ dog.name);
   console.log(localStorage.getItem('myBids'));
   if (localStorage.getItem('myBids')==0||localStorage.getItem('myBids')==null){
 
-    let myBidsObj = [];
-    dog.bid();
-    console.log('if name'+dog.name);
+    let myBidsObj = new Array();
     myBidsObj[dog.name+dog.date] = dog;
-    console.log('if myBidsObj 451'+myBidsObj[dog.name+dog.date].name)
-    let myBids = JSON.stringify(myBidsObj);
-    console.log('if after stringify: '+myBids);
+    console.log('if myBidsObj 451 '+myBidsObj[dog.name+dog.date].name)
+
+    let myBids = JSON.stringify(myBidsObj) + "";
+    console.log('if after stringify: '+ myBids);
+
     localStorage.setItem('myBids', myBids);
     console.log('LS myBids');
     console.log(localStorage.getItem('myBids'));
-
   } else {
     let myBids = JSON.parse(localStorage.getItem('myBids'));
     console.log('else mybids: ' + myBids);
-    dog.bid();
+
     myBids[dog.name+dog.date]=dog;
     myBids = JSON.stringify(myBids);
     console.log('else: '+myBids);
@@ -466,6 +466,7 @@ function bid5(){
     let local = JSON.parse(localStorage.getItem('myBids'));
     console.log('else local '+local);
   }
+  dog.bid();
 }
 
 function buildCart(value, index, array){
