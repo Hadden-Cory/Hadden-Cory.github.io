@@ -371,21 +371,6 @@ function randomDescription() {
   var num = ((Math.floor(Math.random() * 400) % 20) + 1)
   return descriptBank[num];
 
-  //   let xhttp = new XMLHttpRequest();
-  //   xhttp.onreadystatechange = function() {
-
-  //     if (this.readyState == 4 && this.status == 200) {
-  //         let descriptions = [];
-  //         descriptions = JSON.parse(this.responseText);
-  //       var num = ((Math.floor(Math.random() * 400) % 20)+1);
-  //       num = "description" + num;
-  //       console.log('randomDescription() returned '+ descriptions[num]);
-  //       return descriptions[num];
-  //     }
-  //   };
-
-  //   xhttp.open("GET", "descriptions.json", true);
-  //   xhttp.send();
 }
 
 function buildList(value, index, array) {
@@ -416,7 +401,6 @@ function buildList(value, index, array) {
   thumbnail.appendChild(img);
   callbackCount++;
 }
-
 
 function buildDetailPage(index) {
   console.log('dog ' + index + ' page');
@@ -462,9 +446,18 @@ function buildCart(dogStr) {
 
   let div = document.createElement("div");
   let text = document.createElement("h1");
-  text.innerHTML = '<table><tr><td><h1>'+dog.name+'</h1></td><td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2><td></td><td><h1>'+dog.price+'</h1></td></tr></table>';
+  text.innerHTML = '<table><tr><td><h3>'+dog.name+'</h3></td><td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2><td></td><td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table>';
   div.className = 'banner';
   let parent = document.getElementById('container');
   div.appendChild(text);
   parent.appendChild(div);
+
+  if(dog.highestBidder="Current User"){
+    document.getElementById("price"+dog.name+date).classList.add('winning');
+    document.getElementById("price"+dog.name+date).classList.remove('loosing');
+  } else {
+    document.getElementById("price"+dog.name+date).classList.add('loosing');
+    document.getElementById("price"+dog.name+date).classList.remove('winning');
+  }
+  
 }
