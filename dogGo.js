@@ -443,14 +443,18 @@ function bid5(){
   let dog = dogBank[dogSelection];
   console.log(localStorage.getItem('myBids'));
   if (localStorage.getItem('myBids')==0){
+
     let myBids = [];
     dog.bid();
+    console.log('if name'+dog.name);
     myBids[dog.name+dog.date] = dog;
+    console.log('if myBids 451'+mybids[dog.name+dog.date])
     myBids = JSON.stringify(myBids);
     console.log('if: '+myBids);
     localStorage.setItem('myBids', myBids);
     console.log('LS myBids');
     console.log(localStorage.getItem('myBids'));
+
   } else {
     let myBids = JSON.parse(localStorage.getItem('myBids'));
     console.log('else mybids: ' + myBids);
