@@ -445,7 +445,7 @@ function bid5(){
   console.log(localStorage.getItem('myBids'));
   if (localStorage.getItem('myBids')==0||localStorage.getItem('myBids')==null){
 
-    let myBidsObj = [];
+    let myBidsObj = {};
     let dogStr = JSON.stringify(dog);
     console.log('str dog '+dogStr);
 
