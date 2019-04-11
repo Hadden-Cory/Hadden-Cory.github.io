@@ -173,12 +173,12 @@ window.addEventListener('load', function () {
 
   console.log('window loaded')
 
-  document.getElementsByClassName('pressable').addEventListener('touchstart', buttonPress(this));
-  document.getElementsByClassName('pressable').addEventListener('touchend', buttonRelease(this));
-  document.getElementsByClassName('pressable').addEventListener('mouseup', buttonPress(this));
-  document.getElementsByClassName('pressable').addEventListener('mousedown', buttonRelease(this));
-  
-
+  document.getElementsByClassName('pressable').addEventListener('touchstart',function() {
+    buttonPress.bind(this)();
+  });
+  // document.getElementsByClassName('pressable').addEventListener('touchend', buttonRelease(this));
+  // document.getElementsByClassName('pressable').addEventListener('mouseup', buttonPress(this));
+  // document.getElementsByClassName('pressable').addEventListener('mousedown', buttonRelease(this));
 
   if (!location.hash || dogBank.length == 0) {
     console.log('unset location hash. Hash defaulted to #dogGo');
@@ -493,7 +493,7 @@ function buildCart(dogStr) {
 }
 
 function buttonPress(btn) {
-  console.log(btn);
+  console.log(this.id);
   btn.classList.toggle("quoteButtonPressed");
   btn.style.backgroundColor = "#ffdddd";
 
@@ -501,6 +501,7 @@ function buttonPress(btn) {
 
 //Lanuches button release animation
 function buttonRelease(btn) {
+  console.log(this.id);
   btn.classList.toggle("ButtonPressed");
   btn.style.animation = "buttonRelease 700ms";
   setTimeout(function () {
