@@ -178,12 +178,15 @@ window.addEventListener('load', function () {
 
 for (var i = 0; i < classname.length; i++) {
     classname[i].addEventListener('mousedown', buttonPress(classname[i]));
+    classname[i].addEventListener('mouseup', buttonPress(classname[i]));
+    classname[i].addEventListener('touchstart', buttonRelease(classname[i]));
+    classname[i].addEventListener('mouseend', buttonRelease(classname[i]));
 }
 
 
-  document.getElementsByClassName('pressable').addEventListener('touchstart',function() {
-    buttonPress.bind(this)();
-  });
+  // document.getElementsByClassName('pressable').addEventListener('touchstart',function() {
+  //   buttonPress.bind(this)();
+  // });
   // document.getElementsByClassName('pressable').addEventListener('touchend', buttonRelease(this));
   // document.getElementsByClassName('pressable').addEventListener('mouseup', buttonPress(this));
   // document.getElementsByClassName('pressable').addEventListener('mousedown', buttonRelease(this));
