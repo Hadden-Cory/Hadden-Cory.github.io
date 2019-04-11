@@ -9,7 +9,7 @@ window.namey = {
    * BSD licensed
    */
   // Lightweight JSONP fetcher - www.nonobtrusive.com
-  jsonP: (function () {
+  jsonP: (function() {
     var a = 0,
       c,
       f,
@@ -21,7 +21,7 @@ window.namey = {
         h = false;
       i.src = j;
       i.async = true;
-      i.onload = i.onreadystatechange = function () {
+      i.onload = i.onreadystatechange = function() {
         if (!h && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
           h = true;
           i.onload = i.onreadystatechange = null;
@@ -45,7 +45,7 @@ window.namey = {
         }
       }
       var i = "json" + (++a);
-      d[i] = function (l) {
+      d[i] = function(l) {
         k(l);
         try {
           delete d[i]
@@ -92,7 +92,7 @@ window.namey = {
    * passed in will be an array of names -- use them wisely.
    * 
    */
-  get: function (options) {
+  get: function(options) {
     var callback;
     var tmp_params = {};
     var host = "namey.muffinlabs.com";
@@ -114,7 +114,8 @@ window.namey = {
 
       if (typeof (options.type) != "undefined" && options.type != "both") {
         tmp_params.type = options.type;
-      };
+      }
+      ;
 
       if (options.type != "surname" && typeof (options.with_surname) != "undefined") {
         tmp_params.with_surname = options.with_surname;
@@ -128,7 +129,7 @@ window.namey = {
 
     }
 
-    this.jsonP.get('//' + host + '/name.json', tmp_params, function (d) {
+    this.jsonP.get('//' + host + '/name.json', tmp_params, function(d) {
       if (typeof (callback) == "function") {
         callback(d);
       } else {
@@ -166,11 +167,11 @@ let dogBank = [];
 let callbackCount = 0;
 let dogSelection = 0;
 
-window.addEventListener('load', function () {
+window.addEventListener('load', function() {
 
   console.log('window loaded')
 
-  if (!location.hash || dogBank.length == 0){
+  if (!location.hash || dogBank.length == 0) {
     console.log('unset location hash. Hash defaulted to #dogGo');
     location.hash = "#dogGo_List";
   }
@@ -196,7 +197,7 @@ function setContent() {
   if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
     console.log("Hash identified as " + route + ". Initiating AJAX")
-    displayContent(route, function (content) {
+    displayContent(route, function(content) {
       console.log("inserting new content");
       document.getElementById("content").innerHTML = content;
 
@@ -208,10 +209,12 @@ function setContent() {
       } else if (route == "#dogGo_Dog") {
         buildDetailPage(dogSelection);
       } else if (route == "#dogGo_Cart") {
-        let myBids = localStorage.getItem('myBids');
-        myBids.JSON.parse(myBids);
-        myBids.forEach(buildCart);
-      }else {
+        if (!localStorage.getItem('myBids') == null || !localStorage.getItem('myBids') == 0) {
+          let myBids = myBids.JSON.parse(localStorage.getItem('myBids'));
+          myBids.forEach(buildCart);
+        }
+
+      } else {
         console.log("Hash unidentified. AJAX not called")
         document.getElementById("content").innerHTML = "Oops! Content Not Found";
       }
@@ -223,7 +226,7 @@ function displayContent(site, callback) {
 
   let xhttp = new XMLHttpRequest();
 
-  xhttp.addEventListener("load", function () {
+  xhttp.addEventListener("load", function() {
     callback(xhttp.responseText);
   }, false);
 
@@ -263,7 +266,7 @@ class Dog {
     this.setHighestBidder();
   }
 
-  setHighestBidder(){
+  setHighestBidder() {
     let timeSeed = (Math.floor(Math.random() * 40000) % 4000);
     let bidding = document.getElementById('highestbidder');
     if (this.price > this.bidCeiling) {
@@ -279,23 +282,23 @@ class Dog {
       bidding.classList.add('winning');
 
       this.price = this.price + 5;
-      
+
       let price = this.price;
 
-      setTimeout(function(){
-      bidding.innerHTML = "Counter Bid +$5";
-      bidding.classList.remove('winning');
-      bidding.classList.add('loosing');
+      setTimeout(function() {
+        bidding.innerHTML = "Counter Bid +$5";
+        bidding.classList.remove('winning');
+        bidding.classList.add('loosing');
 
-      this.highestBidder = "computer";
+        this.highestBidder = "computer";
 
-      },timeSeed);      
-      setTimeout(function(){
-      document.getElementById('price').innerHTML = 'Current Bid $' + price;
-      document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
-      bidding.classList.remove('winning');
-      bidding.classList.add('loosing');
-      },(timeSeed + 1500));
+      }, timeSeed);
+      setTimeout(function() {
+        document.getElementById('price').innerHTML = 'Current Bid $' + price;
+        document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
+        bidding.classList.remove('winning');
+        bidding.classList.add('loosing');
+      }, (timeSeed + 1500));
 
 
     }
@@ -303,7 +306,7 @@ class Dog {
 }
 
 function fetchName(dog) {
-  namey.get(function (n) {
+  namey.get(function(n) {
     dog.setName(n[0]);
   });
 }
@@ -311,7 +314,7 @@ function fetchName(dog) {
 function fetchPicture(dog) {
   const url = 'https://random.dog/woof.json';
   let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
+  xhttp.onreadystatechange = function() {
 
     if (this.readyState == 4 && this.status == 200) {
       let pictureObj = JSON.parse(this.responseText);
@@ -378,8 +381,8 @@ function randomDescription() {
   //     }
   //   };
 
-  //   xhttp.open("GET", "descriptions.json", true);
-  //   xhttp.send();
+//   xhttp.open("GET", "descriptions.json", true);
+//   xhttp.send();
 }
 
 function buildList(value, index, array) {
@@ -390,7 +393,7 @@ function buildList(value, index, array) {
 
   document.getElementById(date).innerHTML = "Ends " + dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
   document.getElementById(price).innerHTML = '$' + value.price;
-  if (value.highestBidder=="Current User"){
+  if (value.highestBidder == "Current User") {
     document.getElementById(price).classList.add('winning');
     document.getElementById(price).classList.remove('loosing');
   } else if (value.biddedOn) {
@@ -428,8 +431,8 @@ function buildDetailPage(index) {
   document.getElementById('price').innerHTML = 'Current Bid $' + dog.price;
   if (dog.highestBidder == 'computer') {
     document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
-      document.getElementById('highestbidder').classList.add('loosing');
-      document.getElementById('highestbidder').classList.remove('winning');
+    document.getElementById('highestbidder').classList.add('loosing');
+    document.getElementById('highestbidder').classList.remove('winning');
   } else {
     document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
     document.getElementById('highestbidder').classList.remove('loosing');
@@ -438,42 +441,41 @@ function buildDetailPage(index) {
 
 }
 
-function bid5(){
+function bid5() {
   let date = new Date();
   let dog = dogBank[dogSelection];
-  console.log( 'name '+ dog.name);
-  console.log(localStorage.getItem('myBids'));
-  if (localStorage.getItem('myBids')==0||localStorage.getItem('myBids')==null){
+
+  dog.bid();
+  if (localStorage.getItem('myBids') == 0 || localStorage.getItem('myBids') == null) {
 
     let myBidsObj = {};
     let dogStr = JSON.stringify(dog);
-    console.log('str dog '+dogStr);
 
-    myBidsObj[dog.name+dog.date] = dogStr;
-    console.log('if myBidsObj 451 '+myBidsObj[dog.name+dog.date])
-    console.log('if myBidsObj 452 '+myBidsObj)
+    myBidsObj[dog.name + dog.date] = dogStr;
 
     let myBids = JSON.stringify(myBidsObj) + "";
-    console.log('if after stringify: '+ myBids);
 
     localStorage.setItem('myBids', myBids);
-    console.log('LS myBids');
+    console.log('Local Storage myBids: ' + localStorage.getItem('myBids'));
     console.log(localStorage.getItem('myBids'));
   } else {
+
     let myBidsObj = JSON.parse(localStorage.getItem('myBids'));
     console.log('else mybids: ' + myBidsObj);
 
-    myBidsObj[dog.name+dog.date]=dog;
+    myBidsObj[dog.name + dog.date] = dog;
+
     let myBids = JSON.stringify(myBidsObj);
-    console.log('else: '+ myBids);
+    console.log('else: ' + myBids);
+
     localStorage.setItem('else myBids ', myBids);
+
     let local = JSON.parse(localStorage.getItem('myBids'));
-    console.log('else local '+local);
+    console.log('else local ' + local);
   }
-  dog.bid();
 }
 
-function buildCart(value, index, array){
+function buildCart(value, index, array) {
   let dog = value;
   let div = document.createElement("div");
   let text = document.createElement("h1");
