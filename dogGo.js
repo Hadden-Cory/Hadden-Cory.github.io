@@ -451,6 +451,7 @@ function bid5(){
 
     myBidsObj[dog.name+dog.date] = dogStr;
     console.log('if myBidsObj 451 '+myBidsObj[dog.name+dog.date])
+    console.log('if myBidsObj 452 '+myBidsObj)
 
     let myBids = JSON.stringify(myBidsObj) + "";
     console.log('if after stringify: '+ myBids);
