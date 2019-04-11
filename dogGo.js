@@ -214,9 +214,14 @@ function setContent() {
           let myBidsStr =localStorage.getItem('myBids')
           console.log('myBidStr'+ myBidsStr);  
           let myBids = JSON.parse(myBidsStr);
-          console.log(myBids); 
+          console.log('before unpack'+myBids); 
           
-          Object.keys(myBids).forEach(buildCart);
+          Object.keys(myBids).forEach(function(value, index, array){
+            let dogObj = JSON.parse(value);
+            array[index] = dogObj;
+          });
+
+          console.log('after unpack'+myBids); 
          // myBids.forEach(buildCart);
         }
 
@@ -466,13 +471,8 @@ function bid5() {
   } else {
 
     let myBidsObj = JSON.parse(localStorage.getItem('myBids'));
-    console.log('else mybids: ' + myBidsObj);
-
     myBidsObj[dog.name + dog.date] = dog;
-
     let myBids = JSON.stringify(myBidsObj);
-    console.log('else: ' + myBids);
-
     localStorage.setItem('else myBids ', myBids);
 
     let local = JSON.parse(localStorage.getItem('myBids'));
