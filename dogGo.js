@@ -177,6 +177,7 @@ window.addEventListener('load', function () {
   let classname = document.getElementsByClassName("pressable");
 
 for (var i = 0; i < classname.length; i++) {
+  console.log('line 180');
     classname[i].addEventListener('mousedown', buttonPress(classname[i]));
     classname[i].addEventListener('mouseup', buttonPress(classname[i]));
     classname[i].addEventListener('touchstart', buttonRelease(classname[i]));
