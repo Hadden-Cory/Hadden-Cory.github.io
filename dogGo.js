@@ -455,10 +455,13 @@ function buildCart(dogStr) {
   if (dog.highestBidder == "Current User" && date > now) {
     parent = document.getElementById('winningContainer');
     document.getElementById('winningContainer').classList.remove('collapsed');
+    div.appendChild(text);
+    parent.appendChild(div);
   } else if (dog.highestBidder == "computer" && date > now) {
     parent = document.getElementById('loosingContainer');
     document.getElementById('loosingContainer').classList.remove('collapsed');
-
+    div.appendChild(text);
+    parent.appendChild(div);
     let div1 = document.createElement("div");
     let buttonArea = document.getElementById("button"+ dog.name + date) 
     div1.innerHTML = '<h1 class="pressable" onclick="bid5()" id="bid5">+$5<h1>';
@@ -467,13 +470,16 @@ function buildCart(dogStr) {
   } else if (dog.highestBidder == "Current User" && date <= now) {
     parent = document.getElementById('wonContainer')
     document.getElementById('wonContainer').classList.remove('collapsed');
+    div.appendChild(text);
+    parent.appendChild(div);
   } else {
     parent = document.getElementById('lostContainer')
     document.getElementById('lostContainer').classList.remove('collapsed');
+    div.appendChild(text);
+    parent.appendChild(div);
   }
 
-  div.appendChild(text);
-  parent.appendChild(div);
+
 
   let img = document.createElement("img");
   img.src = dog.picture;
