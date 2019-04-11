@@ -209,6 +209,7 @@ function setContent() {
         buildDetailPage(dogSelection);
       } else if (route == "#dogGo_Cart") {
         let myBids = localStorage.getItem('myBids');
+        myBids.JSON.parse(myBids);
         myBids.forEach(buildCart);
       }else {
         console.log("Hash unidentified. AJAX not called")
@@ -440,24 +441,26 @@ function buildDetailPage(index) {
 function bid5(){
   let date = new Date();
   let dog = dogBank[dogSelection];
-  let local = localStorage.getItem('myBids');
+  let local = JSON.parse(localStorage.getItem('myBids'));
   console.log('before local '+local);
-  if (localStorage.getItem('myBids')==null){
+  if (local==null || local == 0){
     let myBids = [];
     dog.bid();
     myBids[dog.name+dog.date] = dog;
-    console.log('if: '+myBids[dog.name+dog.date].name);
+    myBids = JSON.stringify(myBids);
+    console.log('if: '+myBids);
     localStorage.setItem('myBids', myBids);
     console.log('LS myBids');
     console.log(localStorage.getItem('myBids'));
   } else {
-    let myBids = localStorage.getItem('myBids');
-    console.log('else mybids: '+myBids);
+    let myBids = JSON.parse(localStorage.getItem('myBids'));
+    console.log('else mybids: ' + myBids);
     dog.bid();
     myBids[dog.name+dog.date]=dog;
-    console.log('else: '+myBids[dog.name+dog.date].name);
+    myBids = JSON.stringify(myBids);
+    console.log('else: '+myBids);
     localStorage.setItem('myBids',myBids);
-    let local = localStorage.getItem('myBids');
+    let local = JSON.parse(localStorage.getItem('myBids'));
     console.log('else local '+local);
   }
 }
