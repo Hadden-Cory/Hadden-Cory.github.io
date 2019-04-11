@@ -216,6 +216,7 @@ function setContent() {
           let myBids = JSON.parse(myBidsStr);
           console.log(myBids); 
           
+          Object.keys(myBids).forEach(buildCart);
          // myBids.forEach(buildCart);
         }
 
