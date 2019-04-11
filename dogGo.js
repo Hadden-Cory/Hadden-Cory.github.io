@@ -171,12 +171,14 @@ let dogSelection = 0;
 
 window.addEventListener('load', function () {
 
+  console.log('window loaded')
+
   document.getElementsByClassName('pressable').addEventListener('touchstart', buttonPress(this));
   document.getElementsByClassName('pressable').addEventListener('touchend', buttonRelease(this));
   document.getElementsByClassName('pressable').addEventListener('mouseup', buttonPress(this));
   document.getElementsByClassName('pressable').addEventListener('mousedown', buttonRelease(this));
   
-console.log('window loaded')
+
 
   if (!location.hash || dogBank.length == 0) {
     console.log('unset location hash. Hash defaulted to #dogGo');
@@ -491,6 +493,7 @@ function buildCart(dogStr) {
 }
 
 function buttonPress(btn) {
+  console.log(btn);
   btn.classList.toggle("quoteButtonPressed");
   btn.style.backgroundColor = "#ffdddd";
 
