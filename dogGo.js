@@ -445,17 +445,15 @@ function bid5(){
     myBids[dog.name+dog.date]=dog;
     console.log('if: '+myBids[dog.name+dog.date]);
     localStorage.setItem('myBids',myBids);
+    console.log('if local '+localStorage.getItem('myBids'));
   } else {
     let myBids = localStorage.getItem('myBids');
     myBids[dog.name+dog.date]=dog;
     console.log('else: '+myBids[dog.name+dog.date]);
     localStorage.setItem('myBids',myBids);
+    console.log('else local '+localStorage.getItem('myBids'));
   }
-  
-  console.log(myBids);
   dog.bid();
-  
-  
 }
 
 function buildCart(value, index, array){
