@@ -440,21 +440,32 @@ function buildCart(dogStr) {
 
   let dog = JSON.parse(dogStr);
   let date = new Date(dog.date);
+  let now = new Date();
 
   let div = document.createElement("div");
   let text = document.createElement("h1");
   text.innerHTML = '<table><tr><td><h2>'+dog.name+'</h2></td><td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2><td></td><td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table>';
   div.className = 'banner';
+  
   let parent = null;
-  if(dog.highestBidder=="Current User"){
+  if(dog.highestBidder=="Current User" && date > now){
     parent = document.getElementById('winningContainer');
-  } else {
+    document.getElementById('winningContainer').classList.remove('collasped');
+  } else if(dog.highestBidder=="computer" && date > now){
     parent = document.getElementById('loosingContainer');
+    document.getElementById('loosingContainer').classList.remove('collasped');
+  } else if(dog.highestBidder=="Current User" && date <= now){
+    parent = document.getElementById('wonContainer')
+    document.getElementById('wonContainer').classList.remove('collasped');
+  } else {
+    parent = document.getElementById('lostContainer')
+    document.getElementById('lostContainer').classList.remove('collasped');
   }
+
   div.appendChild(text);
   parent.appendChild(div);
 
-  if(dog.highestBidder=="Current User"){
+  if(dog.highestBidder=="Current User" ){
     document.getElementById("price"+dog.name+date).classList.add('winning');
     document.getElementById("price"+dog.name+date).classList.remove('loosing');
   } else {
