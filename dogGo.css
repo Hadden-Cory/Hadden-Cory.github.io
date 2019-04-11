@@ -103,3 +103,6 @@ p {
 .collapsed {
     visibility: collapse;
 }
+.collapsed {
+    visibility: visible;
+}
