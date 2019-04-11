@@ -112,3 +112,33 @@ p {
 .hidden{
     visibility: hidden;
 }
+
+.ButtonPressed {
+    transition-duration: 700ms;
+    position: relative;
+    transform: scale(0.7);
+    font-size: x-large;
+}
+
+.ButtonRelaesed {
+    animation: buttonRelease 700ms;
+    animation-timing-function: linear;
+}
+
+@keyframes buttonRelease {
+    0% {
+        transform: scale(.7);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    80% {
+        transform: scale(0.8);
+    }
+    90% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

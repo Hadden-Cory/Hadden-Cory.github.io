@@ -167,6 +167,11 @@ let dogBank = [];
 let callbackCount = 0;
 let dogSelection = 0;
 
+document.getElementsByClassName('btn').addEventListener('touchstart', buttonPress);
+document.getElementsByClassName('btn').addEventListener('touchend', buttonRelease);
+document.getElementsByClassName('btn').addEventListener('mouseup', buttonPress);
+document.getElementsByClassName('btn').addEventListener('mousedown', buttonRelease);
+
 window.addEventListener('load', function () {
 
   console.log('window loaded')
@@ -482,3 +487,17 @@ function buildCart(dogStr) {
   }
 
 }
+
+function buttonPress(btn) {
+  btn.classList.toggle("quoteButtonPressed");
+  btn.style.backgroundColor = "#ffdddd";
+
+}
+
+//Lanuches button release animation
+function buttonRelease(btn) {
+  btn.classList.toggle("ButtonPressed");
+  btn.style.animation = "buttonRelease 700ms";
+  setTimeout(function () {
+    btn.style.animation = "unset";
+  }, 700);}
