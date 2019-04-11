@@ -210,7 +210,7 @@ function setContent() {
         buildDetailPage(dogSelection);
       } else if (route == "#dogGo_Cart") {
         if (!localStorage.getItem('myBids') == null || !localStorage.getItem('myBids') == 0) {
-          let myBids = myBids.JSON.parse(localStorage.getItem('myBids'));
+          let myBids = JSON.parse(localStorage.getItem('myBids'));
           myBids.forEach(buildCart);
         }
 
@@ -457,7 +457,6 @@ function bid5() {
 
     localStorage.setItem('myBids', myBids);
     console.log('Local Storage myBids: ' + localStorage.getItem('myBids'));
-    console.log(localStorage.getItem('myBids'));
   } else {
 
     let myBidsObj = JSON.parse(localStorage.getItem('myBids'));
