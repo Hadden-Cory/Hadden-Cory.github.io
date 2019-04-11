@@ -441,6 +441,7 @@ function buildDetailPage(index) {
 function bid5(){
   let date = new Date();
   let dog = dogBank[dogSelection];
+  console.log(localStorage.getItem('myBids'));
   if (localStorage.getItem('myBids')==null){
     let myBids = [];
     dog.bid();
