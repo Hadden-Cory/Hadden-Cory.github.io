@@ -456,13 +456,13 @@ function bid5(){
     console.log('LS myBids');
     console.log(localStorage.getItem('myBids'));
   } else {
-    let myBids = JSON.parse(localStorage.getItem('myBids'));
-    console.log('else mybids: ' + myBids);
+    let myBidsObj = JSON.parse(localStorage.getItem('myBids'));
+    console.log('else mybids: ' + myBidsObj);
 
-    myBids[dog.name+dog.date]=dog;
-    myBids = JSON.stringify(myBids);
-    console.log('else: '+myBids);
-    localStorage.setItem('myBids',myBids);
+    myBidsObj[dog.name+dog.date]=dog;
+    let myBids = JSON.stringify(myBidsObj);
+    console.log('else: '+ myBids);
+    localStorage.setItem('else myBids ', myBids);
     let local = JSON.parse(localStorage.getItem('myBids'));
     console.log('else local '+local);
   }
