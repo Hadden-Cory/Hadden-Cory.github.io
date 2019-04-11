@@ -445,9 +445,12 @@ function bid5(){
   console.log(localStorage.getItem('myBids'));
   if (localStorage.getItem('myBids')==0||localStorage.getItem('myBids')==null){
 
-    let myBidsObj = new Array();
-    myBidsObj[dog.name+dog.date] = dog;
-    console.log('if myBidsObj 451 '+myBidsObj[dog.name+dog.date].name)
+    let myBidsObj = [];
+    let dogStr = JSON.stringify(dog);
+    console.log('str dog '+dogStr);
+
+    myBidsObj[dog.name+dog.date] = dogStr;
+    console.log('if myBidsObj 451 '+myBidsObj[dog.name+dog.date])
 
     let myBids = JSON.stringify(myBidsObj) + "";
     console.log('if after stringify: '+ myBids);
