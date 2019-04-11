@@ -482,7 +482,7 @@ function bid5() {
   }
 }
 
-function buildCart(index, value, array) {
+function buildCart(value, index, array) {
   let dog = value;
   console.log("buildCart dog "+ dog)
   let div = document.createElement("div");
