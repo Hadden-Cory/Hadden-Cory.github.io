@@ -209,22 +209,14 @@ function setContent() {
       } else if (route == "#dogGo_Dog") {
         buildDetailPage(dogSelection);
       } else if (route == "#dogGo_Cart") {
-        if (!localStorage.getItem('myBids') == null || !localStorage.getItem('myBids') == 0) {
+        {
 
+          for (var i = 0; i < localStorage.length; i++){
+            console.log('Calling buildCart with '+localStorage.getItem(localStorage.key(i)))
+            buildCart(localStorage.getItem(localStorage.key(i)))
+        }
           let myBidsStr = localStorage.getItem('myBids')
-          console.log('myBidStr' + myBidsStr);
-          let myBids = JSON.parse(myBidsStr);
-          console.log('myBids' + myBids);
-
           Object.keys(myBids).forEach(buildCart);
-
-          // Object.keys(myBids).forEach(function(value, index, array){
-          //   let dogObj = JSON.parse(value);
-          //   array[index] = dogObj;
-          // });
-
-        // console.log('after unpack'+myBids); 
-        // myBids.forEach(buildCart);
         }
 
       } else {
@@ -455,23 +447,20 @@ function buildDetailPage(index) {
 }
 
 function bid5() {
-  let date = new Date();
   let dog = dogBank[dogSelection];
-
   dog.bid();
 
-    let dogStr = JSON.stringify(dog);
+  let dogStr = JSON.stringify(dog);
+  localStorage.setItem(dog.name + dog.date, dogStr);
+  console.log("Storing " + dog.name + " in Local Storage as:" + localStorage.getItem(dog.name + dog.date));
 
-    localStorage.setItem(dog.name + dog.date, dogStr);
-    console.log("IF local storage "+dog.name+" :" + localStorage.getItem(dog.name + dog.date));
-
-    for (let i = 0; i < localStorage.length; i++) {
-      console.log('Local Storage' + localStorage.getItem(localStorage.key(i)));
-    }
+  for (let i = 0; i < localStorage.length; i++) {
+    console.log('Local Storage Item at Index '+i+': ' + localStorage.getItem(localStorage.key(i)));
+  }
 }
 
-function buildCart(value, index, array) {
-  let dog = value;
+function buildCart(dogStr) {
+  let dog = JSON.parse(dogStr);
   console.log("buildCart dog " + dog)
   let div = document.createElement("div");
   let text = document.createElement("h1");
