@@ -464,7 +464,7 @@ function buildCart(dogStr) {
     parent.appendChild(div);
     let div1 = document.createElement("div");
     let buttonArea = document.getElementById("button"+ dog.name + date) 
-    div1.innerHTML = '<h1 class="pressable" onclick="bid5()" id="bid5">+$5<h1>';
+    div1.innerHTML = '<h1 class="pressable" onclick="bid5()" id="bid5">+$5</h1>';
     buttonArea.appendChild(div1);
 
   } else if (dog.highestBidder == "Current User" && date <= now) {
