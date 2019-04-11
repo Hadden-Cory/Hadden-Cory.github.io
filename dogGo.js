@@ -214,7 +214,7 @@ function setContent() {
           let myBidsStr =localStorage.getItem('myBids')
           console.log('myBidStr'+ myBidsStr);  
           let myBids = JSON.parse(myBidsStr);
-          console.log('before unpack'+myBids); 
+          console.log('myBids'+myBids); 
 
           Object.keys(myBids).forEach(buildCart);
           
