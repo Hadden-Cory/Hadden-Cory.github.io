@@ -434,10 +434,6 @@ function bid5() {
   let dogStr = JSON.stringify(dog);
   localStorage.setItem(dog.name + dog.date, dogStr);
   console.log("Storing " + dog.name + " in Local Storage as:" + localStorage.getItem(dog.name + dog.date));
-
-  for (let i = 0; i < localStorage.length; i++) {
-    console.log('Local Storage Item at Index ' + i + ': ' + localStorage.getItem(localStorage.key(i)));
-  }
 }
 
 function buildCart(dogStr) {
@@ -446,13 +442,13 @@ function buildCart(dogStr) {
 
   let div = document.createElement("div");
   let text = document.createElement("h1");
-  text.innerHTML = '<table><tr><td><h3>'+dog.name+'</h3></td><td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2><td></td><td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table>';
+  text.innerHTML = '<table><tr><td><h2>'+dog.name+'</h2></td><td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2><td></td><td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table>';
   div.className = 'banner';
   let parent = document.getElementById('container');
   div.appendChild(text);
   parent.appendChild(div);
 
-  if(dog.highestBidder="Current User"){
+  if(dog.highestBidder=="Current User"){
     document.getElementById("price"+dog.name+date).classList.add('winning');
     document.getElementById("price"+dog.name+date).classList.remove('loosing');
   } else {
