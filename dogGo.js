@@ -442,7 +442,9 @@ function buildDetailPage(index) {
 function bid5(){
   let date = new Date();
   dogBank[dogSelection].bid();
-  localStorage.setItem(date,dogBank[dogSelection]);
+  let myBids = localStorage.getItem('myBids');
+  myBids.push(this);
+  localStorage.setItem('myBids',myBids);
 }
 
 function buildCart(value, index, array){
