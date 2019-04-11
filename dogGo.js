@@ -446,7 +446,7 @@ function buildCart(dogStr) {
 
   let div = document.createElement("div");
   let text = document.createElement("h1");
-  text.innerHTML = '<table><tr><td><h2>'+dog.name+'</h2></td><td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2><td></td><td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table>';
+  text.innerHTML = '<table><tr><td id="picture'+dog.name+date+'"></td><td><h2>'+dog.name+'</h2></td></tr><tr><td><h2>'+dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate()+'</h2><td></td><td><h1 id="price'+dog.name+date+'">$'+dog.price+'</h1></td></tr></table>';
   div.className = 'banner';
 
   let parent = null;
@@ -458,7 +458,7 @@ function buildCart(dogStr) {
     document.getElementById('loosingContainer').classList.remove('collapsed');
     let div1 = document.createElement("div");
     div1.innerHTML ='<h1 class="pressable" onclick="bid5()" id="bid5">+$5<h1>';
-    parent.appendChild(div1);
+    div.appendChild(div1);
     
   } else if(dog.highestBidder=="Current User" && date <= now){
     parent = document.getElementById('wonContainer')
@@ -470,6 +470,12 @@ function buildCart(dogStr) {
 
   div.appendChild(text);
   parent.appendChild(div);
+
+  let img = document.createElement("img");
+  img.src = dog.picture;
+  img.className = 'picture';
+  parent = document.getElementById('picture'+dog.name+date);
+  parent.appendChild(img);
 
   if(dog.highestBidder=="Current User" ){
     document.getElementById("price"+dog.name+date).classList.add('winning');
