@@ -442,7 +442,7 @@ function bid5(){
   let dog = dogBank[dogSelection];
   let local = localStorage.getItem('myBids');
   console.log('before local '+local);
-  if (!localStorage.getItem('myBids')){
+  if (localStorage.getItem('myBids')==null){
     let myBids = [];
     dog.bid();
     myBids[dog.name+dog.date]=dog;
