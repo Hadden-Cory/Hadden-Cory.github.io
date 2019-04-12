@@ -505,6 +505,9 @@ function buildCart(dogStr) {
 }
 
 function pressed(element){
-  element.classList.toggle('pressed');
+  element.classList.add('pressed');
+  setTimeout(function(){
+    element.classList.remove('pressed');
+  })
    
 }
