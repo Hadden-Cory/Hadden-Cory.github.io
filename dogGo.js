@@ -178,13 +178,6 @@ window.addEventListener('load', function () {
     location.hash = "#dogGo_List";
   }
 
-  let fido0 = new Dog();
-  let fido1 = new Dog();
-  let fido2 = new Dog();
-  initDog(fido0, fetchName, fetchPicture);
-  initDog(fido1, fetchName, fetchPicture);
-  initDog(fido2, fetchName, fetchPicture);
-
   setContent();
 }, false);
 
@@ -193,6 +186,14 @@ window.addEventListener('hashchange', setContent, false);
 
 function setContent() {
 
+  if (!location.hash || dogBank.length == 0) {
+    let fido0 = new Dog();
+    let fido1 = new Dog();
+    let fido2 = new Dog();
+    initDog(fido0, fetchName, fetchPicture);
+    initDog(fido1, fetchName, fetchPicture);
+    initDog(fido2, fetchName, fetchPicture);
+  }
   console.log("HashChangeEvent Registared");
 
   let route = location.hash;
@@ -209,13 +210,6 @@ function setContent() {
       if (route == "#dogGo_List") {
         if (callbackCount > 3) {
           dogBank.forEach(buildList);
-          document.getElementById('dog0').addEventListener('touchstart', pressed(this));
-          document.getElementById('dog1').addEventListener('touchstart', pressed(this));
-          document.getElementById('dog2').addEventListener('touchstart', pressed(this));
-        
-          document.getElementById('dog0').addEventListener('touchstart', loadPage(this));
-          document.getElementById('dog1').addEventListener('touchstart', loadPage(this));
-          document.getElementById('dog2').addEventListener('touchstart', loadPage(this));
         }
       } else if (route == "#dogGo_Dog") {
         buildDetailPage(dogSelection);
