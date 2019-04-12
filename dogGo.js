@@ -21,7 +21,7 @@
  * name generater API. Jump to line 165 where my code starts
  * *********************************************************/
 
- /** namey */
+/** namey */
 window.namey = {
   /*
    * Lightweight JSONP fetcher
@@ -29,7 +29,7 @@ window.namey = {
    * BSD licensed
    */
   // Lightweight JSONP fetcher - www.nonobtrusive.com
-  jsonP: (function () {
+  jsonP: (function() {
     var a = 0,
       c,
       f,
@@ -41,7 +41,7 @@ window.namey = {
         h = false;
       i.src = j;
       i.async = true;
-      i.onload = i.onreadystatechange = function () {
+      i.onload = i.onreadystatechange = function() {
         if (!h && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
           h = true;
           i.onload = i.onreadystatechange = null;
@@ -65,11 +65,11 @@ window.namey = {
         }
       }
       var i = "json" + (++a);
-      d[i] = function (l) {
+      d[i] = function(l) {
         k(l);
         try {
           delete d[i]
-        } catch (m) { }
+        } catch (m) {}
         d[i] = null;
       };
       e(h + f + "callback=" + i);
@@ -111,7 +111,7 @@ window.namey = {
    * passed in will be an array of names -- use them wisely.
    * 
    */
-  get: function (options) {
+  get: function(options) {
     var callback;
     var tmp_params = {};
     var host = "namey.muffinlabs.com";
@@ -133,7 +133,8 @@ window.namey = {
 
       if (typeof (options.type) != "undefined" && options.type != "both") {
         tmp_params.type = options.type;
-      };
+      }
+      ;
 
       if (options.type != "surname" && typeof (options.with_surname) != "undefined") {
         tmp_params.with_surname = options.with_surname;
@@ -146,7 +147,7 @@ window.namey = {
       }
     }
 
-    this.jsonP.get('//' + host + '/name.json', tmp_params, function (d) {
+    this.jsonP.get('//' + host + '/name.json', tmp_params, function(d) {
       if (typeof (callback) == "function") {
         callback(d);
       } else {
@@ -204,11 +205,11 @@ let callbackCount = 0;
  ****Event*Listeners*****
  ************************/
 
- //Load page
-window.addEventListener('load', function () {
+//Load page
+window.addEventListener('load', function() {
 
   console.log('window loaded');
-  
+
   //If redirect to the main fragment if the app isn't ready yet
   if (!location.hash || dogBank.length == 0) {
     console.log('unset location hash. Hash defaulted to #dogGo');
@@ -265,14 +266,14 @@ class Dog {
     let bidding = document.getElementById('highestbidder');
 
     //Render price and highest bidder, color green if winning, red if loosing
-    if (this.price > this.bidCeiling) {//if we bid past the computers biding theshold
+    if (this.price > this.bidCeiling) { //if we bid past the computers biding theshold
       this.highestBidder = "Current User";
       document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
       bidding.innerHTML = "You are the highest bidder!";
       bidding.classList.remove('loosing');
       bidding.classList.add('winning');
 
-    } else {//if the computer still has some budget to bid
+    } else { //if the computer still has some budget to bid
 
       document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
       bidding.innerHTML = "You are the highest bidder!";
@@ -284,8 +285,8 @@ class Dog {
       let price = this.price;
 
       //Wait a random amount of time
-      setTimeout(function () {
-        
+      setTimeout(function() {
+
         //Render the counter bid and change message area color 
         bidding.innerHTML = "Counter Bid +$5";
         bidding.classList.remove('winning');
@@ -294,9 +295,9 @@ class Dog {
         this.highestBidder = "computer";
 
       }, timeSeed);
-      
+
       //Wait 1.5 seconds before replacing the counter bid message the "your loosing the auction" mesage
-      setTimeout(function () {
+      setTimeout(function() {
         document.getElementById('price').innerHTML = 'Current Bid $' + price;
         document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
         bidding.classList.remove('winning');
@@ -318,7 +319,7 @@ function setContent() {
 
   //If we don't have any dogs loaded, make 3;
   if (!location.hash || dogBank.length == 0) {
-    
+
     //Used to restrict rendering the page until async opperations are complete  
     callbackCount = 0;
 
@@ -326,7 +327,7 @@ function setContent() {
     let fido0 = new Dog();
     let fido1 = new Dog();
     let fido2 = new Dog();
-    
+
     //Assign pictures, names, and store in dogBank
     initDog(fido0, fetchName, fetchPicture);
     initDog(fido1, fetchName, fetchPicture);
@@ -338,15 +339,15 @@ function setContent() {
   let route = location.hash;
 
   //We set a timeout give time for the animations.
-  setTimeout(function () {
+  setTimeout(function() {
 
     //Load fragments
     if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
       console.log("Hash identified as " + route + ". Initiating AJAX")
-     
-      displayContent(route, function (content) {
-        
+
+      displayContent(route, function(content) {
+
         console.log("inserting new content");
         document.getElementById("content").innerHTML = content;
 
@@ -369,10 +370,10 @@ function setContent() {
             }
           }
 
-        } else if(location.hash == '#null'){
-          
+        } else if (location.hash == '#null') {
+
           //do nothing, Used for a quick reset of the list without refreshing in loadMoreDogs().
-       
+
         } else {
 
           //Error Handling
@@ -381,7 +382,7 @@ function setContent() {
         }
       });
     }
-  }, 185)//The timeout time for out animation 185ms
+  }, 185) //The timeout time for out animation 185ms
 }
 
 /*
@@ -393,7 +394,7 @@ function displayContent(fragment, callback) {
   let xhttp = new XMLHttpRequest();
 
   //Send response once we are doen loading
-  xhttp.addEventListener("load", function () {
+  xhttp.addEventListener("load", function() {
     callback(xhttp.responseText);
   }, false);
 
@@ -411,7 +412,7 @@ FUNCTION FETCH NAME
   Accepts a dog and sets its name with the Random name API
 */
 function fetchName(dog) {
-  namey.get(function (n) {
+  namey.get(function(n) {
     dog.setName(n[0]);
   });
 }
@@ -423,14 +424,14 @@ FUNCTION FETCH PICTURE
 function fetchPicture(dog) {
 
   const url = 'https://random.dog/woof.json';
-  
+
   //Plain vanilla AJAX
   let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
+  xhttp.onreadystatechange = function() {
 
     if (this.readyState == 4 && this.status == 200) {
       let pictureObj = JSON.parse(this.responseText);
-      
+
       //We'll use these regex expressions to filter out unwanted file types from the API
       let isMovie = /.mp4/;
       let isWebm = /.webm/;
@@ -446,7 +447,7 @@ function fetchPicture(dog) {
         }
 
       } else { //IF the response was a unwanted file type
-        
+
         //Go fish
         fetchPicture(dog);
       }
@@ -536,11 +537,11 @@ function buildList(value, index, array) {
   let table = document.getElementById('dog' + index + 'table');
 
   //Hide loading symbol
-  document.getElementById('loader'+index).classList.add('collapsed');
+  document.getElementById('loader' + index).classList.add('collapsed');
 
   //Expand table
   table.classList.remove('collapsed');
-  
+
   //Add dog's picture 
   let img = document.createElement("img");
   img.src = value.picture;
@@ -557,7 +558,7 @@ FUNCTION BUILD DETAIL PAGE
   Populates the selected Dog's detail fragment.
 */
 function buildDetailPage(index, hasBid) {
-  
+
   let dog = null;
 
   if (hasBid) {
@@ -641,7 +642,7 @@ function buildCart(dogStr) {
   //Attach the card to the document
   div.appendChild(text);
   parent.appendChild(div);
-  
+
   //Insert the dogs picture
   let img = document.createElement("img");
   img.src = dog.picture;
@@ -666,7 +667,7 @@ FUNCTION PRESSED
 */
 function pressed(element) {
   element.classList.add('pressed');
-  setTimeout(function () {
+  setTimeout(function() {
     element.classList.remove('pressed');
   }, 65);
 }
@@ -676,9 +677,9 @@ FUNCTION LOAD PAGE
   Animates a fragment load
 */
 function loadPage(element) {
-  setTimeout(function () {
+  setTimeout(function() {
     element.classList.add('loadPage');
-    setTimeout(function () {
+    setTimeout(function() {
       element.classList.remove('loadPage');
     }, 186);
   }, 75);
@@ -689,14 +690,14 @@ FUNCTION LOAD MORE DOGS
   Resets dog bank and builds three new dogs to bis on
 */
 function loadMoreDogs() {
-  
+
   //Hide the current list and restore the loading symbol
   for (let i = 0; i < 3; i++) {
-    console.log(i+ ' For');
-    document.getElementById('loader'+i).classList.remove('collapsed');
-    document.getElementById('dog'+i+'table').classList.add('collapsed');
-    }
-  
+    console.log(i + ' For');
+    document.getElementById('loader' + i).classList.remove('collapsed');
+    document.getElementById('dog' + i + 'table').classList.add('collapsed');
+  }
+
   //Reset dog bank
   dogBank = null;
   dogBank = [];
