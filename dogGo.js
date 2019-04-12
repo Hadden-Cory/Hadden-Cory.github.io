@@ -221,6 +221,8 @@ function setContent() {
             }
           }
 
+        } else if(location.hash == '#null'){
+          break;
         } else {
           console.log("Hash unidentified. AJAX not called")
           document.getElementById("content").innerHTML = "Oops! Content Not Found";
@@ -516,14 +518,6 @@ function loadMoreDogs() {
   
   dogBank = null;
   dogBank = [];
-  
-  let fido0 = new Dog();
-  let fido1 = new Dog();
-  let fido2 = new Dog();
-  initDog(fido0, fetchName, fetchPicture);
-  initDog(fido1, fetchName, fetchPicture);
-  initDog(fido2, fetchName, fetchPicture);
-  if (callbackCount > 3) {
-    dogBank.forEach(buildList);
-  }
+  location.hash = '#null';
+  location.hash = '#dogGo_List';
 }
