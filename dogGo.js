@@ -504,7 +504,7 @@ function pressed(element){
     }, 186);}, 75);
   }
 
-  function loadMoreDog(){
+  function loadMoreDogs(){
     dogBank = 0;
     setContent();
   }
