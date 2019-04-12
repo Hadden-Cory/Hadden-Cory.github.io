@@ -13,7 +13,7 @@
  * avoid being verbrose will limit the number of tags I 
  * leave to 2 per topic.
  * 
- * Cory Hadden, 4/12/19
+ * Cory Hadden, 4/12/19 
  * *********************************************************/
 
 /***********************************************************
@@ -29,7 +29,7 @@ window.namey = {
    * BSD licensed
    */
   // Lightweight JSONP fetcher - www.nonobtrusive.com
-  jsonP: (function() {
+  jsonP: (function () {
     var a = 0,
       c,
       f,
@@ -41,7 +41,7 @@ window.namey = {
         h = false;
       i.src = j;
       i.async = true;
-      i.onload = i.onreadystatechange = function() {
+      i.onload = i.onreadystatechange = function () {
         if (!h && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
           h = true;
           i.onload = i.onreadystatechange = null;
@@ -65,7 +65,7 @@ window.namey = {
         }
       }
       var i = "json" + (++a);
-      d[i] = function(l) {
+      d[i] = function (l) {
         k(l);
         try {
           delete d[i]
@@ -111,7 +111,7 @@ window.namey = {
    * passed in will be an array of names -- use them wisely.
    * 
    */
-  get: function(options) {
+  get: function (options) {
     var callback;
     var tmp_params = {};
     var host = "namey.muffinlabs.com";
@@ -133,8 +133,7 @@ window.namey = {
 
       if (typeof (options.type) != "undefined" && options.type != "both") {
         tmp_params.type = options.type;
-      }
-      ;
+      };
 
       if (options.type != "surname" && typeof (options.with_surname) != "undefined") {
         tmp_params.with_surname = options.with_surname;
@@ -147,7 +146,7 @@ window.namey = {
       }
     }
 
-    this.jsonP.get('//' + host + '/name.json', tmp_params, function(d) {
+    this.jsonP.get('//' + host + '/name.json', tmp_params, function (d) {
       if (typeof (callback) == "function") {
         callback(d);
       } else {
@@ -207,7 +206,7 @@ let callbackCount = 0;
 
 // -----------------------------------------------------------------------------------Standard-JS-Events-Ex. 1||
 //Load page
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
 
   console.log('window loaded');
 
@@ -289,7 +288,7 @@ class Dog {
       let price = this.price;
 
       //Wait a random amount of time
-      setTimeout(function() {
+      setTimeout(function () {
 
         //Render the counter bid and change message area color 
         bidding.innerHTML = "Counter Bid +$5";
@@ -301,7 +300,7 @@ class Dog {
       }, timeSeed);
 
       //Wait 1.5 seconds before replacing the counter bid message the "your losing the auction" mesage
-      setTimeout(function() {
+      setTimeout(function () {
         document.getElementById('price').innerHTML = 'Current Bid $' + price;
         document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
         bidding.classList.remove('winning');
@@ -344,14 +343,14 @@ function setContent() {
   let route = location.hash;
 
   //We set a timeout give time for the animations.
-  setTimeout(function() {
+  setTimeout(function () {
 
     //Load fragments
     if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
       console.log("Hash identified as " + route + ". Initiating AJAX")
 
-      displayContent(route, function(content) {
+      displayContent(route, function (content) {
 
         console.log("inserting new content");
         document.getElementById("content").innerHTML = content;
@@ -401,7 +400,7 @@ function displayContent(fragment, callback) {
   let xhttp = new XMLHttpRequest();
 
   //Send response once we are doen loading
-  xhttp.addEventListener("load", function() {
+  xhttp.addEventListener("load", function () {
     callback(xhttp.responseText);
   }, false);
 
@@ -419,7 +418,7 @@ FUNCTION FETCH NAME
   Accepts a dog and sets its name with the Random name API
 */
 function fetchName(dog) {
-  namey.get(function(n) {
+  namey.get(function (n) {
     dog.setName(n[0]);
   });
 }
@@ -435,7 +434,7 @@ function fetchPicture(dog) {
   // -----------------------------------------------------------------------------------AJAX-Ex. 2||
   //Plain vanilla AJAX
   let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
+  xhttp.onreadystatechange = function () {
 
     if (this.readyState == 4 && this.status == 200) {
       // -----------------------------------------------------------------------------------JSON-Ex. 1||
@@ -684,7 +683,7 @@ FUNCTION PRESSED
 */
 function pressed(element) {
   element.classList.add('pressed');
-  setTimeout(function() {
+  setTimeout(function () {
     element.classList.remove('pressed');
   }, 65);
 }
@@ -695,9 +694,9 @@ FUNCTION LOAD PAGE
   Animates a fragment load
 */
 function loadPage(element) {
-  setTimeout(function() {
+  setTimeout(function () {
     element.classList.add('loadPage');
-    setTimeout(function() {
+    setTimeout(function () {
       element.classList.remove('loadPage');
     }, 186);
   }, 75);
