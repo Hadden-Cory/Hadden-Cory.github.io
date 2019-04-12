@@ -173,10 +173,13 @@ window.addEventListener('load', function () {
 
   console.log('window loaded')
 
+  document.getElementById('dog0').addEventListener('touchstart', pressed(this));
+  document.getElementById('dog1').addEventListener('touchstart', pressed(this));
+  document.getElementById('dog2').addEventListener('touchstart', pressed(this));
 
-//   let classname = document.getElementsByClassName("pressable");
-
-
+  document.getElementById('dog0').addEventListener('touchstart', loadPage(this));
+  document.getElementById('dog1').addEventListener('touchstart', loadPage(this));
+  document.getElementById('dog2').addEventListener('touchstart', loadPage(this));
 
   if (!location.hash || dogBank.length == 0) {
     console.log('unset location hash. Hash defaulted to #dogGo');
