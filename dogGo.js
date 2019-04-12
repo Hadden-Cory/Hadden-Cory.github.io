@@ -11,7 +11,7 @@
  * 
  * Again, I have left tags to make grading easy, but to 
  * avoid being verbrose will limit the number of tags I 
- * leave.
+ * leave to 2 per topic.
  * 
  * Cory Hadden, 4/12/19
  * *********************************************************/
@@ -205,11 +205,13 @@ let callbackCount = 0;
  ****Event*Listeners*****
  ************************/
 
+// -----------------------------------------------------------------------------------Standard-JS-Events-Ex. 1||
 //Load page
 window.addEventListener('load', function() {
 
   console.log('window loaded');
 
+  // -------------------------------------------------------------JavaScript-Ex. 1||
   //If redirect to the main fragment if the app isn't ready yet
   if (!location.hash || dogBank.length == 0) {
     console.log('unset location hash. Hash defaulted to #dogGo');
@@ -221,6 +223,7 @@ window.addEventListener('load', function() {
 
 }, false);
 
+// -----------------------------------------------------------------------------------Standard-JS-Events-Ex. 2||
 //Change views
 window.addEventListener('hashchange', setContent, false);
 
@@ -228,6 +231,7 @@ window.addEventListener('hashchange', setContent, false);
 /************************
  ******Prototypes********
  ************************/
+// -----------------------------------------------------------------------------------JavaScript-Objects-Ex. 1||
 class Dog {
 
   constructor() {
@@ -323,6 +327,7 @@ function setContent() {
     //Used to restrict rendering the page until async opperations are complete  
     callbackCount = 0;
 
+    // -----------------------------------------------------------------------------------JavaScript-Objects-Ex. 2||
     //build 3 dogs
     let fido0 = new Dog();
     let fido1 = new Dog();
@@ -364,6 +369,7 @@ function setContent() {
           buildDetailPage(dogSelection); //Render dog's details/bid page
         } else if (route == "#dogGo_Cart") {
           {
+            // -----------------------------------------------------------------------------------JavaScript-Ex. 2||
             //Sort ands render the whole bid history 
             for (var i = 0; i < localStorage.length; i++) {
               buildCart(localStorage.getItem(localStorage.key(i)))
@@ -385,6 +391,7 @@ function setContent() {
   }, 185) //The timeout time for out animation 185ms
 }
 
+// -----------------------------------------------------------------------------------AJAX-Ex. 1||
 /*
 FUNCTION DISPLAY CONTENT
   AJAX Controler that loads in each fragment
@@ -425,11 +432,13 @@ function fetchPicture(dog) {
 
   const url = 'https://random.dog/woof.json';
 
+  // -----------------------------------------------------------------------------------AJAX-Ex. 2||
   //Plain vanilla AJAX
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
 
     if (this.readyState == 4 && this.status == 200) {
+      // -----------------------------------------------------------------------------------JSON-Ex. 1||
       let pictureObj = JSON.parse(this.responseText);
 
       //We'll use these regex expressions to filter out unwanted file types from the API
@@ -527,6 +536,7 @@ function buildList(value, index, array) {
   document.getElementById(date).innerHTML = "Ends " + dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
   document.getElementById(price).innerHTML = '$' + value.price;
   if (value.highestBidder == "Current User") {
+    // -----------------------------------------------------------------------------------CSS-Class-Manipulation-Ex. 1||
     document.getElementById(price).classList.add('winning');
     document.getElementById(price).classList.remove('losing');
   } else if (value.biddedOn) {
@@ -562,11 +572,13 @@ function buildDetailPage(index, hasBid) {
   let dog = null;
 
   if (hasBid) {
+    // -----------------------------------------------------------------------------------Local-Storage-Ex. 1||
     dog = localStorage.getItem()
   } else {
     dog = dogBank[index];
   }
 
+  // -----------------------------------------------------------------------------------DOM-Manipulation-Ex. 1||
   //Add picture
   let img = document.createElement("img");
   img.src = dog.picture;
@@ -599,6 +611,8 @@ function bid5() {
   let dog = dogBank[dogSelection];
   dog.bid();
 
+  // -----------------------------------------------------------------------------------JSON-Ex. 2||
+  // -----------------------------------------------------------------------------------Local-Storage-Ex. 2||
   //Now that the biding is done prepare and store the dog for the long term
   let dogStr = JSON.stringify(dog);
   localStorage.setItem(dog.name + dog.date, dogStr);
@@ -623,6 +637,7 @@ function buildCart(dogStr) {
   text.innerHTML = '<table><tr><td id="picture' + dog.name + date + '"></td><td><h1>' + dog.name + '</h1><h3>' + dog.description + '</h3><h3>' + dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate() + '</h3><h1 id="price' + dog.name + date + '">$' + dog.price + '</h1></td></tr></table>';
   div.className = 'banner';
 
+  // -----------------------------------------------------------------------------------CSS-Class-Manipulation-Ex. 2||
   //Organize the dog by won, lost, winning, and losing
   let parent = null;
   if (dog.highestBidder == "Current User" && date > now) {
@@ -639,6 +654,7 @@ function buildCart(dogStr) {
     document.getElementById('lostContainer').classList.remove('collapsed');
   }
 
+  // -----------------------------------------------------------------------------------DOM-Manipulation-Ex. 2||
   //Attach the card to the document
   div.appendChild(text);
   parent.appendChild(div);
@@ -661,6 +677,7 @@ function buildCart(dogStr) {
 
 }
 
+// -----------------------------------------------------------------------------------Triggering-Animation-in-JS-Ex. 1||
 /*
 FUNCTION PRESSED
   Animates a button push
@@ -672,6 +689,7 @@ function pressed(element) {
   }, 65);
 }
 
+// -----------------------------------------------------------------------------------Triggering-Animation-in-JS-Ex. 2||
 /*
 FUNCTION LOAD PAGE
   Animates a fragment load

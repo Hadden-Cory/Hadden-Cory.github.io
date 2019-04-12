@@ -90,6 +90,7 @@ h3 {
     object-fit: cover;
 }
 
+/* ---------------------------------------------------------------------CSS-Transition-Ex.1-*/
 .winning {
 
     color: rgb(35, 128, 12);
@@ -97,7 +98,6 @@ h3 {
 }
 
 .losing {
-
     color: rgb(214, 63, 63);
     transition-duration: 700ms;
 }
@@ -115,15 +115,18 @@ h3 {
     visibility: hidden;
 }
 
+/* ---------------------------------------------------------------------CSS-Transition-Ex.2-*/
 .pressed {
     transition: 50ms;
     transform: scale(.95);
 }
 
+/* ---------------------------------------------------------------------CSS-Animation-Ex.1-*/
 .loadPage {
     animation: loadPage 1s;
 }
 
+/* ---------------------------------------------------------------------CSS-Animation-Ex.2-*/
 #doggy {
     animation: doggy 2s;
     animation-iteration-count: infinite;
@@ -132,6 +135,7 @@ h3 {
 
 @keyframes loadPage {
     30% {
+        /* ---------------------------------------------------------------------CSS-Transforms-Ex.1-*/
         transform: scaleX(1.1) scaleY(1.5);
     }
 
@@ -147,6 +151,7 @@ h3 {
 
 @keyframes doggy {
     25% {
+        /* ---------------------------------------------------------------------CSS-Transforms-Ex.2-*/
         transform: rotate(20deg);
     }
 
