@@ -507,15 +507,13 @@ function loadPage(element) {
 }
 
 function loadMoreDogs() {
-
-
-
-  dogBank = null;
-  dogBank = [];
+  
   for (let i = 0; i < 3; i++) {
     let parent = document.getElementById('dog' + i);
-    parent.innerHTML = "";
-
+    console.log(parent);
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
 
     let img = document.createElement("img");
     img.src = 'loader.gif';
@@ -523,6 +521,10 @@ function loadMoreDogs() {
     img.className = 'loader';
     parent.appendChild(img);
   }
+  
+  dogBank = null;
+  dogBank = [];
+  
   let fido0 = new Dog();
   let fido1 = new Dog();
   let fido2 = new Dog();
