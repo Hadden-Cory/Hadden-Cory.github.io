@@ -505,6 +505,21 @@ function pressed(element){
   }
 
   function loadMoreDogs(){
+
+    for (let i = 0 ; i <3; i++)
+    {
+      let parent = document.getElementById('dog'+i);
+      let dog = dogBank[i];
+      let thumbnail = document.getElementById('picture' + dog.name + date);
+      thumbnail.remove();
+  
+      let img = document.createElement("img");
+      img.src = 'loader.gif';
+      img.id = 'loader' + i;
+      img.className = 'loader';
+      parent.appendChild(img);
+    }
+
     dogBank = null;
     dogBank = [];
     
