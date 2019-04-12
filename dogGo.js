@@ -230,7 +230,7 @@ function setContent() {
         document.getElementById("content").innerHTML = "Oops! Content Not Found";
       }
     });
-  }}, 150)
+  }}, 175)
 }
 
 function displayContent(site, callback) {
