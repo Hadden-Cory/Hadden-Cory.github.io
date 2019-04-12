@@ -257,36 +257,35 @@ class Dog {
   }
 
   setHighestBidder() {
-    
+
     //Random time before the computer will bid againt you.
     let timeSeed = (Math.floor(Math.random() * 40000) % 4000);
 
     //Message Area
     let bidding = document.getElementById('highestbidder');
 
-    //Render price
-    document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
-      
-    //Render auction status
-    bidding.innerHTML = "You are the highest bidder!";
-
-    //Color green for winning and red for loosing
-    bidding.classList.remove('loosing');
-    bidding.classList.add('winning');
-
-    //if we bid past the computers biding theshold
-    if (this.price > this.bidCeiling) {
-      
+    //Render price and highest bidder, color green if winning, red if loosing
+    if (this.price > this.bidCeiling) {//if we bid past the computers biding theshold
       this.highestBidder = "Current User";
+      document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
+      bidding.innerHTML = "You are the highest bidder!";
+      bidding.classList.remove('loosing');
+      bidding.classList.add('winning');
 
     } else {//if the computer still has some budget to bid
+
+      document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
+      bidding.innerHTML = "You are the highest bidder!";
+      bidding.classList.remove('loosing');
+      bidding.classList.add('winning');
+
+      //Computer ups the bid
+      this.price = this.price + 5;
+      let price = this.price;
 
       //Wait a random amount of time
       setTimeout(function () {
         
-        //Computer ups the bid
-        this.price = this.price + 5;
-
         //Render the counter bid and change message area color 
         bidding.innerHTML = "Counter Bid +$5";
         bidding.classList.remove('winning');
@@ -295,11 +294,13 @@ class Dog {
         this.highestBidder = "computer";
 
       }, timeSeed);
-
+      
       //Wait 1.5 seconds before replacing the counter bid message the "your loosing the auction" mesage
       setTimeout(function () {
         document.getElementById('price').innerHTML = 'Current Bid $' + price;
         document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
+        bidding.classList.remove('winning');
+        bidding.classList.add('loosing');
       }, (timeSeed + 1500));
     }
   }
