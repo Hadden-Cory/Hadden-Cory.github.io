@@ -514,4 +514,6 @@ function pressed(element){
     initDog(fido0, fetchName, fetchPicture);
     initDog(fido1, fetchName, fetchPicture);
     initDog(fido2, fetchName, fetchPicture);
+
+    setContent();
    }
