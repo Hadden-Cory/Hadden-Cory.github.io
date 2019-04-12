@@ -509,6 +509,7 @@ function loadPage(element) {
 function loadMoreDogs() {
   
   for (let i = 0; i < 3; i++) {
+    console.log(i+ ' For');
     document.getElementById('loader'+i).classList.remove('collapsed');
     document.getElementById('dog'+i+'table').classList.add('collapsed');
     }
