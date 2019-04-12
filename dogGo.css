@@ -133,3 +133,20 @@ transform: scale(.95);
         transform: scaleX(1.1) scaleY(8.5);
     }
 }
+
+#doggy{
+transition: 50ms;
+animation: doggy 2s;
+}
+
+@keyframes doggy {
+    33%{
+        transform: rotate(30deg);
+    }
+    66%{
+        transform: rotate(0deg);
+    }
+    99%{
+        transform: rotate(-30deg);
+    }
+}
