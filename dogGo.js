@@ -395,7 +395,7 @@ function buildList(value, index, array) {
   let table = document.getElementById('dog' + index + 'table');
   let loader = document.getElementById('loader' + index);
 
-  dog.removeChild(loader);
+  document.getElementById('loader'+index).classList.add('collapsed');
   table.classList.remove('collapsed');
   let img = document.createElement("img");
   img.src = value.picture;
@@ -509,18 +509,9 @@ function loadPage(element) {
 function loadMoreDogs() {
   
   for (let i = 0; i < 3; i++) {
-    let parent = document.getElementById('dog' + i);
-    console.log(parent);
-    while (parent.firstChild) {
-      parent.removeChild(parent.firstChild);
-  }
-
-    let img = document.createElement("img");
-    img.src = 'loader.gif';
-    img.id = 'loader' + i;
-    img.className = 'loader';
-    parent.appendChild(img);
-  }
+    document.getElementById('loader'+i).classList.remove('collapsed');
+    document.getElementById('dog'+i+'table').classList.add('collapsed');
+    }
   
   dogBank = null;
   dogBank = [];
