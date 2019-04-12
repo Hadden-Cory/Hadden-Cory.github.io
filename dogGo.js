@@ -207,7 +207,8 @@ window.addEventListener('load', function () {
   setContent();
 }, false);
 
-window.addEventListener('hashchange', setTimeOut(setContent, 100), false);
+
+window.addEventListener('hashchange', setTimeout(setContent, 100), false);
 
 function setContent() {
 
