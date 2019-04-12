@@ -198,35 +198,36 @@ function setContent() {
 
   let route = location.hash;
 
-  setTimeout(function(){
+  setTimeout(function () {
 
-  if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
+    if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
-    console.log("Hash identified as " + route + ". Initiating AJAX")
-    displayContent(route, function (content) {
-      console.log("inserting new content");
-      document.getElementById("content").innerHTML = content;
+      console.log("Hash identified as " + route + ". Initiating AJAX")
+      displayContent(route, function (content) {
+        console.log("inserting new content");
+        document.getElementById("content").innerHTML = content;
 
-      if (route == "#dogGo_List") {
-        if (callbackCount > 3) {
-          dogBank.forEach(buildList);
-        }
-      } else if (route == "#dogGo_Dog") {
-        buildDetailPage(dogSelection);
-      } else if (route == "#dogGo_Cart") {
-        {
-
-          for (var i = 0; i < localStorage.length; i++) {
-            buildCart(localStorage.getItem(localStorage.key(i)))
+        if (route == "#dogGo_List") {
+          if (callbackCount > 3) {
+            dogBank.forEach(buildList);
           }
-        }
+        } else if (route == "#dogGo_Dog") {
+          buildDetailPage(dogSelection);
+        } else if (route == "#dogGo_Cart") {
+          {
 
-      } else {
-        console.log("Hash unidentified. AJAX not called")
-        document.getElementById("content").innerHTML = "Oops! Content Not Found";
-      }
-    });
-  }}, 185)
+            for (var i = 0; i < localStorage.length; i++) {
+              buildCart(localStorage.getItem(localStorage.key(i)))
+            }
+          }
+
+        } else {
+          console.log("Hash unidentified. AJAX not called")
+          document.getElementById("content").innerHTML = "Oops! Content Not Found";
+        }
+      });
+    }
+  }, 185)
 }
 
 function displayContent(site, callback) {
@@ -489,47 +490,44 @@ function buildCart(dogStr) {
 
 }
 
-function pressed(element){
+function pressed(element) {
   element.classList.add('pressed');
-  setTimeout(function(){
+  setTimeout(function () {
     element.classList.remove('pressed');
   }, 65);
 }
-   
-  function loadPage(element){
-    setTimeout(function(){
+
+function loadPage(element) {
+  setTimeout(function () {
     element.classList.add('loadPage');
-    setTimeout(function(){
+    setTimeout(function () {
       element.classList.remove('loadPage');
-    }, 186);}, 75);
+    }, 186);
+  }, 75);
+}
+
+function loadMoreDogs() {
+
+
+
+  dogBank = null;
+  dogBank = [];
+  for (let i = 0; i < 3; i++) {
+    let parent = document.getElementById('dog' + i);
+
+    let img = document.createElement("img");
+    img.src = 'loader.gif';
+    img.id = 'loader' + i;
+    img.className = 'loader';
+    parent.appendChild(img);
   }
-
-  function loadMoreDogs(){
-
-    for (let i = 0 ; i <3; i++)
-    {
-      let parent = document.getElementById('dog'+i);
-      let dog = dogBank[i];
-      let thumbnail = document.getElementById('picture' + dog.name + dog.date);
-      thumbnail.remove();
-  
-      let img = document.createElement("img");
-      img.src = 'loader.gif';
-      img.id = 'loader' + i;
-      img.className = 'loader';
-      parent.appendChild(img);
-    }
-
-    dogBank = null;
-    dogBank = [];
-    
-    let fido0 = new Dog();
-    let fido1 = new Dog();
-    let fido2 = new Dog();
-    initDog(fido0, fetchName, fetchPicture);
-    initDog(fido1, fetchName, fetchPicture);
-    initDog(fido2, fetchName, fetchPicture);
-    if (callbackCount > 3) {
-      dogBank.forEach(buildList);
-    }
-   }
+  let fido0 = new Dog();
+  let fido1 = new Dog();
+  let fido2 = new Dog();
+  initDog(fido0, fetchName, fetchPicture);
+  initDog(fido1, fetchName, fetchPicture);
+  initDog(fido2, fetchName, fetchPicture);
+  if (callbackCount > 3) {
+    dogBank.forEach(buildList);
+  }
+}
