@@ -137,16 +137,20 @@ transform: scale(.95);
 #doggy{
 animation: doggy 2s;
 animation-iteration-count: infinite;
+animation-timing-function: linear;
 }
 
 @keyframes doggy {
-    33%{
+    25%{
         transform: rotate(30deg);
     }
-    66%{
+    50%{
         transform: rotate(0deg);
     }
-    99%{
+    75%{
         transform: rotate(-30deg);
+    }
+    99%{
+        transform: rotate(0deg);
     }
 }
