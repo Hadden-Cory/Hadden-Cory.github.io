@@ -498,5 +498,11 @@ function pressed(element){
   setTimeout(function(){
     element.classList.remove('pressed');
   }, 85);
-   
 }
+   
+  function loadPage(element){
+    element.classList.add('loadPage');
+    setTimeout(function(){
+      element.classList.remove('loadPage');
+    }, 85);
+  }

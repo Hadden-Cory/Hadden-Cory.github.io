@@ -1,5 +1,5 @@
 <a class="pressable" onclick='setDogSelection(0);'>
-<div id='dog0' class='banner' onclick='pressed(this)' >
+<div id='dog0' class='banner' onclick='pressed(this); loadPage(this);' >
     <img id="loader0" class='loader' src="loading.gif">
     <table id='dog0table' class='collapsed'>
         <tr>
@@ -16,8 +16,8 @@
     </table>
 </div>
 </a>
-<a class="pressable" onclick='setDogSelection(1);'>
-<div id='dog1' onclick='pressed(this)' class='banner'>
+<a class="pressable" onclick='setDogSelection(1); '>
+<div id='dog1' onclick='pressed(this); loadPage(this);' class='banner'>
     <img id="loader1" class='loader' src="loading.gif">
     <table id='dog1table' class='collapsed'>
         <tr>
@@ -34,8 +34,8 @@
     </table>
 </div>
 </a>
-<a class="pressable" onclick='setDogSelection(2);'>
-<div id='dog2' class='banner' onclick='pressed(this)'>
+<a class="pressable" onclick='setDogSelection(2); loadPage(this);'>
+<div id='dog2' class='banner' onclick='pressed(this); loadPage(this);'>
     <img id="loader2" class='loader' src="loading.gif">
     <table id='dog2table' class='collapsed'>
         <tr>

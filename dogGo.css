@@ -118,14 +118,18 @@ transition: 50ms;
 transform: scale(.95);
 }
 
+.loadPage{
+    animation: loadPage.25s;
+}
+
 @keyframes loadPage {
     30%{
-        transform: scale(1.3)
+        transform: scaleX(1.1) scaleY(1.5);
     }
     60%{
-        transform: scale(1.5)
+        transform: scaleX(1.1) scaleY(2.5);
     }
     100%{
-        transform: scale(1.9)
+        transform: scaleX(1.1) scaleY(4.5);
     }
 }
