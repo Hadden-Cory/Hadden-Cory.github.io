@@ -130,6 +130,6 @@ transform: scale(.95);
         transform: scaleX(1.1) scaleY(2.5);
     }
     100%{
-        transform: scaleX(1.1) scaleY(4.5);
+        transform: scaleX(1.1) scaleY(8.5);
     }
 }

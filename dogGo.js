@@ -497,7 +497,7 @@ function pressed(element){
   element.classList.add('pressed');
   setTimeout(function(){
     element.classList.remove('pressed');
-  }, 75);
+  }, 65);
 }
    
   function loadPage(element){
@@ -505,5 +505,5 @@ function pressed(element){
     element.classList.add('loadPage');
     setTimeout(function(){
       element.classList.remove('loadPage');
-    }, 186);}, 85);
+    }, 186);}, 75);
   }
