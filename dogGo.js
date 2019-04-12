@@ -509,3 +509,7 @@ function pressed(element){
       element.classList.remove('loadPage');
     }, 186);}, 75);
   }
+
+  function loadMoreDog(){
+    dogBank = 0;
+  }
