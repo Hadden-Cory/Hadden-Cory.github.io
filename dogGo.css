@@ -115,5 +115,5 @@ p {
 
 .pressed{
 transition: 50ms;
-transform: scale(.9);
+transform: scale(.95);
 }
