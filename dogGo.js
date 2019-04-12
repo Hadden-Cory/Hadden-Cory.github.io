@@ -187,6 +187,7 @@ window.addEventListener('hashchange', setContent, false);
 function setContent() {
 
   if (!location.hash || dogBank.length == 0) {
+    callbackCount = 0;
     let fido0 = new Dog();
     let fido1 = new Dog();
     let fido2 = new Dog();
