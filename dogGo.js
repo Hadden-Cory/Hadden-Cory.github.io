@@ -208,13 +208,15 @@ window.addEventListener('load', function () {
 }, false);
 
 
-window.addEventListener('hashchange', setTimeout(setContent, 100), false);
+window.addEventListener('hashchange', setContent, false);
 
 function setContent() {
 
   console.log("HashChangeEvent Registared");
 
   let route = location.hash;
+
+  setTimeout(function(){
 
   if (route == "#dogGo_Cart" || route == "#dogGo_Dog" || route == "#dogGo_List") {
 
@@ -242,7 +244,7 @@ function setContent() {
         document.getElementById("content").innerHTML = "Oops! Content Not Found";
       }
     });
-  }
+  }}, 150)
 }
 
 function displayContent(site, callback) {
