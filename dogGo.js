@@ -505,6 +505,12 @@ function pressed(element){
   }
 
   function loadMoreDogs(){
-    dogBank = 0;
-    setContent();
-  }
+    dogBank = null;
+    
+    let fido0 = new Dog();
+    let fido1 = new Dog();
+    let fido2 = new Dog();
+    initDog(fido0, fetchName, fetchPicture);
+    initDog(fido1, fetchName, fetchPicture);
+    initDog(fido2, fetchName, fetchPicture);
+   }
