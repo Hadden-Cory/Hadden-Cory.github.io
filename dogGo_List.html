@@ -1,58 +1,58 @@
+<!-- The list fragment just loads three dogs in, each dog'd card becomes a link to the detail page-->
 <a class="pressable" onclick='setDogSelection(0);'>
-<div id='dog0' class='banner' onclick='pressed(this); loadPage(this);' >
-    <img id="loader0" class='loader' src="loading.gif">
-    <table id='dog0table' class='collapsed'>
-        <tr>
-            <td id='pictureData'>
-                <div id='dog0picture' ></div>
-            </td>
-            <td>
-                <h2 id='dog0date'></h2>
-            </td>
-            <td>
-                <h1 id='dog0price'></h1>
-            </td>
-        </tr>
-    </table>
-</div>
+    <div id='dog0' class='banner' onclick='pressed(this); loadPage(this);'>
+        <img id="loader0" class='loader' src="loading.gif">
+        <table id='dog0table' class='collapsed'>
+            <tr>
+                <td id='pictureData'>
+                    <div id='dog0picture'></div>
+                </td>
+                <td>
+                    <h2 id='dog0date'></h2>
+                </td>
+                <td>
+                    <h1 id='dog0price'></h1>
+                </td>
+            </tr>
+        </table>
+    </div>
 </a>
 <a class="pressable" onclick='setDogSelection(1); '>
-<div id='dog1' onclick='pressed(this); loadPage(this);' class='banner'>
-    <img id="loader1" class='loader' src="loading.gif">
-    <table id='dog1table' class='collapsed'>
-        <tr>
-            <td id='pictureData'>
-                <div id='dog1picture' ></div>
-            </td>
-            <td>
-                <h2 id='dog1date'></h2>
-            </td>
-            <td>
-                <h1 id='dog1price'></h1>
-            </td>
-        </tr>
-    </table>
-</div>
+    <div id='dog1' onclick='pressed(this); loadPage(this);' class='banner'>
+        <img id="loader1" class='loader' src="loading.gif">
+        <table id='dog1table' class='collapsed'>
+            <tr>
+                <td id='pictureData'>
+                    <div id='dog1picture'></div>
+                </td>
+                <td>
+                    <h2 id='dog1date'></h2>
+                </td>
+                <td>
+                    <h1 id='dog1price'></h1>
+                </td>
+            </tr>
+        </table>
+    </div>
 </a>
 <a class="pressable" onclick='setDogSelection(2); loadPage(this);'>
-<div id='dog2' class='banner' onclick='pressed(this); loadPage(this);'>
-    <img id="loader2" class='loader' src="loading.gif">
-    <table id='dog2table' class='collapsed'>
-        <tr>
-            <td id='pictureData'>
-                <div id='dog2picture'></div>
-            </td>
-            <td>
-                <h2 id='dog2date'></h2>
-            </td>
-            <td>
-                <h1 id='dog2price'></h1>
-            </td>
-        </tr>
-    </table>
-</div>
+    <div id='dog2' class='banner' onclick='pressed(this); loadPage(this);'>
+        <img id="loader2" class='loader' src="loading.gif">
+        <table id='dog2table' class='collapsed'>
+            <tr>
+                <td id='pictureData'>
+                    <div id='dog2picture'></div>
+                </td>
+                <td>
+                    <h2 id='dog2date'></h2>
+                </td>
+                <td>
+                    <h1 id='dog2price'></h1>
+                </td>
+            </tr>
+        </table>
+    </div>
 </a>
 <div class='banner' onclick='pressed(this)'>
     <h1 onclick='loadMoreDogs();'>Load More Dogs</h1>
 </div>
-
