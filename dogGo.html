@@ -8,6 +8,9 @@
 </head>
 
 <body>
+        <!-- Chrome doesn't Allow Autoplay: https://venturebeat.com/2017/09/14/chrome-will-no-longer-autoplay-content-with-sound-in-january-2018/ -->
+        <!--This is a simple bodge someone on stacked overflow figured out to overide chromes preferences-->
+        <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
     <a href="#dogGo_Cart" class="icon" >
         <img class="center"  src="DoggoICon.png" alt="Icon" id='doggy' onclick="pressed(this)">
     </a>
@@ -24,7 +27,7 @@
         <source src="dogGoSound.mp3" type="audio/mp3">
         Your browser does not support the audio element.
       </audio>
-    <h3>version 357</h3>
+    <h3>version 358</h3>
     </div>
 
 
