@@ -119,7 +119,7 @@ transform: scale(.95);
 }
 
 .loadPage{
-    animation: loadPage.25s;
+    animation: loadPage.5s;
 }
 
 @keyframes loadPage {
