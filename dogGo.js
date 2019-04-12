@@ -222,7 +222,7 @@ function setContent() {
           }
 
         } else if(location.hash == '#null'){
-          break;
+  //do nothing
         } else {
           console.log("Hash unidentified. AJAX not called")
           document.getElementById("content").innerHTML = "Oops! Content Not Found";
