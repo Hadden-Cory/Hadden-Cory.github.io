@@ -230,7 +230,7 @@ function setContent() {
         document.getElementById("content").innerHTML = "Oops! Content Not Found";
       }
     });
-  }}, 100)
+  }}, 150)
 }
 
 function displayContent(site, callback) {
@@ -497,12 +497,13 @@ function pressed(element){
   element.classList.add('pressed');
   setTimeout(function(){
     element.classList.remove('pressed');
-  }, 85);
+  }, 75);
 }
    
   function loadPage(element){
+    setTimeout(function(){
     element.classList.add('loadPage');
     setTimeout(function(){
       element.classList.remove('loadPage');
-    }, 85);
+    }, 85);}, 75);
   }
