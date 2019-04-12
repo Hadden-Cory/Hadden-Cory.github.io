@@ -265,19 +265,19 @@ class Dog {
     //Message Area
     let bidding = document.getElementById('highestbidder');
 
-    //Render price and highest bidder, color green if winning, red if loosing
+    //Render price and highest bidder, color green if winning, red if losing
     if (this.price > this.bidCeiling) { //if we bid past the computers biding theshold
       this.highestBidder = "Current User";
       document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
       bidding.innerHTML = "You are the highest bidder!";
-      bidding.classList.remove('loosing');
+      bidding.classList.remove('losing');
       bidding.classList.add('winning');
 
     } else { //if the computer still has some budget to bid
 
       document.getElementById('price').innerHTML = 'Current Bid $' + this.price;
       bidding.innerHTML = "You are the highest bidder!";
-      bidding.classList.remove('loosing');
+      bidding.classList.remove('losing');
       bidding.classList.add('winning');
 
       //Computer ups the bid
@@ -290,18 +290,18 @@ class Dog {
         //Render the counter bid and change message area color 
         bidding.innerHTML = "Counter Bid +$5";
         bidding.classList.remove('winning');
-        bidding.classList.add('loosing');
+        bidding.classList.add('losing');
 
         this.highestBidder = "computer";
 
       }, timeSeed);
 
-      //Wait 1.5 seconds before replacing the counter bid message the "your loosing the auction" mesage
+      //Wait 1.5 seconds before replacing the counter bid message the "your losing the auction" mesage
       setTimeout(function() {
         document.getElementById('price').innerHTML = 'Current Bid $' + price;
         document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
         bidding.classList.remove('winning');
-        bidding.classList.add('loosing');
+        bidding.classList.add('losing');
       }, (timeSeed + 1500));
     }
   }
@@ -523,14 +523,14 @@ function buildList(value, index, array) {
   let price = 'dog' + index + 'price';
   let picture = 'dog' + index + 'picture';
 
-  //Render end date and price, color price if winning or loosing auction
+  //Render end date and price, color price if winning or losing auction
   document.getElementById(date).innerHTML = "Ends " + dayoOfWeek[value.date.getDay()] + ", " + monthOfYear[value.date.getMonth()] + " " + value.date.getDate();
   document.getElementById(price).innerHTML = '$' + value.price;
   if (value.highestBidder == "Current User") {
     document.getElementById(price).classList.add('winning');
-    document.getElementById(price).classList.remove('loosing');
+    document.getElementById(price).classList.remove('losing');
   } else if (value.biddedOn) {
-    document.getElementById(price).classList.add('loosing');
+    document.getElementById(price).classList.add('losing');
   }
 
   //Element selector
@@ -581,11 +581,11 @@ function buildDetailPage(index, hasBid) {
   document.getElementById('price').innerHTML = 'Current Bid $' + dog.price;
   if (dog.highestBidder == 'computer') {
     document.getElementById('highestbidder').innerHTML = "You are not the highest bidder";
-    document.getElementById('highestbidder').classList.add('loosing');
+    document.getElementById('highestbidder').classList.add('losing');
     document.getElementById('highestbidder').classList.remove('winning');
   } else {
     document.getElementById('highestbidder').innerHTML = "You are the highest bidder";
-    document.getElementById('highestbidder').classList.remove('loosing');
+    document.getElementById('highestbidder').classList.remove('losing');
     document.getElementById('highestbidder').classList.add('winning');
   }
 
@@ -623,14 +623,14 @@ function buildCart(dogStr) {
   text.innerHTML = '<table><tr><td id="picture' + dog.name + date + '"></td><td><h1>' + dog.name + '</h1><h3>' + dog.description + '</h3><h3>' + dayoOfWeek[date.getDay()] + ", " + monthOfYear[date.getMonth()] + " " + date.getDate() + '</h3><h1 id="price' + dog.name + date + '">$' + dog.price + '</h1></td></tr></table>';
   div.className = 'banner';
 
-  //Organize the dog by won, lost, winning, and loosing
+  //Organize the dog by won, lost, winning, and losing
   let parent = null;
   if (dog.highestBidder == "Current User" && date > now) {
     parent = document.getElementById('winningContainer');
     document.getElementById('winningContainer').classList.remove('collapsed');
   } else if (dog.highestBidder == "computer" && date > now) {
-    parent = document.getElementById('loosingContainer');
-    document.getElementById('loosingContainer').classList.remove('collapsed');
+    parent = document.getElementById('losingContainer');
+    document.getElementById('losingContainer').classList.remove('collapsed');
   } else if (dog.highestBidder == "Current User" && date <= now) {
     parent = document.getElementById('wonContainer')
     document.getElementById('wonContainer').classList.remove('collapsed');
@@ -653,9 +653,9 @@ function buildCart(dogStr) {
   //Color proce based on win/lose status
   if (dog.highestBidder == "Current User") {
     document.getElementById("price" + dog.name + date).classList.add('winning');
-    document.getElementById("price" + dog.name + date).classList.remove('loosing');
+    document.getElementById("price" + dog.name + date).classList.remove('losing');
   } else {
-    document.getElementById("price" + dog.name + date).classList.add('loosing');
+    document.getElementById("price" + dog.name + date).classList.add('losing');
     document.getElementById("price" + dog.name + date).classList.remove('winning');
   }
 
