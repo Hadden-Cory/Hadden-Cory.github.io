@@ -506,6 +506,7 @@ function pressed(element){
 
   function loadMoreDogs(){
     dogBank = null;
+    dogBank = [];
     
     let fido0 = new Dog();
     let fido1 = new Dog();
