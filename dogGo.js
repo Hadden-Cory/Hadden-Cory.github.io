@@ -244,7 +244,7 @@ function setContent() {
         document.getElementById("content").innerHTML = "Oops! Content Not Found";
       }
     });
-  }}, 150)
+  }}, 100)
 }
 
 function displayContent(site, callback) {
@@ -511,6 +511,6 @@ function pressed(element){
   element.classList.add('pressed');
   setTimeout(function(){
     element.classList.remove('pressed');
-  }, 130);
+  }, 85);
    
 }

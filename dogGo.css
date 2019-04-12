@@ -114,6 +114,6 @@ p {
 }
 
 .pressed{
-transition: 70ms;
+transition: 50ms;
 transform: scale(.9);
 }
