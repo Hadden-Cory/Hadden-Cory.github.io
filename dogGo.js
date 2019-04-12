@@ -514,6 +514,8 @@ function loadMoreDogs() {
   dogBank = [];
   for (let i = 0; i < 3; i++) {
     let parent = document.getElementById('dog' + i);
+    parent.innerHTML = "";
+
 
     let img = document.createElement("img");
     img.src = 'loader.gif';
