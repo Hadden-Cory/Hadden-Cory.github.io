@@ -135,8 +135,8 @@ transform: scale(.95);
 }
 
 #doggy{
-transition: 50ms;
 animation: doggy 2s;
+animation-iteration-count: infinite;
 }
 
 @keyframes doggy {
