@@ -512,5 +512,5 @@ function pressed(element){
 
   function loadMoreDog(){
     dogBank = 0;
-    setContent;
+    setContent();
   }
