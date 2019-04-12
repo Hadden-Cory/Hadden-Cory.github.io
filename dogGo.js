@@ -510,7 +510,7 @@ function pressed(element){
     {
       let parent = document.getElementById('dog'+i);
       let dog = dogBank[i];
-      let thumbnail = document.getElementById('picture' + dog.name + date);
+      let thumbnail = document.getElementById('picture' + dog.name + dog.date);
       thumbnail.remove();
   
       let img = document.createElement("img");
