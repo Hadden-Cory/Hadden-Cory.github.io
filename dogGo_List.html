@@ -1,5 +1,5 @@
-<a class="pressable" onclick='setDogSelection(0); pressed(this);'>
-<div id='dog0' class='banner' >
+<a class="pressable" onclick='setDogSelection(0);'>
+<div id='dog0' class='banner' onclick='pressed(this)' >
     <img id="loader0" class='loader' src="loading.gif">
     <table id='dog0table' class='collapsed'>
         <tr>
@@ -16,8 +16,8 @@
     </table>
 </div>
 </a>
-<a class="pressable" onclick='setDogSelection(1); pressed(this);'>
-<div id='dog1' class='banner'>
+<a class="pressable" onclick='setDogSelection(1);'>
+<div id='dog1' onclick='pressed(this)' class='banner'>
     <img id="loader1" class='loader' src="loading.gif">
     <table id='dog1table' class='collapsed'>
         <tr>
@@ -34,8 +34,8 @@
     </table>
 </div>
 </a>
-<a class="pressable" onclick='setDogSelection(2); pressed(this);'>
-<div id='dog2' class='banner'>
+<a class="pressable" onclick='setDogSelection(2);'>
+<div id='dog2' class='banner' onclick='pressed(this)'>
     <img id="loader2" class='loader' src="loading.gif">
     <table id='dog2table' class='collapsed'>
         <tr>
@@ -51,7 +51,7 @@
         </tr>
     </table>
 </div>
-<div class='banner'>
-    <h1 onclick='document.location.reload(); pressed(this);'>Load More Dogs</h1>
+<div class='banner' onclick='pressed(this)'>
+    <h1 onclick='document.location.reload();'>Load More Dogs</h1>
 </div>
 </a>
