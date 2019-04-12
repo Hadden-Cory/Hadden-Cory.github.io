@@ -508,6 +508,6 @@ function pressed(element){
   element.classList.add('pressed');
   setTimeout(function(){
     element.classList.remove('pressed');
-  }, 500);
+  }, 200);
    
 }
