@@ -504,3 +504,7 @@ function buildCart(dogStr) {
 
 }
 
+function pressed(element){
+  element.classList.toggle('pressed');
+   
+}
