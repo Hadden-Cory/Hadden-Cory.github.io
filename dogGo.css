@@ -113,11 +113,11 @@ p {
     visibility: hidden;
 }
 
-.pressable:focus{
+.pressable:hover{
     transition: 100ms;
     transform: scale(0.8);
 }
-.pressable:not(:focus){
+.pressable:not(:hover){
     transition: 100ms;
     transform: scale(1);
 }
