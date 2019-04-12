@@ -145,7 +145,7 @@ let descriptBank = [
   "Loves other dogs, very good compainion.",
   "Smart work dog, used to heard sheep.",
   "Originally owned by the queen.",
-  "National Dog show winning.",
+  "National Dog show winner.",
   "Eats bad guys.",
   "Best accessory for this summer!",
   "Can't keep, has a licker problem.",
@@ -176,21 +176,7 @@ window.addEventListener('load', function () {
 
 //   let classname = document.getElementsByClassName("pressable");
 
-// for (var i = 0; i < classname.length; i++) {
-//   console.log('line 180');
-//     classname[i].addEventListener('mousedown', buttonPress(classname[i]));
-//     classname[i].addEventListener('mouseup', buttonPress(classname[i]));
-//     classname[i].addEventListener('touchstart', buttonRelease(classname[i]));
-//     classname[i].addEventListener('mouseend', buttonRelease(classname[i]));
-// }
 
-
-  // document.getElementsByClassName('pressable').addEventListener('touchstart',function() {
-  //   buttonPress.bind(this)();
-  // });
-  // document.getElementsByClassName('pressable').addEventListener('touchend', buttonRelease(this));
-  // document.getElementsByClassName('pressable').addEventListener('mouseup', buttonPress(this));
-  // document.getElementsByClassName('pressable').addEventListener('mousedown', buttonRelease(this));
 
   if (!location.hash || dogBank.length == 0) {
     console.log('unset location hash. Hash defaulted to #dogGo');
