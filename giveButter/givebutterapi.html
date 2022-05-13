@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>GiveButter API Test</title>
+    <title>GiveButter API 1</title>
     <!-- Givebutter Elements -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -17,6 +17,21 @@
         window.Givebutter('setOptions', {
             accountId: "{MNxaptLP833auSlmOPKGVnR80thMcr4lwpoR3BaO}", // Visit your Dashboard to find your Account ID.
         });
+
+        const options = {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                Authorization: 'Bearer MNxaptLP833auSlmOPKGVnR80thMcr4lwpoR3BaO'
+            }
+        };
+
+        fetch('https://api.givebutter.com/v1/campaigns', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+
+            document.getElementById("para1").innerHTML = response.data;
     </script>
     <script async src="https://js.givebutter.com/elements/latest.js"></script>
     <!-- End Givebutter Elements -->
@@ -26,7 +41,7 @@
     <div class="container">
         <div class="jumbotron">
             <h1>GiveButter API Test</h1>
-            <p>This is some text.</p>
+            <p id="para1">This is some text.</p>
             <p>This is another text.</p>
         </div>
 </body>
