@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background-color: rgb(23, 35, 39);
+    background-color: rgb(131, 169, 184);
 }
 
 .hidden {
@@ -150,7 +150,6 @@ button:hover {
     -webkit-box-shadow: 0px 0px 24px 3px rgba(255, 255, 255, 1);
     box-shadow: 0px 0px 24px 3px rgba(255, 255, 255, 1);
     font-size: 1.2em;
-    border-radius: 15px;
     border: hidden;
     background-color: rgb(255, 255, 255);
 }
