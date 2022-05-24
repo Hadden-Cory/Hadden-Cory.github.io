@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Givebutter API 2</title>
+    <title>Givebutter API 3</title>
     <!-- Givebutter Elements -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -12,28 +12,13 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Givebutter Elements -->
     <script>
         window.Givebutter = window.Givebutter || function () { (Givebutter.q = Givebutter.q || []).push(arguments) }; Givebutter.l = +new Date;
         window.Givebutter('setOptions', {
-            accountId: "{MNxaptLP833auSlmOPKGVnR80thMcr4lwpoR3BaO}", // Visit your Dashboard to find your Account ID.
+            accountId: "{69369}", // Visit your Dashboard to find your Account ID.
         });
-
-        const options = {
-            method: 'GET',
-            headers: {
-                Accept: 'application/json',
-                Authorization: 'Bearer MNxaptLP833auSlmOPKGVnR80thMcr4lwpoR3BaO'
-            }
-        };
-
-        fetch('https://api.givebutter.com/v1/campaigns', options)
-            .then(response => response.json())
-            .then(response => console.log(response))
-            .catch(err => console.error(err));
-
-        alert()
-
-        document.getElementById("para1").innerHTML = response.data;
     </script>
     <script async src="https://js.givebutter.com/elements/latest.js"></script>
     <!-- End Givebutter Elements -->
